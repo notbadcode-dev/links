@@ -4,9 +4,11 @@
   "description": "Web where to manage links of all kinds.",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "start": "ng serve --port=3200",
+    "build": "ng build --port=3200",
+    "watch": "ng build --watch --configuration development --port=3200",
+    "lint": "eslint --ignore-path .gitignore . --ext .ts",
+    "lint:fix": "npm run lint --fix",
     "test": "ng test"
   },
   "private": true,
