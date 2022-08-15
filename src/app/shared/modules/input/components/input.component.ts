@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-input',
+  selector: 'lnk-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })

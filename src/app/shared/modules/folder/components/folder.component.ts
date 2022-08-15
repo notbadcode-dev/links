@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-folder',
+  selector: 'lnk-folder',
   templateUrl: './folder.component.html',
   styleUrls: ['./folder.component.scss']
 })

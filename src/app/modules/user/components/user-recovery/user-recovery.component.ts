@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user-recovery',
+  selector: 'lnk-user-recovery',
   templateUrl: './user-recovery.component.html',
   styleUrls: ['./user-recovery.component.scss']
 })

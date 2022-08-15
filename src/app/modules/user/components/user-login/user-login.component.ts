@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-user-login',
+  selector: 'lnk-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss']
 })

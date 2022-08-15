@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-icon',
+  selector: 'lnk-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
 })

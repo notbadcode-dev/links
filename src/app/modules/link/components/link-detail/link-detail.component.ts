@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-link-detail',
+  selector: 'lnk-link-detail',
   templateUrl: './link-detail.component.html',
   styleUrls: ['./link-detail.component.scss']
 })
