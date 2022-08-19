@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TemplateColor } from 'src/app/core/models/color.model';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'lnk-color',
   templateUrl: './color.component.html',
   styleUrls: ['./color.component.scss'],
   standalone: true,
-  imports: [CommonModule, ClipboardModule],
+  imports: [CommonModule, ClipboardModule, TranslateModule],
 })
 export class ColorComponent implements OnInit {
 
