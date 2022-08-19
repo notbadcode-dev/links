@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  standalone: true,
+  template: `<router-outlet></router-outlet>`,
+  imports: [RouterModule],
 })
 export class AppComponent {
   title = 'links';

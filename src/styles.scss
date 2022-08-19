@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    background-color: var(--default-background-body-color);
+    color: var(--default-font-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'SpaceGrotesk-Regular';
+
+    &.light {
+        font-family: 'SpaceGrotesk-Light';
+    }
+
+    &.medium {
+        font-family: 'SpaceGrotesk-Medium';
+    }
+
+    &.semi-bold {
+        font-family: 'SpaceGrotesk-SemiBold';
+    }
+
+    &.bold {
+        font-family: 'SpaceGrotesk-Bold';
+    }
+}
