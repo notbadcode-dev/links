@@ -1,0 +1,57 @@
+<article>
+  <div class="header">
+    <h1>Buttons used on website</h1>
+  </div>
+
+  <div class="body">
+    <div class="grid">
+      <fieldset>
+        <legend>Primary button</legend>
+
+        <div>
+          <lnk-button *ngIf="primaryButtonConfig" [_config]="primaryButtonConfig" (onClickEvent)="clickButton($event)"></lnk-button>
+          <lnk-button
+            *ngIf="primaryButtonDisabledConfig"
+            [_config]="primaryButtonDisabledConfig"
+            (onClickEvent)="clickButton($event)"></lnk-button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Secondary button</legend>
+
+        <div>
+          <lnk-button *ngIf="secondaryButtonConfig" [_config]="secondaryButtonConfig" (onClickEvent)="clickButton($event)"></lnk-button>
+          <lnk-button
+            *ngIf="secondaryButtonDisabledConfig"
+            [_config]="secondaryButtonDisabledConfig"
+            (onClickEvent)="clickButton($event)"></lnk-button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Accent button</legend>
+
+        <div>
+          <lnk-button *ngIf="accentButtonConfig" [_config]="accentButtonConfig" (onClickEvent)="clickButton($event)"></lnk-button>
+          <lnk-button
+            *ngIf="accentButtonDisabledConfig"
+            [_config]="accentButtonDisabledConfig"
+            (onClickEvent)="clickButton($event)"></lnk-button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Destructive button</legend>
+
+        <div>
+          <lnk-button *ngIf="destructiveButtonConfig" [_config]="destructiveButtonConfig" (onClickEvent)="clickButton($event)"></lnk-button>
+          <lnk-button
+            *ngIf="destructiveButtonDisabledConfig"
+            [_config]="destructiveButtonDisabledConfig"
+            (onClickEvent)="clickButton($event)"></lnk-button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</article>

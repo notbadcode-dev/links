@@ -1,13 +1,15 @@
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 import { RELATIVE_ROUTES } from 'src/app/constants/routes.constant';
-import { ColorComponent } from './color/color.component';
 
 export const TEMPLATE_ROUTES: Routes = [{
         path: '',
         pathMatch: 'full',
-        redirectTo: RELATIVE_ROUTES.COLOR
+        redirectTo: RELATIVE_ROUTES.COLOR,
     }, {
         path: RELATIVE_ROUTES.COLOR,
-        component: ColorComponent
+        loadComponent: () => import('./color-list/color-list.component').then(m => m.ColorListComponent)
+    }, {
+        path: RELATIVE_ROUTES.BUTTON,
+        loadComponent: () => import('./button-list/button-list.component').then(m => m.ButtonListComponent)
     }
 ];

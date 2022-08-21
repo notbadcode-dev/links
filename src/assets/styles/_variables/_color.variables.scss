@@ -7,10 +7,7 @@
   --primary-passive-color-hex: #c9bffb;
   --primary-passive-color-rgba: 201, 191, 251;
   --primary-passive-color: rgba(var(--primary-passive-color-rgba), 1);
-  --primary-passive-color-gradient-050: rgba(
-    var(--primary-passive-color-rgba),
-    0.5
-  );
+  --primary-passive-color-gradient-050: rgba(var(--primary-passive-color-rgba), 0.5);
 
   --secondary-color-hex: #cccccc;
   --secondary-color-rgba: 204, 204, 204;
@@ -20,10 +17,7 @@
   --secondary-passive-color-hex: #efefef;
   --secondary-passive-color-rgba: 239, 239, 239;
   --secondary-passive-color: rgba(var(--secondary-passive-color-rgba), 1);
-  --secondary-passive-color-gradient-050: rgba(
-    var(--secondary-passive-color-rgba),
-    0.5
-  );
+  --secondary-passive-color-gradient-050: rgba(var(--secondary-passive-color-rgba), 0.5);
 
   --accent-color-hex: #00ac7c;
   --accent-color-rgba: 0, 172, 124;
@@ -33,10 +27,7 @@
   --accent-passive-color-hex: #b2e6d7;
   --accent-passive-color-rgba: 178, 230, 215;
   --accent-passive-color: rgba(var(--accent-passive-color-rgba), 1);
-  --accent-passive-color-gradient-050: rgba(
-    var(--accent-passive-color-rgba),
-    0.5
-  );
+  --accent-passive-color-gradient-050: rgba(var(--accent-passive-color-rgba), 0.5);
 
   --destructive-color-hex: #d93057;
   --destructive-color-rgba: 217, 46, 87;
@@ -46,10 +37,7 @@
   --destructive-passive-color-hex: #fbebef;
   --destructive-passive-color-rgba: 251, 235, 239;
   --destructive-passive-color: rgba(var(--destructive-passive-color-rgba), 1);
-  --destructive-passive-color-gradient-050: rgba(
-    var(--destructive-passive-color-rgba),
-    0.5
-  );
+  --destructive-passive-color-gradient-050: rgba(var(--destructive-passive-color-rgba), 0.5);
 
   --default-background-body-color: #f9f9f9;
   --default-background-element-color: #fff;

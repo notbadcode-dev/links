@@ -1,1 +1,20 @@
-<p>button works!</p>
+<ng-container *ngIf="config && (config.text || config.icon)">
+  <div [ngClass]="{ disabled: config.disabled }">
+    <button
+      type="{{ config.submit ? 'submit' : 'button' }}"
+      title="{{ config.tooltip }}"
+      [attr.data-type]="config.type"
+      [disabled]="config.disabled"
+      (click)="onClick(config)">
+      <span *ngIf="config?.text && config.text.length > 0">
+        {{ config.text }}
+      </span>
+      <i *ngIf="config.icon && config.icon.length > 0"> {{ config.icon }} </i>
+    </button>
+    <small *ngIf="config.hotkeys && config.hotkeys.length > 0">
+      <span *ngIf="config.hotkeys[0]"> {{ config.hotkeys[0] | titlecase }} </span>
+      <span> + </span>
+      <span *ngIf="config.hotkeys[1]"> {{ config.hotkeys[1] | titlecase }} </span>
+    </small>
+  </div>
+</ng-container>

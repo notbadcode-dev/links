@@ -1,18 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TemplateColor } from 'src/app/core/models/color.model';
-import {ClipboardModule} from '@angular/cdk/clipboard';
+import { TemplateColor } from 'src/app/core/models/template-color.model';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'lnk-color',
-  templateUrl: './color.component.html',
-  styleUrls: ['./color.component.scss'],
   standalone: true,
   imports: [CommonModule, ClipboardModule, TranslateModule],
+  templateUrl: './color-list.component.html',
+  styleUrls: ['./color-list.component.scss'],
 })
-export class ColorComponent implements OnInit {
-
+export class ColorListComponent implements OnInit {
   templateColorList: TemplateColor[] = [];
 
   primaryColorName: string = 'Primary color';
@@ -33,7 +32,7 @@ export class ColorComponent implements OnInit {
 
   passiveDescription: string = 'Passive';
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.generateTemplateColorList();
@@ -43,13 +42,13 @@ export class ColorComponent implements OnInit {
    * @description Generate template color list for draw on template
    * @returns {void}
    */
-  generateTemplateColorList(): void {
+  private generateTemplateColorList(): void {
     this.addTemplateColorToTemplateColorList({
       code: this.primaryColorCode,
       name: this.primaryColorName,
       highlightColor: {
-        code: this.passivePrimaryColorCode
-      }
+        code: this.passivePrimaryColorCode,
+      },
     });
 
     this.addTemplateColorToTemplateColorList({
@@ -57,16 +56,16 @@ export class ColorComponent implements OnInit {
       name: this.primaryColorName,
       description: this.passiveDescription,
       highlightColor: {
-        code: this.primaryColorCode
-      }
+        code: this.primaryColorCode,
+      },
     });
 
     this.addTemplateColorToTemplateColorList({
       code: this.secondaryColorCode,
       name: this.secondaryColorName,
       highlightColor: {
-        code: this.passiveSecondaryColorCode
-      }
+        code: this.passiveSecondaryColorCode,
+      },
     });
 
     this.addTemplateColorToTemplateColorList({
@@ -74,16 +73,16 @@ export class ColorComponent implements OnInit {
       name: this.secondaryColorName,
       description: this.passiveDescription,
       highlightColor: {
-        code: this.secondaryColorCode
-      }
+        code: this.secondaryColorCode,
+      },
     });
 
     this.addTemplateColorToTemplateColorList({
       code: this.accentColorCode,
       name: this.accentColorName,
       highlightColor: {
-        code: this.passiveAccentColorCode
-      }
+        code: this.passiveAccentColorCode,
+      },
     });
 
     this.addTemplateColorToTemplateColorList({
@@ -91,16 +90,16 @@ export class ColorComponent implements OnInit {
       name: this.accentColorName,
       description: this.passiveDescription,
       highlightColor: {
-        code: this.accentColorCode
-      }
+        code: this.accentColorCode,
+      },
     });
 
     this.addTemplateColorToTemplateColorList({
       code: this.destructiveColorCode,
       name: this.destructiveColorName,
       highlightColor: {
-        code: this.passiveDestructiveColorCode
-      }
+        code: this.passiveDestructiveColorCode,
+      },
     });
 
     this.addTemplateColorToTemplateColorList({
@@ -108,8 +107,8 @@ export class ColorComponent implements OnInit {
       name: this.destructiveColorName,
       description: this.passiveDescription,
       highlightColor: {
-        code: this.destructiveColorCode
-      }
+        code: this.destructiveColorCode,
+      },
     });
   }
 
@@ -118,21 +117,25 @@ export class ColorComponent implements OnInit {
    * @param  {TemplateColor} templateColor
    * @returns void
    */
-  addTemplateColorToTemplateColorList(templateColor: TemplateColor): void {
+  private addTemplateColorToTemplateColorList(templateColor: TemplateColor): void {
     const templateColorCode: string = templateColor.code;
     const templateColorName: string = templateColor?.name || '';
     const templateColorhighlightColor: TemplateColor | null = templateColor?.highlightColor ?? null;
     const templateColorhighlightColorCode: string | null = templateColorhighlightColor?.code ?? '';
 
-    if (!templateColorCode || typeof templateColorCode !== 'string' || templateColorCode.length === 0 ) {
+    if (!templateColorCode || typeof templateColorCode !== 'string' || templateColorCode.length === 0) {
       return;
     }
 
-    if (!templateColorName || typeof templateColorName !== 'string' || templateColorName.length === 0 ) {
+    if (!templateColorName || typeof templateColorName !== 'string' || templateColorName.length === 0) {
       return;
     }
 
-    if (!templateColorhighlightColorCode || typeof templateColorhighlightColorCode !== 'string' || templateColorhighlightColorCode.length === 0 ) {
+    if (
+      !templateColorhighlightColorCode ||
+      typeof templateColorhighlightColorCode !== 'string' ||
+      templateColorhighlightColorCode.length === 0
+    ) {
       return;
     }
 
