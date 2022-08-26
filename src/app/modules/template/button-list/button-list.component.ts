@@ -17,21 +17,33 @@ export class ButtonListComponent implements OnInit {
   primaryButtonTooltip: string = 'Primary action';
   primaryButtonConfig!: ButtonConfig;
   primaryButtonDisabledConfig!: ButtonConfig;
+  primaryButtonWithIconConfig!: ButtonConfig;
+  primaryButtonWithOnlyIconConfig!: ButtonConfig;
 
   secondaryButtonText: string = 'Secondary';
   secondaryButtonTooltip: string = 'Secondary action';
   secondaryButtonConfig!: ButtonConfig;
   secondaryButtonDisabledConfig!: ButtonConfig;
+  secondaryButtonWithIconConfig!: ButtonConfig;
+  secondaryButtonWithOnlyIconConfig!: ButtonConfig;
 
   accentButtonText: string = 'Accent';
   accentButtonTooltip: string = 'Special action';
   accentButtonConfig!: ButtonConfig;
   accentButtonDisabledConfig!: ButtonConfig;
+  accentButtonWithIconConfig!: ButtonConfig;
+  accentButtonWithOnlyIconConfig!: ButtonConfig;
 
   destructiveButtonText: string = 'Destructive';
   destructiveButtonTooltip: string = 'Destructive action';
   destructiveButtonConfig!: ButtonConfig;
   destructiveButtonDisabledConfig!: ButtonConfig;
+  destructiveButtonWithIconConfig!: ButtonConfig;
+  destructiveButtonWithOnlyIconConfig!: ButtonConfig;
+
+  linkIcon: string = 'ri-link';
+  heartIcon: string = 'ri-heart-line';
+  timesIcon: string = 'ri-close-line';
 
   constructor() {}
 
@@ -68,6 +80,8 @@ export class ButtonListComponent implements OnInit {
 
     this.primaryButtonConfig = buttonConfig;
     this.primaryButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
+    this.primaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.linkIcon);
+    this.primaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.linkIcon);
   }
 
   /**
@@ -88,6 +102,8 @@ export class ButtonListComponent implements OnInit {
 
     this.secondaryButtonConfig = buttonConfig;
     this.secondaryButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
+    this.secondaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.linkIcon);
+    this.secondaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.linkIcon);
   }
 
   /**
@@ -108,6 +124,8 @@ export class ButtonListComponent implements OnInit {
 
     this.accentButtonConfig = buttonConfig;
     this.accentButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
+    this.accentButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.heartIcon);
+    this.accentButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.heartIcon);
   }
 
   /**
@@ -128,6 +146,8 @@ export class ButtonListComponent implements OnInit {
 
     this.destructiveButtonConfig = buttonConfig;
     this.destructiveButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
+    this.destructiveButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.timesIcon);
+    this.destructiveButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.timesIcon);
   }
 
   /**
@@ -157,6 +177,31 @@ export class ButtonListComponent implements OnInit {
       text: 'Disabled',
       tooltip: `${buttonConfig.tooltip} disabled`,
       disabled: true,
+    };
+  }
+
+  /**
+   * @description Generate button disabled from button config
+   * @param  {ButtonConfig} buttonConfig
+   * @returns {ButtonConfig}
+   */
+  private generateTemplateButtonWithOnlyIcon(buttonConfig: ButtonConfig, icon: string): ButtonConfig {
+    return {
+      ...buttonConfig,
+      text: '',
+      icon: icon,
+    };
+  }
+
+  /**
+   * @description Generate button disabled from button config
+   * @param  {ButtonConfig} buttonConfig
+   * @returns {ButtonConfig}
+   */
+  private generateTemplateButtonWithIcon(buttonConfig: ButtonConfig, icon: string): ButtonConfig {
+    return {
+      ...this.generateTemplateButtonWithOnlyIcon(buttonConfig, icon),
+      text: 'With Icon',
     };
   }
 
