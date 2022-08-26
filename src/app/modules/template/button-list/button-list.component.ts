@@ -189,6 +189,7 @@ export class ButtonListComponent implements OnInit {
     return {
       ...buttonConfig,
       text: '',
+      tooltip: `${buttonConfig.tooltip} only icon`,
       icon: icon,
     };
   }
@@ -201,6 +202,7 @@ export class ButtonListComponent implements OnInit {
   private generateTemplateButtonWithIcon(buttonConfig: ButtonConfig, icon: string): ButtonConfig {
     return {
       ...this.generateTemplateButtonWithOnlyIcon(buttonConfig, icon),
+      tooltip: `${buttonConfig.tooltip} with icon`,
       text: 'With Icon',
     };
   }

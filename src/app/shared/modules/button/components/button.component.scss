@@ -112,4 +112,15 @@
       opacity: 0;
     }
   }
+
+  &.only-icon {
+    button {
+      width: 2.5rem;
+      border-radius: 50%;
+    }
+
+    small {
+      visibility: hidden;
+    }
+  }
 }
