@@ -2,9 +2,10 @@
   <div [ngClass]="{ disabled: config.disabled, 'only-icon': onlyIcon }" class="container">
     <button
       type="{{ config.submit ? 'submit' : 'button' }}"
-      title="{{ config.tooltip }}"
+      title="{{ config.disabled ? '' : config.tooltip }}"
       [attr.data-type]="config.type"
       [disabled]="config.disabled"
+      [tooltip]="config.tooltip"
       (click)="onClick(config)">
       <div>
         <span *ngIf="config?.text && config.text.length > 0">

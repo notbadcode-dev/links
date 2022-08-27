@@ -1,4 +1,7 @@
 :root {
+  --white-color: #fff;
+  --black-color: #000;
+
   --primary-color-hex: #4b2af2;
   --primary-color-rgba: 75, 42, 242;
   --primary-color: rgba(var(--primary-color-rgba), 1);
@@ -40,7 +43,17 @@
   --destructive-passive-color-gradient-050: rgba(var(--destructive-passive-color-rgba), 0.5);
 
   --default-background-body-color: #f9f9f9;
+  --default-background-body-color-contrast: #333232;
+
   --default-background-element-color: #fff;
+  --default-background-element-color-contrast: #000;
+
   --default-font-color: #333232;
+  --default-font-color-contrast: #f9f9f9;
+
   --default-border-color-gradient-010: rgba(0, 0, 0, 0.1);
+  --default-border-color-gradient-050: rgba(0, 0, 0, 0.5);
+  --default-border-color-gradient-070: rgba(0, 0, 0, 0.7);
+
+  --default-box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 0px;
 }

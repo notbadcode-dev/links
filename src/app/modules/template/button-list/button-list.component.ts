@@ -42,7 +42,7 @@ export class ButtonListComponent implements OnInit {
   destructiveButtonWithOnlyIconConfig!: ButtonConfig;
 
   linkIcon: string = 'ri-link';
-  heartIcon: string = 'ri-heart-line';
+  heartIcon: string = 'ri-heart-fill';
   timesIcon: string = 'ri-close-line';
 
   constructor() {}
