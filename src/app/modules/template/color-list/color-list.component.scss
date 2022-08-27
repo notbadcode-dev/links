@@ -12,14 +12,6 @@ $copy-content: 'Copy color';
 $copied-content: 'Copied!';
 $copy-fadein-animation: 300ms fadeIn forwards;
 
-.grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  gap: 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
-}
-
 .card {
   position: relative;
   z-index: 0;

@@ -1,16 +1,4 @@
-.grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  gap: 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
-
-  > fieldset {
-    border: none;
-
-    legend,
-    div {
-      margin-bottom: 1rem;
-    }
-  }
+legend,
+div {
+  margin-bottom: 1rem;
 }
