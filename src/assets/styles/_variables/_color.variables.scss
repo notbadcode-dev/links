@@ -36,6 +36,7 @@
   --destructive-color-rgba: 217, 46, 87;
   --destructive-color: rgba(var(--destructive-color-rgba), 1);
   --destructive-color-gradient-050: rgba(var(--destructive-color-rgba), 0.5);
+  --destructive-color-gradient-080: rgba(var(--destructive-color-rgba), 0.8);
 
   --destructive-passive-color-hex: #fbebef;
   --destructive-passive-color-rgba: 251, 235, 239;
@@ -52,8 +53,14 @@
   --default-font-color-contrast: #f9f9f9;
 
   --default-border-color-gradient-010: rgba(0, 0, 0, 0.1);
+  --default-border-color-gradient-020: rgba(0, 0, 0, 0.2);
+  --default-border-color-gradient-030: rgba(0, 0, 0, 0.3);
+  --default-border-color-gradient-040: rgba(0, 0, 0, 0.4);
   --default-border-color-gradient-050: rgba(0, 0, 0, 0.5);
+  --default-border-color-gradient-060: rgba(0, 0, 0, 0.6);
   --default-border-color-gradient-070: rgba(0, 0, 0, 0.7);
+  --default-border-color-gradient-090: rgba(0, 0, 0, 0.8);
+  --default-border-color-gradient-090: rgba(0, 0, 0, 0.9);
 
   --default-box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 0px;
 }

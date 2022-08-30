@@ -10,13 +10,15 @@
 
         <div>
           <!-- Standard -->
-          <lnk-input></lnk-input>
+          <lnk-input [_config]="onlyInputConfig"></lnk-input>
           <!-- Disabled -->
-          <lnk-input></lnk-input>
+          <lnk-input [_config]="disabledInputConfig"></lnk-input>
           <!-- Error -->
-          <lnk-input></lnk-input>
+          <lnk-input [_config]="errorRequiredInputConfig"></lnk-input>
           <!-- Hint -->
-          <lnk-input></lnk-input>
+          <lnk-input [_config]="hintInputConfig"></lnk-input>
+          <!-- Placeholder -->
+          <lnk-input [_config]="placeholderInputConfig"></lnk-input>
         </div>
       </fieldset>
 

@@ -13,37 +13,37 @@ import { ButtonModule } from 'src/app/shared/modules/button/button.module';
 export class ButtonListComponent implements OnInit {
   showButtonList: boolean = true;
 
-  primaryButtonText: string = 'Primary';
-  primaryButtonTooltip: string = 'Primary action';
-  primaryButtonConfig!: ButtonConfig;
-  primaryButtonDisabledConfig!: ButtonConfig;
-  primaryButtonWithIconConfig!: ButtonConfig;
-  primaryButtonWithOnlyIconConfig!: ButtonConfig;
+  private primaryButtonText: string = 'Primary';
+  private primaryButtonTooltip: string = 'Primary action';
+  public primaryButtonConfig!: ButtonConfig;
+  public primaryButtonDisabledConfig!: ButtonConfig;
+  public primaryButtonWithIconConfig!: ButtonConfig;
+  public primaryButtonWithOnlyIconConfig!: ButtonConfig;
 
-  secondaryButtonText: string = 'Secondary';
-  secondaryButtonTooltip: string = 'Secondary action';
-  secondaryButtonConfig!: ButtonConfig;
-  secondaryButtonDisabledConfig!: ButtonConfig;
-  secondaryButtonWithIconConfig!: ButtonConfig;
-  secondaryButtonWithOnlyIconConfig!: ButtonConfig;
+  private secondaryButtonText: string = 'Secondary';
+  private secondaryButtonTooltip: string = 'Secondary action';
+  public secondaryButtonConfig!: ButtonConfig;
+  public secondaryButtonDisabledConfig!: ButtonConfig;
+  public secondaryButtonWithIconConfig!: ButtonConfig;
+  public secondaryButtonWithOnlyIconConfig!: ButtonConfig;
 
-  accentButtonText: string = 'Accent';
-  accentButtonTooltip: string = 'Special action';
-  accentButtonConfig!: ButtonConfig;
-  accentButtonDisabledConfig!: ButtonConfig;
-  accentButtonWithIconConfig!: ButtonConfig;
-  accentButtonWithOnlyIconConfig!: ButtonConfig;
+  private accentButtonText: string = 'Accent';
+  private accentButtonTooltip: string = 'Special action';
+  public accentButtonConfig!: ButtonConfig;
+  public accentButtonDisabledConfig!: ButtonConfig;
+  public accentButtonWithIconConfig!: ButtonConfig;
+  public accentButtonWithOnlyIconConfig!: ButtonConfig;
 
-  destructiveButtonText: string = 'Destructive';
-  destructiveButtonTooltip: string = 'Destructive action';
-  destructiveButtonConfig!: ButtonConfig;
-  destructiveButtonDisabledConfig!: ButtonConfig;
-  destructiveButtonWithIconConfig!: ButtonConfig;
-  destructiveButtonWithOnlyIconConfig!: ButtonConfig;
+  private destructiveButtonText: string = 'Destructive';
+  private destructiveButtonTooltip: string = 'Destructive action';
+  public destructiveButtonConfig!: ButtonConfig;
+  public destructiveButtonDisabledConfig!: ButtonConfig;
+  public destructiveButtonWithIconConfig!: ButtonConfig;
+  public destructiveButtonWithOnlyIconConfig!: ButtonConfig;
 
-  linkIcon: string = 'ri-link';
-  heartIcon: string = 'ri-heart-fill';
-  timesIcon: string = 'ri-close-line';
+  private linkIcon: string = 'ri-link';
+  private heartIcon: string = 'ri-heart-fill';
+  private timesIcon: string = 'ri-close-line';
 
   constructor() {}
 

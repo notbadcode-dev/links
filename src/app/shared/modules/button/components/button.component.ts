@@ -16,8 +16,8 @@ export class ButtonComponent implements OnInit {
 
   @Output() onClickEvent: EventEmitter<ButtonConfig> = new EventEmitter();
 
-  config!: ButtonConfig;
-  onlyIcon!: boolean;
+  public config!: ButtonConfig;
+  public onlyIcon!: boolean;
 
   constructor() {}
 
@@ -27,7 +27,7 @@ export class ButtonComponent implements OnInit {
    * @description Emits the click event to the parent component.
    * @returns void
    */
-  getOnlyIcon(config: ButtonConfig): boolean {
+  private getOnlyIcon(config: ButtonConfig): boolean {
     if (!config) {
       return false;
     }
@@ -47,7 +47,7 @@ export class ButtonComponent implements OnInit {
    * @description Emits the click event to the parent component.
    * @returns void
    */
-  onClick(config: ButtonConfig): void {
+  public onClick(config: ButtonConfig): void {
     this.onClickEvent.emit(config);
   }
 }

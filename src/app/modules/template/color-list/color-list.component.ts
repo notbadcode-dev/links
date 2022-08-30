@@ -12,25 +12,25 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./color-list.component.scss'],
 })
 export class ColorListComponent implements OnInit {
-  templateColorList: TemplateColor[] = [];
+  public templateColorList: TemplateColor[] = [];
 
-  primaryColorName: string = 'Primary color';
-  primaryColorCode: string = '#4b2af2';
-  passivePrimaryColorCode: string = '#c9bffb';
+  private primaryColorName: string = 'Primary color';
+  private primaryColorCode: string = '#4b2af2';
+  private passivePrimaryColorCode: string = '#c9bffb';
 
-  secondaryColorName: string = 'Secondary color';
-  secondaryColorCode: string = '#cccccc';
-  passiveSecondaryColorCode: string = '#efefef';
+  private secondaryColorName: string = 'Secondary color';
+  private secondaryColorCode: string = '#cccccc';
+  private passiveSecondaryColorCode: string = '#efefef';
 
-  accentColorName: string = 'Accent color';
-  accentColorCode: string = '#00ac7c';
-  passiveAccentColorCode: string = '#b2e6d7';
+  private accentColorName: string = 'Accent color';
+  private accentColorCode: string = '#00ac7c';
+  private passiveAccentColorCode: string = '#b2e6d7';
 
-  destructiveColorName: string = 'Destructive color';
-  destructiveColorCode: string = '#d93057';
-  passiveDestructiveColorCode: string = '#fbebef';
+  private destructiveColorName: string = 'Destructive color';
+  private destructiveColorCode: string = '#d93057';
+  private passiveDestructiveColorCode: string = '#fbebef';
 
-  passiveDescription: string = 'Passive';
+  private passiveDescription: string = 'Passive';
 
   constructor() {}
 
