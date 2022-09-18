@@ -1,17 +1,31 @@
 {
   "name": "notbadcode.links",
-  "version": "1.0.0",
   "description": "Web where to manage links of all kinds.",
+  "author": {
+    "name": "Carlos Balaguer Franch · Alias: NotBadCode",
+    "email": "notbadcode.dev@gmail.com",
+    "url": "https://github.com/notbadcode-dev/links"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notbadcode-dev/links.git"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "homepage": "https://libl.ink",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port=3200",
-    "build": "ng build --port=3200",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development --port=3200",
     "lint": "eslint --ignore-path .gitignore . --ext .ts",
     "lint:fix": "npm run lint --fix",
     "test": "ng test"
   },
-  "private": true,
+  "config": {
+    "port": 3200
+  },
   "dependencies": {
     "@angular/animations": "^14.1.0",
     "@angular/cdk": "^14.1.2",
@@ -48,5 +62,28 @@
     "prettier": "^2.5.1",
     "prettier-eslint": "^15.0.1",
     "typescript": "~4.7.2"
-  }
+  },
+  "keywords": [
+    "link",
+    "Link",
+    "LINK",
+    "liblink",
+    "Liblink",
+    "LibLink",
+    "LIBLINK",
+    "libl.ink",
+    "Libl.Ink",
+    "Libl.ink",
+    "LINB.INK",
+    "library",
+    "Library",
+    "LIBRARY",
+    "library link",
+    "Library link",
+    "library Link",
+    "LIBRARY LINK",
+    "notbadcode",
+    "NotBadCode",
+    "notBadCode"
+  ]
 }

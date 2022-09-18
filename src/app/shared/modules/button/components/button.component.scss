@@ -15,9 +15,13 @@
     cursor: pointer;
     transform: scale(1);
     transition: all 300ms ease-in-out;
-    border: 0.15rem solid;
-    font-weight: bold;
+    border-style: 0.15rem solid;
+    border-color: transparent;
     box-shadow: var(--default-box-shadow);
+
+    &:not(:disabled):hover {
+      border-color: transparent;
+    }
 
     > div {
       display: flex;
@@ -30,54 +34,6 @@
       }
     }
 
-    &[data-type='primary'] {
-      background-color: var(--primary-color);
-      color: var(--white-color);
-      border-color: var(--primary-color);
-
-      &:not(:disabled):hover {
-        background-color: var(--primary-passive-color);
-        color: var(--primary-color);
-        border-color: var(--primary-passive-color);
-      }
-    }
-
-    &[data-type='secondary'] {
-      background-color: var(--secondary-color);
-      color: var(--default-font-color);
-      border: 1px solid var(--secondary-color);
-
-      &:not(:disabled):hover {
-        background-color: var(--secondary-passive-color);
-        color: var(--secondary-color);
-        border: 1px solid var(--secondary-passive-color);
-      }
-    }
-
-    &[data-type='accent'] {
-      background-color: var(--accent-color);
-      color: var(--white-color);
-      border: 1px solid var(--accent-color);
-
-      &:not(:disabled):hover {
-        background-color: var(--accent-passive-color);
-        color: var(--accent-color);
-        border: 1px solid var(--accent-passive-color);
-      }
-    }
-
-    &[data-type='destructive'] {
-      background-color: var(--destructive-passive-color);
-      color: var(--destructive-color);
-      border-color: var(--destructive-color);
-
-      &:not(:disabled):hover {
-        background-color: var(--destructive-color);
-        color: var(--destructive-passive-color);
-        border-color: var(--destructive-color);
-      }
-    }
-
     &:disabled {
       opacity: 0.4;
       cursor: not-allowed;
@@ -86,21 +42,18 @@
     &:active {
       transform: scale(0.95);
     }
-
-    > div span::first-letter {
-      font-size: 1.25rem;
-    }
   }
 
   small {
     z-index: -1;
     position: absolute;
-    bottom: 0.8rem;
+    bottom: 1rem;
     opacity: 0.75;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 2rem;
+    height: 1.2rem;
+    font-size: 0.7rem;
 
     transition: opacity 300ms ease-in-out;
 
@@ -131,8 +84,7 @@
 
   &:not(.only-icon) {
     > button > div > i {
-      position: relative;
-      top: 0.1rem;
+      font-size: 1rem;
     }
   }
 }

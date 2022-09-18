@@ -1,0 +1,13 @@
+@use '../button.component.scss';
+
+[data-type='primary'] {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-color: var(--primary-color);
+
+  &:not(:disabled):hover {
+    background-color: var(--primary-passive-color);
+    color: var(--primary-color);
+    border-color: var(--primary-passive-color);
+  }
+}

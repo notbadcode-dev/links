@@ -14,9 +14,10 @@
 
     > label {
       position: absolute;
+      font-size: 0.9rem;
 
       color: var(--default-border-color-gradient-050);
-      top: 0.35rem;
+      top: 0.4rem;
       left: 0.4rem;
 
       transition: top 300ms ease;
@@ -83,6 +84,7 @@
     height: 1.2rem;
     min-height: 1.2rem;
 
+    font-size: 0.7rem;
     opacity: 0;
 
     > :first-child {
