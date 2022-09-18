@@ -1,19 +1,33 @@
 <ng-container *ngIf="config && config.label && config.label.length > 0">
-  <div [ngClass]="{ disabled: config.disabled || inputControl.disabled, error: inputControl.errors }" class="container">
+  <div
+    [ngClass]="{ disabled: config.disabled || inputControl.disabled, error: inputControl.errors }"
+    class="container"
+    [ngClass]="{
+      'prepend-container': config.prependIcon && config.prependTooltip,
+      'append-container': config.appendIcon && config.appendTooltip
+    }">
     <div class="input-context">
-      <span>A</span>
+      <div class="prepend" *ngIf="config.prependIcon && config.prependTooltip" [tooltip]="config.prependTooltip || ''">
+        <i class="ri-error-warning-line"></i>
+      </div>
 
-      <input
-        id="{{ config.label }}"
-        type="{{ config.type }}"
-        title="{{ config.title || '' }}"
-        [formControl]="inputControl"
-        (focus)="onFocus()"
-        placeholder="{{ config.placeholder || '' }}" />
-      <label for="{{ config.label }}">
-        {{ config.label | titlecase }}
-        <small *ngIf="isOptional"> (Optional) </small>
-      </label>
+      <div class="body">
+        <input
+          id="{{ config.label }}"
+          type="{{ config.type }}"
+          title="{{ config.title || '' }}"
+          [formControl]="inputControl"
+          (focus)="onFocus()"
+          placeholder="{{ config.placeholder || '' }}" />
+        <label for="{{ config.label }}">
+          {{ config.label | titlecase }}
+          <small *ngIf="isOptional"> (Optional) </small>
+        </label>
+      </div>
+
+      <div class="append" *ngIf="config.appendIcon && config.appendTooltip" [tooltip]="config.appendTooltip || ''">
+        <i class="ri-error-warning-line"></i>
+      </div>
     </div>
 
     <small class="hint-context" *ngIf="!inputControl.errors && config.hint" [ngClass]="{ visible: config.hint && config.hint.length > 0 }">
