@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonConfig, ButtonConfigHelper } from 'src/app/shared/modules/button/components/button.model';
 import { ButtonModule } from 'src/app/shared/modules/button/button.module';
+import { APP_CONSTANT } from 'src/app/constants/app.constant';
 
 @Component({
   selector: 'lnk-button-list',
@@ -76,6 +77,7 @@ export class ButtonListComponent implements OnInit {
       text: buttonText,
       tooltip: buttonTooltip,
       disabled: false,
+      hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'P'],
     });
 
     this.primaryButtonConfig = buttonConfig;
@@ -98,6 +100,7 @@ export class ButtonListComponent implements OnInit {
       text: buttonText,
       tooltip: buttonTooltip,
       disabled: false,
+      hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'S'],
     });
 
     this.secondaryButtonConfig = buttonConfig;
@@ -120,6 +123,7 @@ export class ButtonListComponent implements OnInit {
       text: buttonText,
       tooltip: buttonTooltip,
       disabled: false,
+      hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'A'],
     });
 
     this.accentButtonConfig = buttonConfig;
@@ -142,6 +146,7 @@ export class ButtonListComponent implements OnInit {
       text: buttonText,
       tooltip: buttonTooltip,
       disabled: false,
+      hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'D'],
     });
 
     this.destructiveButtonConfig = buttonConfig;
@@ -177,6 +182,7 @@ export class ButtonListComponent implements OnInit {
       text: 'Disabled',
       tooltip: `${buttonConfig.tooltip} disabled`,
       disabled: true,
+      hotkeys: [],
     };
   }
 
@@ -191,6 +197,7 @@ export class ButtonListComponent implements OnInit {
       text: '',
       tooltip: `${buttonConfig.tooltip} only icon`,
       icon: icon,
+      hotkeys: [],
     };
   }
 
@@ -204,6 +211,7 @@ export class ButtonListComponent implements OnInit {
       ...this.generateTemplateButtonWithOnlyIcon(buttonConfig, icon),
       tooltip: `${buttonConfig.tooltip} with icon`,
       text: 'With Icon',
+      hotkeys: [],
     };
   }
 
@@ -213,6 +221,12 @@ export class ButtonListComponent implements OnInit {
    * @returns {void}
    */
   public clickButton(clickedButtonCondig: ButtonConfig): void {
-    console.log(`${clickedButtonCondig.text} button clicked`);
+    if (!clickedButtonCondig) {
+      return;
+    }
+
+    const buttonText: string = clickedButtonCondig.text || clickedButtonCondig.tooltip;
+
+    console.log(`${buttonText} button clicked`);
   }
 }
