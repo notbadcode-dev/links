@@ -15,11 +15,11 @@ const COMPONENT_LIST = [
   DestructiveButtonComponent,
 ];
 
-const MODULES = [CommonModule, TooltipModule];
+const MODULE_LIST = [CommonModule, TooltipModule];
 
 @NgModule({
   declarations: [COMPONENT_LIST],
-  imports: [MODULES],
+  imports: [MODULE_LIST],
   exports: [COMPONENT_LIST],
 })
 export class ButtonModule {}

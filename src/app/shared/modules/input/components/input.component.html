@@ -1,6 +1,8 @@
 <ng-container *ngIf="config && config.label && config.label.length > 0">
   <div [ngClass]="{ disabled: config.disabled || inputControl.disabled, error: inputControl.errors }" class="container">
     <div class="input-context">
+      <span>A</span>
+
       <input
         id="{{ config.label }}"
         type="{{ config.type }}"
@@ -13,10 +15,12 @@
         <small *ngIf="isOptional"> (Optional) </small>
       </label>
     </div>
+
     <small class="hint-context" *ngIf="!inputControl.errors && config.hint" [ngClass]="{ visible: config.hint && config.hint.length > 0 }">
       <i class="ri-error-warning-line"></i>
       <span>{{ config.hint }}</span>
     </small>
+
     <small class="error-context" [ngClass]="{ visible: inputControl.errors }">
       <i [hidden]="!inputControl.errors" class="ri-error-warning-line"></i>
       <span [hidden]="!inputControl.hasError('required')"> {{ errorMessage.REQUIRES(config.label | titlecase) }}</span>
