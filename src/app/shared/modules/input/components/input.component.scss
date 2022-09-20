@@ -13,12 +13,12 @@
   .input-context {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     box-shadow: var(--default-box-shadow);
 
     > .body {
-      width: 80%;
+      width: -webkit-fill-available;
 
       > label {
         position: absolute;
@@ -51,31 +51,33 @@
           opacity: 0;
         }
 
-        &:focus,
-        &.not-empty {
-          outline-color: var(--primary-color);
-          border: 0.1rem solid var(--primary-color);
+        &:not(:disabled) {
+          &:focus,
+          &.not-empty {
+            outline-color: var(--primary-color);
+            border: 0.1rem solid var(--primary-color);
 
-          + label {
-            top: -1.4rem;
-            left: 0.4rem;
-            color: var(--primary-color);
+            + label {
+              top: -1.4rem;
+              left: 0.4rem;
+              color: var(--primary-color);
 
-            :first-child {
-              color: var(--primary-color-gradient-050);
+              :first-child {
+                color: var(--primary-color-gradient-050);
+              }
+
+              transition: all 300ms ease;
             }
 
-            transition: all 300ms ease;
+            &::placeholder {
+              opacity: 1;
+              transition: opacity 300ms ease-in;
+            }
           }
 
-          &::placeholder {
-            opacity: 1;
-            transition: opacity 300ms ease-in;
+          &:hover {
+            cursor: text;
           }
-        }
-
-        &:hover {
-          cursor: text;
         }
       }
     }
@@ -124,7 +126,7 @@
     .input-context {
       > .body {
         > input {
-          background-color: var(--default-border-color-gradient-010);
+          background-color: var(--default-border-color-gradient-003);
         }
 
         > label,
@@ -167,6 +169,7 @@
     }
   }
 
+  &.prepend-container > .input-context,
   &.append-container > .input-context {
     .prepend,
     .append,

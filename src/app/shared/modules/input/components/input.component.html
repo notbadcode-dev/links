@@ -1,8 +1,9 @@
 <ng-container *ngIf="config && config.label && config.label.length > 0">
   <div
-    [ngClass]="{ disabled: config.disabled || inputControl.disabled, error: inputControl.errors }"
     class="container"
     [ngClass]="{
+      disabled: config.disabled || inputControl.disabled,
+      error: inputControl.errors,
       'prepend-container': config.prependIcon && config.prependTooltip,
       'append-container': config.appendIcon && config.appendTooltip
     }">
