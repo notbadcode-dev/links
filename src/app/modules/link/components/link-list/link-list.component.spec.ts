@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LinkListComponent } from './link-list.component';
 
 describe('LinkListComponent', () => {
-  let component: LinkListComponent;
-  let fixture: ComponentFixture<LinkListComponent>;
+    let component: LinkListComponent;
+    let fixture: ComponentFixture<LinkListComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LinkListComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [LinkListComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(LinkListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(LinkListComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

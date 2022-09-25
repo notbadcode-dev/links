@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ButtonListComponent } from './button-list.component';
 
 describe('ButtonListComponent', () => {
-  let component: ButtonListComponent;
-  let fixture: ComponentFixture<ButtonListComponent>;
+    let component: ButtonListComponent;
+    let fixture: ComponentFixture<ButtonListComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ ButtonListComponent ]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [ButtonListComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(ButtonListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(ButtonListComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

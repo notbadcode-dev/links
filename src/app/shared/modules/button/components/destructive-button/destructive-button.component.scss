@@ -1,13 +1,13 @@
 @use '../button.component.scss';
 
 [data-type='destructive'] {
-  background-color: var(--destructive-passive-color);
-  color: var(--destructive-color);
-  border-color: var(--destructive-color);
-
-  &:not(:disabled):hover {
-    background-color: var(--destructive-color);
-    color: var(--destructive-passive-color);
+    background-color: var(--destructive-passive-color);
+    color: var(--destructive-color);
     border-color: var(--destructive-color);
-  }
+
+    &:not(:disabled):hover {
+        background-color: var(--destructive-color);
+        color: var(--destructive-passive-color);
+        border-color: var(--destructive-color);
+    }
 }

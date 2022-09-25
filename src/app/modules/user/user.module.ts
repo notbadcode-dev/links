@@ -10,7 +10,7 @@ const COMPONENTS_LIST = [UserLoginComponent, UserSigninComponent, UserLogoutComp
 const MODULE_LIST = [CommonModule, UserRoutingModule];
 
 @NgModule({
-  declarations: [COMPONENTS_LIST],
-  imports: [MODULE_LIST],
+    declarations: [COMPONENTS_LIST],
+    imports: [MODULE_LIST],
 })
 export class UserModule {}

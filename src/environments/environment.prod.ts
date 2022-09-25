@@ -1,7 +1,7 @@
 import { IEnvironment } from './environment.interface';
 
 export const environment: IEnvironment = {
-  production: true,
-  host: '',
-  notBadCodeApi: '',
+    production: true,
+    host: '',
+    notBadCodeApi: '',
 };

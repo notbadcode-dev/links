@@ -1,9 +1,9 @@
 {
-  "CONFIGURATION": {
-    "LANGUAGE": {
-      "TITLE": "English",
-      "CODE": "EN",
-      "SPANISH_TITLE": "Inglés"
+    "CONFIGURATION": {
+        "LANGUAGE": {
+            "TITLE": "English",
+            "CODE": "EN",
+            "SPANISH_TITLE": "Inglés"
+        }
     }
-  }
 }

@@ -1,11 +1,11 @@
 export const LANGUAGE = {
     ENGLISH: {
-        CODE: 'en'
+        CODE: 'en',
     },
     SPANISH: {
-        CODE: 'es'
+        CODE: 'es',
     },
     CATALAN: {
-        CODE: 'ca'
-    }
-}
+        CODE: 'ca',
+    },
+};

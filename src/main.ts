@@ -12,16 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 import APP_ROUTES_FOR_ROOT from './app/app.routes';
 import APP_TRANSLATE_FOR_ROOT from './app/app.translate';
 
+import { interceptorProviders } from './app/core/interceptors/interceptor.index';
+
 if (environment.production) {
-  enableProdMode();
+    enableProdMode();
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    importProvidersFrom(
-      RouterModule.forRoot(APP_ROUTES_FOR_ROOT),
-      TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT),
-      HttpClientModule
-    ),    
-  ],
+    providers: [
+        importProvidersFrom(RouterModule.forRoot(APP_ROUTES_FOR_ROOT), TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT), HttpClientModule),
+        interceptorProviders,
+    ],
 }).catch(err => console.error(err));

@@ -1,63 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
 html {
-  height: 100%;
+    height: 100%;
 }
 body {
-  min-height: 100%;
-  background-color: var(--default-background-body-color);
-  color: var(--default-font-color);
+    min-height: 100%;
+    background-color: var(--default-background-body-color);
+    color: var(--default-font-color);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-  font-family: 'SpaceGrotesk-Regular';
+    font-family: 'SpaceGrotesk-Regular';
 
-  &.light {
-    font-family: 'SpaceGrotesk-Light';
-  }
+    &.light {
+        font-family: 'SpaceGrotesk-Light';
+    }
 
-  &.medium {
-    font-family: 'SpaceGrotesk-Medium';
-  }
+    &.medium {
+        font-family: 'SpaceGrotesk-Medium';
+    }
 
-  &.semi-bold {
-    font-family: 'SpaceGrotesk-SemiBold';
-  }
+    &.semi-bold {
+        font-family: 'SpaceGrotesk-SemiBold';
+    }
 
-  &.bold {
-    font-family: 'SpaceGrotesk-Bold';
-  }
+    &.bold {
+        font-family: 'SpaceGrotesk-Bold';
+    }
 }
 
 article {
-  width: 100%;
-  height: 100%;
-  padding: 1.5rem 8rem;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem 8rem;
 
-  > .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 1.5rem;
-  }
-
-  > .body {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-
-    .grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      gap: 4rem;
-      grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
-
-      > fieldset {
-        border: none;
-      }
+    > .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 1.5rem;
     }
-  }
+
+    > .body {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+
+        .grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+
+            > fieldset {
+                border: none;
+            }
+        }
+    }
 }

@@ -1,5 +1,5 @@
 export interface IEnvironment {
-  production: boolean;
-  host: string;
-  notBadCodeApi: string;
+    production: boolean;
+    host: string;
+    notBadCodeApi: string;
 }

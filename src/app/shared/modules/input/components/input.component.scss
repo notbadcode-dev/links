@@ -4,218 +4,218 @@
 .container > .input-context > .body > input,
 .container > .hint,
 .container > .error {
-  width: 100%;
+    width: 100%;
 }
 
 .container {
-  padding: 1.8rem 0.2rem 1.2rem 0.2rem;
+    padding: 1.8rem 0.2rem 1.2rem 0.2rem;
 
-  .input-context {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
+    .input-context {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
 
-    box-shadow: var(--default-box-shadow);
+        box-shadow: var(--default-box-shadow);
 
-    > .body {
-      width: -webkit-fill-available;
+        > .body {
+            width: -webkit-fill-available;
 
-      > label {
-        position: absolute;
-        font-size: 0.9rem;
+            > label {
+                position: absolute;
+                font-size: 0.9rem;
 
+                color: var(--default-border-color-gradient-050);
+                top: 0.4rem;
+                left: 0.4rem;
+
+                transition: all 300ms ease;
+
+                :first-child {
+                    color: var(--default-border-color-gradient-030);
+                }
+            }
+
+            > input {
+                border-radius: var(--default-border-radius);
+                border: 0.08rem solid var(--default-border-color-gradient-010);
+                background: var(--default-background-element-color);
+                height: var(--default-input-height);
+                color: var(--default-border-color-gradient-070);
+
+                padding: 0 0.4rem;
+
+                outline-color: transparent;
+                transition: outline-color, border 700ms ease;
+
+                &::placeholder {
+                    opacity: 0;
+                }
+
+                &:not(:disabled) {
+                    &:focus,
+                    &.not-empty {
+                        outline-color: var(--primary-color);
+                        border: 0.1rem solid var(--primary-color);
+
+                        + label {
+                            top: -1.4rem;
+                            left: 0.4rem;
+                            color: var(--primary-color);
+
+                            :first-child {
+                                color: var(--primary-color-gradient-050);
+                            }
+
+                            transition: all 300ms ease;
+                        }
+
+                        &::placeholder {
+                            opacity: 1;
+                            transition: opacity 300ms ease-in;
+                        }
+                    }
+
+                    &:hover {
+                        cursor: text;
+                    }
+                }
+            }
+        }
+    }
+
+    .hint-context,
+    .error-context {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        padding: 0 0.32rem;
+        padding-top: 0.4rem;
+        height: 1.2rem;
+        min-height: 1.2rem;
+
+        font-size: 0.7rem;
+        opacity: 0;
+
+        > :first-child {
+            font-size: 16px;
+            padding-right: 0.2rem;
+        }
+
+        > :last-child {
+            padding-left: 0.2rem;
+        }
+
+        &.visible {
+            opacity: 1;
+            transition: opacity 300ms ease-in;
+        }
+    }
+
+    .error-context {
+        color: var(--destructive-color-gradient-080);
+        transition: all 300ms ease-out;
+    }
+
+    .hint-context {
         color: var(--default-border-color-gradient-050);
-        top: 0.4rem;
-        left: 0.4rem;
+        transition: all 300ms ease-out;
+    }
 
-        transition: all 300ms ease;
+    &.disabled {
+        .input-context {
+            > .body {
+                > input {
+                    background-color: var(--default-border-color-gradient-003);
+                }
 
-        :first-child {
-          color: var(--default-border-color-gradient-030);
+                > label,
+                > input {
+                    cursor: not-allowed;
+                }
+            }
         }
-      }
+    }
 
-      > input {
-        border-radius: var(--default-border-radius);
-        border: 0.08rem solid var(--default-border-color-gradient-010);
-        background: var(--default-background-element-color);
-        height: var(--default-input-height);
-        color: var(--default-border-color-gradient-070);
+    &.error {
+        .input-context {
+            .body {
+                > label {
+                    color: var(--destructive-color-gradient-080);
+                }
 
-        padding: 0 0.4rem;
+                > input {
+                    color: var(--destructive-color-gradient-080);
 
-        outline-color: transparent;
-        transition: outline-color, border 700ms ease;
+                    outline-color: var(--destructive-color-gradient-080);
+                    border: 0.1rem solid var(--destructive-color-gradient-080);
 
-        &::placeholder {
-          opacity: 0;
+                    &:focus,
+                    &.not-empty {
+                        outline-color: var(--destructive-color-gradient-080);
+                        border: 0.1rem solid var(--destructive-color-gradient-080);
+
+                        + label {
+                            color: var(--destructive-color-gradient-080);
+
+                            :first-child {
+                                color: var(--destructive-color-gradient-080);
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.prepend-container > .input-context,
+    &.append-container > .input-context {
+        .prepend,
+        .append,
+        * > i {
+            width: 10%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        &:not(:disabled) {
-          &:focus,
-          &.not-empty {
-            outline-color: var(--primary-color);
-            border: 0.1rem solid var(--primary-color);
+        .prepend,
+        .append {
+            border: 0.08rem solid var(--default-border-color-gradient-010);
+            background-color: var(--default-border-color-gradient-005);
+            color: var(--default-border-color-gradient-050);
+        }
+    }
 
-            + label {
-              top: -1.4rem;
-              left: 0.4rem;
-              color: var(--primary-color);
+    &.prepend-container > .input-context {
+        .prepend {
+            border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+            border-right: none;
+        }
 
-              :first-child {
-                color: var(--primary-color-gradient-050);
-              }
-
-              transition: all 300ms ease;
+        .body {
+            input {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
             }
 
-            &::placeholder {
-              opacity: 1;
-              transition: opacity 300ms ease-in;
+            label {
+                left: 2rem;
             }
-          }
-
-          &:hover {
-            cursor: text;
-          }
         }
-      }
-    }
-  }
-
-  .hint-context,
-  .error-context {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    padding: 0 0.32rem;
-    padding-top: 0.4rem;
-    height: 1.2rem;
-    min-height: 1.2rem;
-
-    font-size: 0.7rem;
-    opacity: 0;
-
-    > :first-child {
-      font-size: 16px;
-      padding-right: 0.2rem;
     }
 
-    > :last-child {
-      padding-left: 0.2rem;
-    }
-
-    &.visible {
-      opacity: 1;
-      transition: opacity 300ms ease-in;
-    }
-  }
-
-  .error-context {
-    color: var(--destructive-color-gradient-080);
-    transition: all 300ms ease-out;
-  }
-
-  .hint-context {
-    color: var(--default-border-color-gradient-050);
-    transition: all 300ms ease-out;
-  }
-
-  &.disabled {
-    .input-context {
-      > .body {
-        > input {
-          background-color: var(--default-border-color-gradient-003);
+    &.append-container > .input-context {
+        .body input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
-        > label,
-        > input {
-          cursor: not-allowed;
+        .append {
+            border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
+            border-left: none;
         }
-      }
     }
-  }
-
-  &.error {
-    .input-context {
-      .body {
-        > label {
-          color: var(--destructive-color-gradient-080);
-        }
-
-        > input {
-          color: var(--destructive-color-gradient-080);
-
-          outline-color: var(--destructive-color-gradient-080);
-          border: 0.1rem solid var(--destructive-color-gradient-080);
-
-          &:focus,
-          &.not-empty {
-            outline-color: var(--destructive-color-gradient-080);
-            border: 0.1rem solid var(--destructive-color-gradient-080);
-
-            + label {
-              color: var(--destructive-color-gradient-080);
-
-              :first-child {
-                color: var(--destructive-color-gradient-080);
-                opacity: 0.8;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &.prepend-container > .input-context,
-  &.append-container > .input-context {
-    .prepend,
-    .append,
-    * > i {
-      width: 10%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .prepend,
-    .append {
-      border: 0.08rem solid var(--default-border-color-gradient-010);
-      background-color: var(--default-border-color-gradient-005);
-      color: var(--default-border-color-gradient-050);
-    }
-  }
-
-  &.prepend-container > .input-context {
-    .prepend {
-      border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-      border-right: none;
-    }
-
-    .body {
-      input {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-
-      label {
-        left: 2rem;
-      }
-    }
-  }
-
-  &.append-container > .input-context {
-    .body input {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    .append {
-      border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
-      border-left: none;
-    }
-  }
 }

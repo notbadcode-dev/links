@@ -8,18 +8,18 @@ import { AccentButtonComponent } from './components/accent-button/accent-button.
 import { DestructiveButtonComponent } from './components/destructive-button/destructive-button.component';
 
 const COMPONENT_LIST = [
-  ButtonComponent,
-  PrimaryButtonComponent,
-  SecondaryButtonComponent,
-  AccentButtonComponent,
-  DestructiveButtonComponent,
+    ButtonComponent,
+    PrimaryButtonComponent,
+    SecondaryButtonComponent,
+    AccentButtonComponent,
+    DestructiveButtonComponent,
 ];
 
 const MODULE_LIST = [CommonModule, TooltipModule];
 
 @NgModule({
-  declarations: [COMPONENT_LIST],
-  imports: [MODULE_LIST],
-  exports: [COMPONENT_LIST],
+    declarations: [COMPONENT_LIST],
+    imports: [MODULE_LIST],
+    exports: [COMPONENT_LIST],
 })
 export class ButtonModule {}

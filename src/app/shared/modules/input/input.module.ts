@@ -8,8 +8,8 @@ const COMPONENT_LIST = [InputComponent];
 const MODULE_LIST = [CommonModule, TooltipModule, ReactiveFormsModule];
 
 @NgModule({
-  declarations: [COMPONENT_LIST],
-  imports: [MODULE_LIST],
-  exports: [COMPONENT_LIST],
+    declarations: [COMPONENT_LIST],
+    imports: [MODULE_LIST],
+    exports: [COMPONENT_LIST],
 })
 export class InputModule {}

@@ -1,31 +1,31 @@
 :host {
-  --fadeInAnimation: fadeIn 300ms ease-in;
+    --fadeInAnimation: fadeIn 300ms ease-in;
 }
 
 .tooltip {
-  position: fixed;
-  background-color: var(--default-border-color-gradient-070);
-  border-radius: 4px;
-  color: var(--default-font-color-contrast);
-  font-family: Arial;
-  padding: 3px 6px;
-  font-size: 13px;
-  margin-top: 8px;
-  transform: translateX(-50%);
-  border: 1px solid var(--default-border-color-gradient-050);
+    position: fixed;
+    background-color: var(--default-border-color-gradient-070);
+    border-radius: 4px;
+    color: var(--default-font-color-contrast);
+    font-family: Arial;
+    padding: 3px 6px;
+    font-size: 13px;
+    margin-top: 8px;
+    transform: translateX(-50%);
+    border: 1px solid var(--default-border-color-gradient-050);
 
-  -ms-animation: var(--fadeInAnimation);
-  -webkit-animation: var(--fadeInAnimation);
-  -moz-animation: var(--fadeInAnimation);
-  -o-animation: var(--fadeInAnimation);
-  animation: var(--fadeInAnimation);
+    -ms-animation: var(--fadeInAnimation);
+    -webkit-animation: var(--fadeInAnimation);
+    -moz-animation: var(--fadeInAnimation);
+    -o-animation: var(--fadeInAnimation);
+    animation: var(--fadeInAnimation);
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

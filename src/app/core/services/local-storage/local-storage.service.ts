@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LOCAL_STORAGE_KEY } from '../../constants/local-storage.constant';
+import { LOCAL_STORAGE_KEY } from '@constants/local-storage.constant';
 
 @Injectable({
     providedIn: 'root',
@@ -37,7 +37,7 @@ export class LocalStorageService {
         localStorage.setItem(localStorageKey, localStorageValue);
     }
 
-    public getLocalStorageTokenItem(): string {
+    get getLocalStorageTokenItem(): string {
         const token: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.TOKEN);
 
         if (!token || !token.length) {

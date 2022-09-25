@@ -2,16 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { LANGUAGE } from './constants/language.constant';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HeadersInterceptor } from './core/interceptors/headers.interceptor';
+import { LANGUAGE } from '@constants/language.constant';
+import { HomeModule } from './modules/home/home.module';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    template: `<router-outlet></router-outlet>`,
-    imports: [CommonModule, RouterModule],
-    providers: [{ provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptor, multi: true }],
+    template: `<lnk-home></lnk-home>`,
+    imports: [CommonModule, RouterModule, HomeModule],
 })
 export class AppComponent {
     constructor(translateService: TranslateService) {

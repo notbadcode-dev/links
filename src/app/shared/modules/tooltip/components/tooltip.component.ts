@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lnk-tooltip',
-  templateUrl: './tooltip.component.html',
-  styleUrls: ['./tooltip.component.scss'],
+    selector: 'lnk-tooltip',
+    templateUrl: './tooltip.component.html',
+    styleUrls: ['./tooltip.component.scss'],
 })
 export class TooltipComponent implements OnInit {
-  tooltip: string = '';
-  left: number = 0;
-  top: number = 0;
+    tooltip: string = '';
+    left: number = 0;
+    top: number = 0;
 
-  constructor() {}
+    constructor() {}
 
-  ngOnInit(): void {}
+    ngOnInit(): void {}
 }

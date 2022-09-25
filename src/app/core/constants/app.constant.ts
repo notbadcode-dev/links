@@ -1,3 +1,3 @@
 export const APP_CONSTANT = {
-  MASTER_HOTKEY: "CTRL",
+    MASTER_HOTKEY: 'CTRL',
 };
