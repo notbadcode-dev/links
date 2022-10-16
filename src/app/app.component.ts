@@ -8,6 +8,13 @@ import { HomeModule } from './modules/home/home.module';
 @Component({
     selector: 'app-root',
     standalone: true,
+    styles: [
+        `
+            :host {
+                height: 100%;
+            }
+        `,
+    ],
     template: `<lnk-home></lnk-home>`,
     imports: [CommonModule, RouterModule, HomeModule],
 })

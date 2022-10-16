@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from '@auth/auth.service';
-import { UserLogin } from '@models/user-login.model';
-import { LocalStorageService } from '@services/local-storage/local-storage.service';
+import { UserLogin } from '@app/core/models/user.model';
 import { UserLoginForm } from './user-login.interface';
+import { SessionService } from '@app/core/services/session/session.service';
 
 @Component({
     selector: 'lnk-user-login',
@@ -20,7 +20,7 @@ export class UserLoginComponent implements OnInit {
 
     userLoginForm!: FormGroup;
 
-    constructor(private _formBuilder: FormBuilder, private _authService: AuthService, private _localStorageService: LocalStorageService) {}
+    constructor(private _authService: AuthService, private _sessionService: SessionService) {}
 
     ngOnInit(): void {
         this.initializeUserLoginForm();
@@ -62,8 +62,7 @@ export class UserLoginComponent implements OnInit {
             if (!token || !token.length) {
                 return;
             }
-
-            this._localStorageService.setLocalStorageTokenItem(token);
+            this._sessionService.initializeSession(token);
         });
     }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '@app/core/models/user.model';
 import { LOCAL_STORAGE_KEY } from '@constants/local-storage.constant';
 
 @Injectable({
@@ -30,11 +31,15 @@ export class LocalStorageService {
         }
 
         if (typeof localStorageValue === 'object' && localStorageValue !== null) {
-            localStorage.setItem(localStorageKey, JSON.parse(localStorageValue));
+            localStorage.setItem(localStorageKey, JSON.stringify(localStorageValue));
             return;
         }
 
         localStorage.setItem(localStorageKey, localStorageValue);
+    }
+
+    public removeAllLocalStorage(): void {
+        localStorage.clear();
     }
 
     get getLocalStorageTokenItem(): string {
@@ -52,5 +57,22 @@ export class LocalStorageService {
             return;
         }
         this.setLocalStorageItem(LOCAL_STORAGE_KEY.TOKEN, token);
+    }
+
+    get getLocalStorageUserItem(): string {
+        const token: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.USER_DATA);
+
+        if (!token || !token.length) {
+            return '';
+        }
+
+        return token;
+    }
+
+    public setLocalStorageUserItem(user: User): void {
+        if (!user || !user.id || !user.userName || !user.userName.length) {
+            return;
+        }
+        this.setLocalStorageItem(LOCAL_STORAGE_KEY.USER_DATA, user);
     }
 }

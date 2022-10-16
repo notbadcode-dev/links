@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
@@ -14,21 +14,30 @@ export class HeadersInterceptor implements HttpInterceptor {
             return next.handle(_request);
         }
 
-        let request: HttpRequest<unknown> = this.addHeaderToRequest(
-            _request,
-            HTTP_HEADERS.CONTENT_TYPE.KEY,
-            HTTP_HEADERS.CONTENT_TYPE.VALUES.APPLICATION_JSON
-        );
+        // let request: HttpRequest<unknown> = this.addHeaderToRequest(
+        //     _request,
+        //     HTTP_HEADERS.CONTENT_TYPE.KEY,
+        //     HTTP_HEADERS.CONTENT_TYPE.VALUES.APPLICATION_JSON
+        // );
+
+        // const token: string = this._localStorageService?.getLocalStorageTokenItem ?? null;
+
+        // if (!token || !token.length) {
+        //     return next.handle(request);
+        // }
+
+        // request = this.addHeaderToRequest(request, HTTP_HEADERS.AUTHOTIZATION.KEY, token);
 
         const token: string = this._localStorageService?.getLocalStorageTokenItem ?? null;
 
-        if (!token || !token.length) {
-            return next.handle(request);
-        }
+        _request = _request.clone({
+            headers: new HttpHeaders({
+                [HTTP_HEADERS.CONTENT_TYPE.KEY]: HTTP_HEADERS.CONTENT_TYPE.VALUES.APPLICATION_JSON,
+                [HTTP_HEADERS.AUTHOTIZATION.KEY]: token,
+            }),
+        });
 
-        request = this.addHeaderToRequest(request, HTTP_HEADERS.AUTHOTIZATION.KEY, token);
-
-        return next.handle(request);
+        return next.handle(_request);
     }
 
     /**

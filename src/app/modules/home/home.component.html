@@ -1,2 +1,8 @@
-<lnk-sidebar></lnk-sidebar>
-<router-outlet></router-outlet>
+<div class="container">
+    <aside [hidden]="$hiddenSidebar | async">
+        <lnk-sidebar></lnk-sidebar>
+    </aside>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</div>

@@ -1,0 +1,24 @@
+.sidebar-container {
+    > * {
+        width: 100%;
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    display: grid;
+    grid-template-columns: 'header main footer';
+
+    footer {
+        align-self: flex-end;
+    }
+}

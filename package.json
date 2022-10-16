@@ -38,6 +38,7 @@
         "@angular/router": "^14.1.0",
         "@ngx-translate/core": "^14.0.0",
         "@ngx-translate/http-loader": "^7.0.0",
+        "dayjs": "^1.11.5",
         "i": "^0.3.7",
         "module-alias": "^2.2.2",
         "npm": "^8.17.0",
