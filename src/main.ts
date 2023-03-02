@@ -15,7 +15,6 @@ import APP_TRANSLATE_FOR_ROOT from './app/app.translate';
 import { interceptorProviders } from './app/core/interceptors/interceptor.index';
 import { LocalStorageService } from '@app/core/services/local-storage/local-storage.service';
 import { AppInitService } from '@app/core/services/app-init/app-init.service';
-import { SidebarService } from '@app/modules/sidebar/services/sidebar.service';
 import { SessionService } from '@app/core/services/session/session.service';
 
 if (environment.production) {
@@ -24,7 +23,11 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(RouterModule.forRoot(APP_ROUTES_FOR_ROOT), TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT), HttpClientModule),
+        importProvidersFrom(
+            RouterModule.forRoot(APP_ROUTES_FOR_ROOT),
+            TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT),
+            HttpClientModule
+        ),
         {
             provide: APP_INITIALIZER,
             useFactory: initializeApp,
@@ -35,7 +38,11 @@ bootstrapApplication(AppComponent, {
     ],
 }).catch(err => console.error(err));
 
-export function initializeApp(appInitService: AppInitService, localStorageService: LocalStorageService, sessionService: SessionService) {
+export function initializeApp(
+    appInitService: AppInitService,
+    localStorageService: LocalStorageService,
+    sessionService: SessionService
+) {
     return (): Promise<any> => {
         return appInitService.Init(localStorageService, sessionService);
     };

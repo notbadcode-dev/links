@@ -11,8 +11,15 @@ export class AppInitService {
 
     Init(localStorageService: LocalStorageService, sessionService: SessionService) {
         return new Promise<void>((resolve, reject) => {
-            console.info('Initialize wiwth AppInitService.init()');
+            console.info('Initialize with AppInitService.init()');
+            if (!localStorageService || !sessionService) {
+                sessionService.destroySession();
+            }
+
             const token: string = localStorageService.getLocalStorageTokenItem;
+            if (!token) {
+                sessionService.destroySession();
+            }
 
             if (token) {
                 sessionService.initializeSession(token);

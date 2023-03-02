@@ -1,9 +1,20 @@
-<form [formGroup]="userLoginForm">
-    <label for="userName">Username: </label>
-    <input id="userName" type="text" formControlName="userName" autocomplete="off" />
+<article class="container">
+    <section>
+        <img src="../../../../../assets/images/user-login-background.png" alt="" />
+    </section>
+    <section>
+        <form [formGroup]="userLoginForm">
+            <label for="userName">Username: </label>
+            <input id="userName" type="text" formControlName="userName" autocomplete="off" />
 
-    <label for="paraphrase">Password: </label>
-    <input id="paraphrase" type="password" formControlName="paraphrase" autocomplete="off" />
+            <label for="paraphrase">Password: </label>
+            <input
+                id="paraphrase"
+                type="password"
+                formControlName="paraphrase"
+                autocomplete="off" />
 
-    <button (click)="userSign()">Login</button>
-</form>
+            <button title="User Sign" type="submit" (click)="userSign()">Login</button>
+        </form>
+    </section>
+</article>
