@@ -10,7 +10,7 @@ import { map, Observable } from 'rxjs';
 export class LinkGroupService {
     private controller = 'linkGroup';
     private endpoints = {
-        reorderLink: `${environment.notBadCodeApi}/${this.controller}/reorderLink`,
+        reorderLink: `${environment.linkApi}/${this.controller}/reorderLink`,
     };
 
     constructor(private _http: HttpClient) {}
@@ -21,8 +21,6 @@ export class LinkGroupService {
      * @returns Observable<number> - Created user link id
      */
     create(reorderLinkRequest: ReorderLinkRequest): Observable<number> {
-        return this._http
-            .post(this.endpoints.reorderLink, reorderLinkRequest)
-            .pipe(map((result: any) => result));
+        return this._http.post(this.endpoints.reorderLink, reorderLinkRequest).pipe(map((result: any) => result));
     }
 }

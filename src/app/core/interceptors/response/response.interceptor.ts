@@ -8,12 +8,12 @@ import { HttpResponseBody } from '@models/http-response.model';
 export class ResponseInterceptor implements HttpInterceptor {
     constructor() {}
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if (!request.url.includes(environment.notBadCodeApi)) {
-            return next.handle(request);
+    intercept(_request: HttpRequest<any>, _next: HttpHandler): Observable<HttpEvent<unknown>> {
+        if (!_request.url.includes(environment.authApi) && !_request.url.includes(environment.linkApi)) {
+            return _next.handle(_request);
         }
 
-        return next.handle(request).pipe(
+        return _next.handle(_request).pipe(
             map(event => {
                 if (!this.validateArgumentsForInterceptorHandlerRequest(event)) {
                     return event;

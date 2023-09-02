@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '@app/core/models/user.model';
+import { IUser } from '@app/core/models/user/user.model';
 import { LOCAL_STORAGE_KEY } from '@constants/local-storage.constant';
 
 @Injectable({
@@ -69,7 +69,7 @@ export class LocalStorageService {
         return token;
     }
 
-    public setLocalStorageUserItem(user: User): void {
+    public setLocalStorageUserItem(user: IUser): void {
         if (!user || !user.id || !user.userName || !user.userName.length) {
             return;
         }

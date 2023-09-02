@@ -9,9 +9,9 @@ import { HTTP_HEADERS } from '@constants/http-header.constant';
 export class HeadersInterceptor implements HttpInterceptor {
     constructor(private _localStorageService: LocalStorageService) {}
 
-    intercept(_request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if (!_request.url.includes(environment.notBadCodeApi)) {
-            return next.handle(_request);
+    intercept(_request: HttpRequest<unknown>, _next: HttpHandler): Observable<HttpEvent<unknown>> {
+        if (!_request.url.includes(environment.authApi) && !_request.url.includes(environment.linkApi)) {
+            return _next.handle(_request);
         }
 
         // let request: HttpRequest<unknown> = this.addHeaderToRequest(
@@ -37,7 +37,7 @@ export class HeadersInterceptor implements HttpInterceptor {
             }),
         });
 
-        return next.handle(_request);
+        return _next.handle(_request);
     }
 
     /**

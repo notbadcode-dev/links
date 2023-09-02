@@ -1,28 +1,32 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User, UserLogin } from '@app/core/models/user.model';
+import { IUser, IUserLogin } from '@app/core/models/user/user.model';
+import { HttpBaseService } from '../http-services/http-base/http-base.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
     private endpoints = {
-        getUser: `${environment.notBadCodeApi}/user/getUser`,
-        signIn: `${environment.notBadCodeApi}/auth/sign`,
-        signOut: `${environment.notBadCodeApi}/auth/signout`,
+        signIn: `${environment.authApi}/authentication/sign-in`,
     };
 
-    constructor(private _http: HttpClient) {}
+    //#region Constructor
+
+    constructor(private _http: HttpBaseService) {}
+
+    //#endregion
+
+    //#region Public method
 
     /**
      * @description Call API with user data for sign in APP
-     * @param  {UserLogin} userLogin
+     * @param  {IUserLogin} userLogin
      * @returns Observable<string> - token
      */
-    public userSignIn(userLogin: UserLogin): Observable<string> {
-        return this._http.post(this.endpoints.signIn, userLogin).pipe(
+    public userSignIn(userLogin: IUserLogin): Observable<string> {
+        return this._http.httpPost(this.endpoints.signIn, userLogin).pipe(
             map((result: any) => {
                 return `${result}`;
             })
@@ -31,18 +35,26 @@ export class AuthService {
 
     /**
      * @description Call API with user data for sign in APP
-     * @param  {UserLogin} userLogin
+     * @param  {IUserLogin} userLogin
      * @returns Observable<string> - token
      */
-    public getUserByToken(token: string): Observable<User> {
+    public getUserByToken(token: string): Observable<IUser> {
         if (!token || !token.length) {
             return EMPTY;
         }
 
-        return this._http.get(this.endpoints.getUser).pipe(
+        return this._http.httpGet(this.endpoints.signIn).pipe(
             map((result: any) => {
                 return result;
             })
         );
     }
+
+    //#endregion
+
+    //#region Private methods
+
+    private get;
+
+    //#endregion
 }

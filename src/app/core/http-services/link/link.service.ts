@@ -11,13 +11,13 @@ import { map, Observable } from 'rxjs';
 export class LinkService {
     private controller = 'link';
     private endpoints = {
-        getAllUserLink: `${environment.notBadCodeApi}/${this.controller}/getAll?active=1&favorite=1`,
-        getAllUserLinkByGroupId: `${environment.notBadCodeApi}/${this.controller}/getLinkByUserLinkIdAndUserId/{0}`,
-        createUserLink: `${environment.notBadCodeApi}/${this.controller}/create`,
-        updateUserLink: `${environment.notBadCodeApi}/${this.controller}/update`,
-        deleteUserLink: `${environment.notBadCodeApi}/${this.controller}/delete/{0}`,
-        toggleFavoriteUserLink: `${environment.notBadCodeApi}/${this.controller}/toggleFavorite/{0}`,
-        toggleActiveUserLink: `${environment.notBadCodeApi}/${this.controller}/toggleActive/{0}`,
+        getAllUserLink: `${environment.linkApi}/${this.controller}/getAll?active=1&favorite=1`,
+        getAllUserLinkByGroupId: `${environment.linkApi}/${this.controller}/getLinkByUserLinkIdAndUserId/{0}`,
+        createUserLink: `${environment.linkApi}/${this.controller}/create`,
+        updateUserLink: `${environment.linkApi}/${this.controller}/update`,
+        deleteUserLink: `${environment.linkApi}/${this.controller}/delete/{0}`,
+        toggleFavoriteUserLink: `${environment.linkApi}/${this.controller}/toggleFavorite/{0}`,
+        toggleActiveUserLink: `${environment.linkApi}/${this.controller}/toggleActive/{0}`,
     };
 
     constructor(private _http: HttpClient, private _utilStringService: UtilStringService) {}
@@ -39,9 +39,7 @@ export class LinkService {
      * @returns Observable<UserLink[]>
      */
     getAllFavorite(): Observable<UserLink[]> {
-        return this.getAll().pipe(
-            map((result: UserLink[]) => result.filter((result: UserLink) => result.favorite))
-        );
+        return this.getAll().pipe(map((result: UserLink[]) => result.filter((result: UserLink) => result.favorite)));
     }
 
     /**
@@ -49,9 +47,7 @@ export class LinkService {
      * @returns Observable<UserLink[]>
      */
     getAllDeactivate(): Observable<UserLink[]> {
-        return this.getAll().pipe(
-            map((result: UserLink[]) => result.filter((result: UserLink) => !result.active))
-        );
+        return this.getAll().pipe(map((result: UserLink[]) => result.filter((result: UserLink) => !result.active)));
     }
 
     /**
@@ -59,17 +55,11 @@ export class LinkService {
      * @returns Observable<UserLink[]>
      */
     getAllByGroupId(groupId: number): Observable<UserLink[]> {
-        return this._http
-            .get(
-                this._utilStringService.formatString(this.endpoints.getAllUserLinkByGroupId, [
-                    groupId,
-                ])
-            )
-            .pipe(
-                map((result: any) => {
-                    return UserLinkHelper.mapToObjectList<UserLink>(result);
-                })
-            );
+        return this._http.get(this._utilStringService.formatString(this.endpoints.getAllUserLinkByGroupId, [groupId])).pipe(
+            map((result: any) => {
+                return UserLinkHelper.mapToObjectList<UserLink>(result);
+            })
+        );
     }
 
     /**
@@ -78,9 +68,7 @@ export class LinkService {
      * @returns Observable<number> - Created user link id
      */
     create(userLink: UserLink): Observable<number> {
-        return this._http
-            .post(this.endpoints.createUserLink, userLink)
-            .pipe(map((result: any) => result));
+        return this._http.post(this.endpoints.createUserLink, userLink).pipe(map((result: any) => result));
     }
 
     /**
@@ -89,9 +77,7 @@ export class LinkService {
      * @returns Observable<number> - Updated user link id
      */
     update(userLink: UserLink): Observable<number> {
-        return this._http
-            .put(this.endpoints.updateUserLink, userLink)
-            .pipe(map((result: any) => result));
+        return this._http.put(this.endpoints.updateUserLink, userLink).pipe(map((result: any) => result));
     }
 
     /**
@@ -100,11 +86,7 @@ export class LinkService {
      * @returns Observable<number> - Deleted user link id
      */
     delete(userLinkId: number): Observable<UserLink> {
-        return this._http
-            .delete(
-                this._utilStringService.formatString(this.endpoints.deleteUserLink, [userLinkId])
-            )
-            .pipe(map((result: any) => result));
+        return this._http.delete(this._utilStringService.formatString(this.endpoints.deleteUserLink, [userLinkId])).pipe(map((result: any) => result));
     }
 
     /**
@@ -114,12 +96,7 @@ export class LinkService {
      */
     toggleFavorite(userLinkId: number): Observable<UserLink> {
         return this._http
-            .put(
-                this._utilStringService.formatString(this.endpoints.toggleFavoriteUserLink, [
-                    userLinkId,
-                ]),
-                null
-            )
+            .put(this._utilStringService.formatString(this.endpoints.toggleFavoriteUserLink, [userLinkId]), null)
             .pipe(map((result: any) => UserLinkHelper.mapToObject(result)));
     }
 
@@ -130,12 +107,7 @@ export class LinkService {
      */
     toggleActive(userLinkId: number): Observable<UserLink> {
         return this._http
-            .put(
-                this._utilStringService.formatString(this.endpoints.toggleActiveUserLink, [
-                    userLinkId,
-                ]),
-                null
-            )
+            .put(this._utilStringService.formatString(this.endpoints.toggleActiveUserLink, [userLinkId]), null)
             .pipe(map((result: any) => UserLinkHelper.mapToObject(result)));
     }
 }

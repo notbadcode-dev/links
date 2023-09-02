@@ -1,5 +1,7 @@
 export interface IEnvironment {
+    applicationId: number;
     production: boolean;
     host: string;
-    notBadCodeApi: string;
+    authApi: string;
+    linkApi: string;
 }

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from '@auth/auth.service';
-import { UserLogin } from '@app/core/models/user.model';
+import { IUserLogin } from '@app/core/models/user/user.model';
 import { UserLoginForm } from './user-login.interface';
 import { SessionService } from '@app/core/services/session/session.service';
 
@@ -15,8 +15,8 @@ import { SessionService } from '@app/core/services/session/session.service';
     styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent implements OnInit {
-    // userName: 'notbadcode.dev@gmail.com',
-    // paraphrase: 'wAa$00ab',
+    // userName: 'notbadcode@gmail.com',
+    // password: 'wAa$00ab',
 
     userLoginForm!: FormGroup;
 
@@ -32,8 +32,8 @@ export class UserLoginComponent implements OnInit {
      */
     private initializeUserLoginForm(): void {
         this.userLoginForm = new FormGroup<UserLoginForm>({
-            userName: new FormControl('notbadcode.dev@gmail.com', { nonNullable: true }),
-            paraphrase: new FormControl('wAa$00ab', { nonNullable: true }),
+            userName: new FormControl('notbadcode@gmail.com', { nonNullable: true }),
+            password: new FormControl('6900', { nonNullable: true }),
         });
 
         this.userLoginFormValueChanges();
@@ -44,7 +44,7 @@ export class UserLoginComponent implements OnInit {
      * @returns void
      */
     private userLoginFormValueChanges(): void {
-        this.userLoginForm.valueChanges.subscribe((userLoginForm: UserLogin) => {
+        this.userLoginForm.valueChanges.subscribe((userLoginForm: IUserLogin) => {
             console.log(userLoginForm);
         });
     }
@@ -53,7 +53,8 @@ export class UserLoginComponent implements OnInit {
      * @description Call AuthService with user data for sign in APP
      * @returns Observable<string>
      */
-    private getUserSignObservable(userlogin: UserLogin): Observable<string> {
+    private getUserSignObservable(userlogin: IUserLogin): Observable<string> {
+        userlogin.applicationId = 1;
         return this._authService.userSignIn(userlogin);
     }
 

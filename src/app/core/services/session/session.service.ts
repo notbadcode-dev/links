@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@app/core/auth/auth.service';
 import { ABSOLUTE_ROUTES } from '@app/core/constants/routes.constant';
-import { User } from '@app/core/models/user.model';
+import { IUser } from '@app/core/models/user/user.model';
 import { SidebarService } from '@app/modules/sidebar/services/sidebar.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 
@@ -10,12 +10,7 @@ import { LocalStorageService } from '@services/local-storage/local-storage.servi
     providedIn: 'root',
 })
 export class SessionService {
-    constructor(
-        private _localStorageService: LocalStorageService,
-        private _sidebarService: SidebarService,
-        private _authService: AuthService,
-        private _router: Router
-    ) {}
+    constructor(private _localStorageService: LocalStorageService, private _sidebarService: SidebarService, private _authService: AuthService, private _router: Router) {}
 
     initializeSession(token: string): void {
         if (!token || !token.length) {
@@ -25,7 +20,7 @@ export class SessionService {
         this._localStorageService.setLocalStorageTokenItem(token);
 
         this._authService.getUserByToken(token).subscribe({
-            next: (response: User) => {
+            next: (response: IUser) => {
                 this._router.navigate([ABSOLUTE_ROUTES.LOGOUT]);
                 this._localStorageService.setLocalStorageUserItem(response);
                 this._sidebarService.setHiddenSidebar(false);
