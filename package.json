@@ -1,6 +1,9 @@
 {
     "name": "notbadcode.links",
     "description": "Web where to manage links of all kinds.",
+    "version": "1.0.0",
+    "license": "ISC",
+    "private": true,
     "author": {
         "name": "Carlos Balaguer Franch · Alias: NotBadCode",
         "email": "notbadcode.dev@gmail.com",
@@ -10,10 +13,10 @@
         "type": "git",
         "url": "https://github.com/notbadcode-dev/links.git"
     },
-    "license": "UNLICENSED",
-    "private": true,
     "homepage": "https://libl.ink",
-    "version": "1.0.0",
+    "config": {
+        "port": 3200
+    },
     "scripts": {
         "ng": "ng",
         "start": "ng serve --port=3200",
@@ -22,9 +25,6 @@
         "lint": "eslint --ignore-path .gitignore . --ext .ts",
         "lint:fix": "npm run lint --fix",
         "test": "ng test"
-    },
-    "config": {
-        "port": 3200
     },
     "dependencies": {
         "@angular/animations": "^14.1.0",
@@ -66,27 +66,5 @@
         "tsconfig-paths": "^4.1.0",
         "typescript": "~4.7.2"
     },
-    "keywords": [
-        "link",
-        "Link",
-        "LINK",
-        "liblink",
-        "Liblink",
-        "LibLink",
-        "LIBLINK",
-        "libl.ink",
-        "Libl.Ink",
-        "Libl.ink",
-        "LINB.INK",
-        "library",
-        "Library",
-        "LIBRARY",
-        "library link",
-        "Library link",
-        "library Link",
-        "LIBRARY LINK",
-        "notbadcode",
-        "NotBadCode",
-        "notBadCode"
-    ]
+    "tsconfig": "./tsconfig.json"
 }
