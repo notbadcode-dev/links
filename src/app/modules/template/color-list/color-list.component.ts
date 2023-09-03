@@ -1,7 +1,7 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TemplateColor } from '@models/template-color.model';
-import { ClipboardModule } from '@angular/cdk/clipboard';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -14,23 +14,31 @@ import { TranslateModule } from '@ngx-translate/core';
 export class ColorListComponent implements OnInit {
     public templateColorList: TemplateColor[] = [];
 
-    private primaryColorName: string = 'Primary color';
-    private primaryColorCode: string = '#4b2af2';
-    private passivePrimaryColorCode: string = '#c9bffb';
+    private primaryColorName = 'Primary color';
 
-    private secondaryColorName: string = 'Secondary color';
-    private secondaryColorCode: string = '#cccccc';
-    private passiveSecondaryColorCode: string = '#efefef';
+    private primaryColorCode = '#4b2af2';
 
-    private accentColorName: string = 'Accent color';
-    private accentColorCode: string = '#00ac7c';
-    private passiveAccentColorCode: string = '#b2e6d7';
+    private passivePrimaryColorCode = '#c9bffb';
 
-    private destructiveColorName: string = 'Destructive color';
-    private destructiveColorCode: string = '#d93057';
-    private passiveDestructiveColorCode: string = '#fbebef';
+    private secondaryColorName = 'Secondary color';
 
-    private passiveDescription: string = 'Passive';
+    private secondaryColorCode = '#cccccc';
+
+    private passiveSecondaryColorCode = '#efefef';
+
+    private accentColorName = 'Accent color';
+
+    private accentColorCode = '#00ac7c';
+
+    private passiveAccentColorCode = '#b2e6d7';
+
+    private destructiveColorName = 'Destructive color';
+
+    private destructiveColorCode = '#d93057';
+
+    private passiveDestructiveColorCode = '#fbebef';
+
+    private passiveDescription = 'Passive';
 
     constructor() {}
 

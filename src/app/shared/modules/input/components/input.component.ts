@@ -17,12 +17,14 @@ export class InputComponent implements OnInit {
     }
 
     @Output() onInputFocusEvent: EventEmitter<string> = new EventEmitter();
+
     @Output() onInputValueChangeEvent: EventEmitter<string> = new EventEmitter();
 
     public config!: InputConfig;
 
     public inputControl: FormControl = new FormControl('');
-    public isOptional: boolean = true;
+
+    public isOptional = true;
 
     public errorMessage = ERROR_INPUT_MESSAGE;
 

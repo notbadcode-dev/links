@@ -9,14 +9,14 @@ export const TEMPLATE_ROUTES: Routes = [
     },
     {
         path: RELATIVE_ROUTES.COLOR,
-        loadComponent: () => import('./color-list/color-list.component').then(c => c.ColorListComponent),
+        loadComponent: () => import('./color-list/color-list.component').then((c) => c.ColorListComponent),
     },
     {
         path: RELATIVE_ROUTES.BUTTON,
-        loadComponent: () => import('./button-list/button-list.component').then(c => c.ButtonListComponent),
+        loadComponent: () => import('./button-list/button-list.component').then((c) => c.ButtonListComponent),
     },
     {
         path: RELATIVE_ROUTES.INPUT,
-        loadComponent: () => import('./input-list/input-list.component').then(c => c.InputListComponent),
+        loadComponent: () => import('./input-list/input-list.component').then((c) => c.InputListComponent),
     },
 ];

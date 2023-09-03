@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonConfig, ButtonConfigHelper } from '@shared/modules/button/components/button.model';
-import { ButtonModule } from '@shared/modules/button/button.module';
+import { Component, OnInit } from '@angular/core';
 import { APP_CONSTANT } from '@constants/app.constant';
+import { ButtonModule } from '@shared/modules/button/button.module';
+import { ButtonConfig, ButtonConfigHelper } from '@shared/modules/button/components/button.model';
 
 @Component({
     selector: 'lnk-button-list',
@@ -12,39 +12,61 @@ import { APP_CONSTANT } from '@constants/app.constant';
     styleUrls: ['./button-list.component.scss'],
 })
 export class ButtonListComponent implements OnInit {
-    showButtonList: boolean = true;
+    showButtonList = true;
 
-    private primaryButtonText: string = 'Primary';
-    private primaryButtonTooltip: string = 'Primary action';
+    private primaryButtonText = 'Primary';
+
+    private primaryButtonTooltip = 'Primary action';
+
     public primaryButtonConfig!: ButtonConfig;
+
     public primaryButtonDisabledConfig!: ButtonConfig;
+
     public primaryButtonWithIconConfig!: ButtonConfig;
+
     public primaryButtonWithOnlyIconConfig!: ButtonConfig;
 
-    private secondaryButtonText: string = 'Secondary';
-    private secondaryButtonTooltip: string = 'Secondary action';
+    private secondaryButtonText = 'Secondary';
+
+    private secondaryButtonTooltip = 'Secondary action';
+
     public secondaryButtonConfig!: ButtonConfig;
+
     public secondaryButtonDisabledConfig!: ButtonConfig;
+
     public secondaryButtonWithIconConfig!: ButtonConfig;
+
     public secondaryButtonWithOnlyIconConfig!: ButtonConfig;
 
-    private accentButtonText: string = 'Accent';
-    private accentButtonTooltip: string = 'Special action';
+    private accentButtonText = 'Accent';
+
+    private accentButtonTooltip = 'Special action';
+
     public accentButtonConfig!: ButtonConfig;
+
     public accentButtonDisabledConfig!: ButtonConfig;
+
     public accentButtonWithIconConfig!: ButtonConfig;
+
     public accentButtonWithOnlyIconConfig!: ButtonConfig;
 
-    private destructiveButtonText: string = 'Destructive';
-    private destructiveButtonTooltip: string = 'Destructive action';
+    private destructiveButtonText = 'Destructive';
+
+    private destructiveButtonTooltip = 'Destructive action';
+
     public destructiveButtonConfig!: ButtonConfig;
+
     public destructiveButtonDisabledConfig!: ButtonConfig;
+
     public destructiveButtonWithIconConfig!: ButtonConfig;
+
     public destructiveButtonWithOnlyIconConfig!: ButtonConfig;
 
-    private linkIcon: string = 'ri-link';
-    private heartIcon: string = 'ri-heart-fill';
-    private timesIcon: string = 'ri-close-line';
+    private linkIcon = 'ri-link';
+
+    private heartIcon = 'ri-heart-fill';
+
+    private timesIcon = 'ri-close-line';
 
     constructor() {}
 

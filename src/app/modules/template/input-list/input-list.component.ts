@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputModule } from '@shared/modules/input/input.module';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputConfig, InputConfigHelper } from '@shared/modules/input/components/input.model';
+import { InputModule } from '@shared/modules/input/input.module';
 
 @Component({
     selector: 'lnk-input-list',
@@ -15,27 +15,43 @@ export class InputListComponent implements OnInit {
     inputListForm!: FormGroup;
 
     onlyInputConfig!: InputConfig;
+
     disabledInputConfig!: InputConfig;
+
     errorRequiredInputConfig!: InputConfig;
+
     hintInputConfig!: InputConfig;
+
     placeholderInputConfig!: InputConfig;
 
     prependOnlyInputConfig!: InputConfig;
+
     prependDisabledInputConfig!: InputConfig;
+
     prependErrorRequiredInputConfig!: InputConfig;
+
     prependHintInputConfig!: InputConfig;
+
     prependPlaceholderInputConfig!: InputConfig;
 
     appendOnlyInputConfig!: InputConfig;
+
     appendDisabledInputConfig!: InputConfig;
+
     appendErrorRequiredInputConfig!: InputConfig;
+
     appendHintInputConfig!: InputConfig;
+
     appendPlaceholderInputConfig!: InputConfig;
 
     prependAppendOnlyInputConfig!: InputConfig;
+
     prependAppendDisabledInputConfig!: InputConfig;
+
     prependAppendErrorRequiredInputConfig!: InputConfig;
+
     prependAppendHintInputConfig!: InputConfig;
+
     prependAppendPlaceholderInputConfig!: InputConfig;
 
     constructor(private formBuilder: FormBuilder) {}
@@ -83,8 +99,8 @@ export class InputListComponent implements OnInit {
         };
         this.onlyInputConfig = baseInputConfig;
 
-        const prependIcon: string = 'ri-user-line';
-        const prependIconTooltip: string = 'Prepend tooltip';
+        const prependIcon = 'ri-user-line';
+        const prependIconTooltip = 'Prepend tooltip';
 
         this.prependOnlyInputConfig = {
             ...baseInputConfig,
@@ -93,8 +109,8 @@ export class InputListComponent implements OnInit {
             prependTooltip: prependIconTooltip,
         };
 
-        const appendIcon: string = 'ri-user-line';
-        const appendIconTooltip: string = 'Append tooltip';
+        const appendIcon = 'ri-user-line';
+        const appendIconTooltip = 'Append tooltip';
 
         this.appendOnlyInputConfig = {
             ...baseInputConfig,
@@ -121,8 +137,8 @@ export class InputListComponent implements OnInit {
         };
         this.disabledInputConfig = baseInputConfig;
 
-        const prependIcon: string = 'ri-user-line';
-        const prependIconTooltip: string = 'Prepend tooltip';
+        const prependIcon = 'ri-user-line';
+        const prependIconTooltip = 'Prepend tooltip';
 
         this.prependDisabledInputConfig = {
             ...baseInputConfig,
@@ -131,8 +147,8 @@ export class InputListComponent implements OnInit {
             prependTooltip: prependIconTooltip,
         };
 
-        const appendIcon: string = 'ri-user-line';
-        const appendIconTooltip: string = 'Append tooltip';
+        const appendIcon = 'ri-user-line';
+        const appendIconTooltip = 'Append tooltip';
 
         this.appendDisabledInputConfig = {
             ...baseInputConfig,
@@ -159,8 +175,8 @@ export class InputListComponent implements OnInit {
         };
         this.errorRequiredInputConfig = baseInputConfig;
 
-        const prependIcon: string = 'ri-user-line';
-        const prependIconTooltip: string = 'Prepend tooltip';
+        const prependIcon = 'ri-user-line';
+        const prependIconTooltip = 'Prepend tooltip';
 
         this.prependErrorRequiredInputConfig = {
             ...baseInputConfig,
@@ -169,8 +185,8 @@ export class InputListComponent implements OnInit {
             prependTooltip: prependIconTooltip,
         };
 
-        const appendIcon: string = 'ri-user-line';
-        const appendIconTooltip: string = 'Append tooltip';
+        const appendIcon = 'ri-user-line';
+        const appendIconTooltip = 'Append tooltip';
 
         this.appendErrorRequiredInputConfig = {
             ...baseInputConfig,
@@ -188,7 +204,7 @@ export class InputListComponent implements OnInit {
     }
 
     generateHintInputList(): void {
-        const title: string = 'This is a input with hint';
+        const title = 'This is a input with hint';
         const baseInputConfig = {
             ...InputConfigHelper.defaultInputConfig(),
             label: 'Hint input',
@@ -198,8 +214,8 @@ export class InputListComponent implements OnInit {
         };
         this.hintInputConfig = baseInputConfig;
 
-        const prependIcon: string = 'ri-user-line';
-        const prependIconTooltip: string = 'Prepend tooltip';
+        const prependIcon = 'ri-user-line';
+        const prependIconTooltip = 'Prepend tooltip';
 
         this.prependHintInputConfig = {
             ...baseInputConfig,
@@ -208,8 +224,8 @@ export class InputListComponent implements OnInit {
             prependTooltip: prependIconTooltip,
         };
 
-        const appendIcon: string = 'ri-user-line';
-        const appendIconTooltip: string = 'Append tooltip';
+        const appendIcon = 'ri-user-line';
+        const appendIconTooltip = 'Append tooltip';
 
         this.appendHintInputConfig = {
             ...baseInputConfig,
@@ -236,8 +252,8 @@ export class InputListComponent implements OnInit {
         };
         this.placeholderInputConfig = baseInputConfig;
 
-        const prependIcon: string = 'ri-user-line';
-        const prependIconTooltip: string = 'Prepend tooltip';
+        const prependIcon = 'ri-user-line';
+        const prependIconTooltip = 'Prepend tooltip';
 
         this.prependPlaceholderInputConfig = {
             ...baseInputConfig,
@@ -246,8 +262,8 @@ export class InputListComponent implements OnInit {
             prependTooltip: prependIconTooltip,
         };
 
-        const appendIcon: string = 'ri-user-line';
-        const appendIconTooltip: string = 'Append tooltip';
+        const appendIcon = 'ri-user-line';
+        const appendIconTooltip = 'Append tooltip';
 
         this.appendPlaceholderInputConfig = {
             ...baseInputConfig,

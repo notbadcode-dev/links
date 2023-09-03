@@ -9,18 +9,18 @@ export const USER_ROUTES: Routes = [
     },
     {
         path: RELATIVE_ROUTES.LOGIN,
-        loadComponent: () => import('./components/user-login/user-login.component').then(c => c.UserLoginComponent),
+        loadComponent: () => import('./components/user-login/user-login.component').then((c) => c.UserLoginComponent),
     },
     {
         path: RELATIVE_ROUTES.LOGOUT,
-        loadComponent: () => import('./components/user-logout/user-logout.component').then(c => c.UserLogoutComponent),
+        loadComponent: () => import('./components/user-logout/user-logout.component').then((c) => c.UserLogoutComponent),
     },
     {
         path: RELATIVE_ROUTES.SIGN_IN,
-        loadComponent: () => import('./components/user-signin/user-signin.component').then(c => c.UserSigninComponent),
+        loadComponent: () => import('./components/user-signin/user-signin.component').then((c) => c.UserSigninComponent),
     },
     {
         path: RELATIVE_ROUTES.RECOVERY,
-        loadComponent: () => import('./components/user-recovery/user-recovery.component').then(c => c.UserRecoveryComponent),
+        loadComponent: () => import('./components/user-recovery/user-recovery.component').then((c) => c.UserRecoveryComponent),
     },
 ];

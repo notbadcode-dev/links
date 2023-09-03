@@ -10,6 +10,7 @@ import { map, Observable } from 'rxjs';
 })
 export class LinkService {
     private controller = 'link';
+
     private endpoints = {
         getAllUserLink: `${environment.linkApi}/${this.controller}/getAll?active=1&favorite=1`,
         getAllUserLinkByGroupId: `${environment.linkApi}/${this.controller}/getLinkByUserLinkIdAndUserId/{0}`,

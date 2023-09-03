@@ -9,6 +9,7 @@ import { map, Observable } from 'rxjs';
 })
 export class LinkGroupService {
     private controller = 'linkGroup';
+
     private endpoints = {
         reorderLink: `${environment.linkApi}/${this.controller}/reorderLink`,
     };
