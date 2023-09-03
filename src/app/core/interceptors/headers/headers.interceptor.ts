@@ -1,9 +1,9 @@
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders } from '@angular/common/http';
+import { LocalStorageService } from '@app/core/services/local-storage/local-storage.service';
+import { HTTP_HEADERS } from '@constants/http-header.constant';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from '@services/local-storage/local-storage.service';
-import { HTTP_HEADERS } from '@constants/http-header.constant';
 
 @Injectable()
 export class HeadersInterceptor implements HttpInterceptor {

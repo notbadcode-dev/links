@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { FORMAT_DATE } from '@app/core/constants/format-dates.constant';
-import { UtilDateService } from '../util-date/util-date.service';
+import { UtilDateService } from '@app/core/services/util/util-date/util-date.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class UtilStringService {
-    constructor() {}
-
     /**
      * @description Format string with parameters
      * @param  {string} formattedData
@@ -15,7 +13,7 @@ export class UtilStringService {
      */
     public formatString(formattedData: string, parameterDataList: (string | number | Date)[]): string {
         return parameterDataList
-            .map(value => this.convertToString(value))
+            .map((value) => this.convertToString(value))
             .reduce((previousValue, value, index) => {
                 return (formattedData = formattedData.replace(`{${index}}`, value));
             }, '');

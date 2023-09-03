@@ -1,8 +1,8 @@
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.dev';
+import { environment } from '@environment/environment';
 import { HttpResponseBody } from '@models/http-response.model';
+import { map, Observable } from 'rxjs';
 
 @Injectable()
 export class ResponseInterceptor implements HttpInterceptor {
@@ -14,13 +14,13 @@ export class ResponseInterceptor implements HttpInterceptor {
         }
 
         return _next.handle(_request).pipe(
-            map(event => {
+            map((event) => {
                 if (!this.validateArgumentsForInterceptorHandlerRequest(event)) {
                     return event;
                 }
 
-                const transformbBody: any = this.setResponseDataOnRequestBody(event);
-                return transformbBody;
+                const TRANSFORM_BODY: any = this.setResponseDataOnRequestBody(event);
+                return TRANSFORM_BODY;
             })
         );
     }

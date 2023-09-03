@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SidebarService } from '@app/modules/sidebar/services/sidebar.service';
-import { LocalStorageService } from '@services/local-storage/local-storage.service';
-import { SessionService } from '../session/session.service';
+import { LocalStorageService } from '@app/core/services/local-storage/local-storage.service';
+import { SessionService } from '@app/core/services/session/session.service';
 
 @Injectable({
     providedIn: 'root',

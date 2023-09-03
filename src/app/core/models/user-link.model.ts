@@ -1,4 +1,4 @@
-import { UtilHelper } from './util.mode';
+import { UtilHelper } from './util.model';
 
 export class UserLink {
     constructor(
@@ -21,11 +21,7 @@ export class UserLink {
 export class UserLinkHelper extends UtilHelper {}
 
 export class ReorderLinkRequest {
-    constructor(
-        public groupId: number,
-        public newLinkIdOnPosition: number,
-        public lastLinkIdOnPosition: number
-    ) {}
+    constructor(public groupId: number, public newLinkIdOnPosition: number, public lastLinkIdOnPosition: number) {}
 }
 
 export class ReorderLinkResponse {

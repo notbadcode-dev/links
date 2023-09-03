@@ -86,7 +86,9 @@ export class LinkService {
      * @returns Observable<number> - Deleted user link id
      */
     delete(userLinkId: number): Observable<UserLink> {
-        return this._http.delete(this._utilStringService.formatString(this.endpoints.deleteUserLink, [userLinkId])).pipe(map((result: any) => result));
+        return this._http
+            .delete(this._utilStringService.formatString(this.endpoints.deleteUserLink, [userLinkId]))
+            .pipe(map((result: any) => result));
     }
 
     /**

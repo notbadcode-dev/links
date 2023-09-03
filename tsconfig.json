@@ -2,62 +2,37 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-      "baseUrl": "./",
-      "outDir": "./dist/out-tsc",
-      "forceConsistentCasingInFileNames": true,
-      "strict": true,
-      "noImplicitOverride": true,
-      "noPropertyAccessFromIndexSignature": true,
-      "noImplicitReturns": true,
-      "noFallthroughCasesInSwitch": true,
-      "sourceMap": true,
-      "declaration": false,
-      "downlevelIteration": true,
-      "experimentalDecorators": true,
-      "moduleResolution": "node",
-      "importHelpers": true,
-      "target": "ES2022",
-      "module": "es2020",
-      "lib": [
-        "es2020",
-        "dom"
-      ],
-      "paths": {
-        "@app/*": [
-          "src/app/*"
-        ],
-        "@core/*": [
-          "src/app/core/*"
-        ],
-        "@auth/*": [
-          "src/app/core/auth/*"
-        ],
-        "@constants/*": [
-          "src/app/core/constants/*"
-        ],
-        "@enums/*": [
-          "src/app/core/enums/*"
-        ],
-        "@http-services/*": [
-          "src/app/core/http-services/*"
-        ],
-        "@models/*": [
-          "src/app/core/models/*"
-        ],
-        "@services/*": [
-          "src/app/core/services/*"
-        ],
-        "@shared/*": [
-          "src/app/shared/*"
-        ],
-        "@assets/*": [
-          "src/assets/*"
-        ],
-        "@environment/*": [
-          "src/environments/*"
-        ]
-      },
-      "useDefineForClassFields": false
+        "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitOverride": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "ES2022",
+        "module": "es2020",
+        "lib": ["es2020", "dom"],
+        "paths": {
+            "@app/*": ["src/app/*"],
+            "@auth/*": ["src/app/core/auth/*"],
+            "@constants/*": ["src/app/core/constants/*"],
+            "@enums/*": ["src/app/core/enums/*"],
+            "@http-services/*": ["src/app/core/http-services/*"],
+            "@models/*": ["src/app/core/models/*"],
+            "@services/*": ["src/app/core/services/*"],
+            "@shared/*": ["src/app/shared/*"],
+            "@modules/*": ["src/app/modules/*"],
+            "@assets/*": ["src/assets/*"],
+            "@environment/*": ["src/environments/*"]
+        },
+        "useDefineForClassFields": false
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,

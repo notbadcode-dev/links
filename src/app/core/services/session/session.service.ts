@@ -4,9 +4,9 @@ import { AuthService } from '@app/core/auth/service/auth.service';
 import { ABSOLUTE_ROUTES } from '@app/core/constants/routes.constant';
 import { IGetUserByToken } from '@app/core/models/user/get-user-by-token.model';
 import { IUser } from '@app/core/models/user/user.model';
+import { LocalStorageService } from '@app/core/services/local-storage/local-storage.service';
 import { SidebarService } from '@app/modules/sidebar/services/sidebar.service';
 import { environment } from '@environment/environment';
-import { LocalStorageService } from '@services/local-storage/local-storage.service';
 
 @Injectable({
     providedIn: 'root',

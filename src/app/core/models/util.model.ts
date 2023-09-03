@@ -4,8 +4,8 @@ export class UtilHelper {
     }
 
     static mapToObjectList<T>(objectList: T[]): T[] {
-        if (!objectList || !objectList.length) {
-            return [];
+        if (!objectList?.length) {
+            return new Array<T>();
         }
 
         return objectList.map((object: T) => this.mapToObject<T>(object));
