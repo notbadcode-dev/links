@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { AuthService } from '@auth/auth.service';
+import { AuthService } from '@app/core/auth/service/auth.service';
 import { IUserLogin } from '@app/core/models/user/user.model';
-import { UserLoginForm } from './user-login.interface';
 import { SessionService } from '@app/core/services/session/session.service';
+import { Observable } from 'rxjs';
+import { UserLoginForm } from './user-login.interface';
 
 @Component({
     selector: 'lnk-user-login',

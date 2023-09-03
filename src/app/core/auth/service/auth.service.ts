@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { EMPTY, map, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { HttpBaseService } from '@app/core/http-services/http-base/http-base.service';
+import { IGetUserByToken } from '@app/core/models/user/get-user-by-token.model';
 import { IUser, IUserLogin } from '@app/core/models/user/user.model';
-import { HttpBaseService } from '../http-services/http-base/http-base.service';
+import { EMPTY, map, Observable } from 'rxjs';
+import { AuthEndpointService } from './auth-endpoint.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    private endpoints = {
-        signIn: `${environment.authApi}/authentication/sign-in`,
-    };
-
     //#region Constructor
 
-    constructor(private _http: HttpBaseService) {}
+    constructor(private _httpBaseService: HttpBaseService, private _authEndpointService: AuthEndpointService) {}
 
     //#endregion
 
@@ -26,7 +23,7 @@ export class AuthService {
      * @returns Observable<string> - token
      */
     public userSignIn(userLogin: IUserLogin): Observable<string> {
-        return this._http.httpPost(this.endpoints.signIn, userLogin).pipe(
+        return this._httpBaseService.httpPost(this._authEndpointService.getSignInEndpoint, userLogin).pipe(
             map((result: any) => {
                 return `${result}`;
             })
@@ -38,12 +35,15 @@ export class AuthService {
      * @param  {IUserLogin} userLogin
      * @returns Observable<string> - token
      */
-    public getUserByToken(token: string): Observable<IUser> {
-        if (!token || !token.length) {
+    public getUserByToken(getUserByToken: IGetUserByToken): Observable<IUser> {
+        const TOKEN: string = getUserByToken?.token?.trim() ?? '';
+        const APPLICATION_ID: number = getUserByToken?.applicationId ?? 0;
+
+        if (!TOKEN?.length || !APPLICATION_ID) {
             return EMPTY;
         }
 
-        return this._http.httpGet(this.endpoints.signIn).pipe(
+        return this._httpBaseService.httpPost(this._authEndpointService.getUserByTokenEndpoint, getUserByToken).pipe(
             map((result: any) => {
                 return result;
             })
@@ -53,8 +53,6 @@ export class AuthService {
     //#endregion
 
     //#region Private methods
-
-    private get;
 
     //#endregion
 }

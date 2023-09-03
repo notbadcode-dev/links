@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@app/core/auth/auth.service';
+import { AuthService } from '@app/core/auth/service/auth.service';
 import { ABSOLUTE_ROUTES } from '@app/core/constants/routes.constant';
+import { IGetUserByToken } from '@app/core/models/user/get-user-by-token.model';
 import { IUser } from '@app/core/models/user/user.model';
 import { SidebarService } from '@app/modules/sidebar/services/sidebar.service';
+import { environment } from '@environment/environment';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class SessionService {
-    constructor(private _localStorageService: LocalStorageService, private _sidebarService: SidebarService, private _authService: AuthService, private _router: Router) {}
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _sidebarService: SidebarService,
+        private _authService: AuthService,
+        private _router: Router
+    ) {}
 
     initializeSession(token: string): void {
         if (!token || !token.length) {
@@ -19,13 +26,17 @@ export class SessionService {
 
         this._localStorageService.setLocalStorageTokenItem(token);
 
-        this._authService.getUserByToken(token).subscribe({
+        const GET_USER_BY_TOKEN: IGetUserByToken = {
+            applicationId: environment.applicationId,
+            token: token,
+        };
+        this._authService.getUserByToken(GET_USER_BY_TOKEN).subscribe({
             next: (response: IUser) => {
                 this._router.navigate([ABSOLUTE_ROUTES.LOGOUT]);
                 this._localStorageService.setLocalStorageUserItem(response);
                 this._sidebarService.setHiddenSidebar(false);
             },
-            error: e => {
+            error: (e) => {
                 this.destroySession();
             },
         });
