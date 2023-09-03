@@ -9,7 +9,5 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./user-logout.component.scss'],
 })
 export class UserLogoutComponent implements OnInit {
-    constructor() {}
-
     ngOnInit(): void {}
 }

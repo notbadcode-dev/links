@@ -17,7 +17,7 @@ import { TooltipComponent } from '../../tooltip/components/tooltip.component';
 export class TooltipDirective {
     @Input() tooltip = '';
 
-    private componentRef: ComponentRef<any> | null = null;
+    private componentRef: ComponentRef<TooltipComponent> | null = null;
 
     constructor(
         private elementRef: ElementRef,
@@ -45,7 +45,7 @@ export class TooltipDirective {
         const COMPONENT_FACTORY = this.componentFactoryResolver.resolveComponentFactory(TooltipComponent);
         this.componentRef = COMPONENT_FACTORY.create(this.injector);
         this.appRef.attachView(this.componentRef.hostView);
-        const DOM_ELEMENT = (this.componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+        const DOM_ELEMENT = (this.componentRef.hostView as EmbeddedViewRef<TooltipComponent>).rootNodes[0] as HTMLElement;
         document.body.appendChild(DOM_ELEMENT);
         this.setTooltipComponentProperties();
     }

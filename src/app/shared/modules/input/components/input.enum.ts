@@ -1,7 +1,7 @@
-export const enum INPUT_TYPE {
+export const enum EInputType {
     TEXT = 'text',
     PASSWORD = 'password',
     EMAIL = 'email',
 }
 
-export type inputTypes = INPUT_TYPE.TEXT | INPUT_TYPE.PASSWORD | INPUT_TYPE.EMAIL;
+export type TInputTypes = EInputType.TEXT | EInputType.PASSWORD | EInputType.EMAIL;

@@ -1,4 +1,4 @@
-import { buttonTypes, BUTTON_TYPE } from './button.enum';
+import { EButtonType, TButtonType } from './button.enum';
 
 export class ButtonConfig {
     constructor(
@@ -8,7 +8,7 @@ export class ButtonConfig {
         public icon?: string,
         public submit?: boolean,
         public hotkeys?: string[],
-        public type?: buttonTypes
+        public type?: TButtonType
     ) {}
 }
 
@@ -48,7 +48,7 @@ export class ButtonConfigHelper {
      */
     static getPrimaryButtonConfig(partialPrimaryButtonConfig: ButtonConfig): ButtonConfig {
         const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialPrimaryButtonConfig);
-        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.PRIMARY };
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: EButtonType.PRIMARY };
 
         return BUTTON_CONFIG;
     }
@@ -60,7 +60,7 @@ export class ButtonConfigHelper {
      */
     static getSecondaryButtonConfig(partialSecondaryButtonConfig: ButtonConfig): ButtonConfig {
         const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialSecondaryButtonConfig);
-        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.SECONDARY };
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: EButtonType.SECONDARY };
 
         return BUTTON_CONFIG;
     }
@@ -72,7 +72,7 @@ export class ButtonConfigHelper {
      */
     static getAccentButtonConfig(partialAccentButtonConfig: ButtonConfig): ButtonConfig {
         const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialAccentButtonConfig);
-        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.ACCENT };
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: EButtonType.ACCENT };
 
         return BUTTON_CONFIG;
     }
@@ -84,7 +84,7 @@ export class ButtonConfigHelper {
      */
     static getDestructiveButtonConfig(partialDestructiveButtonConfig: ButtonConfig): ButtonConfig {
         const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialDestructiveButtonConfig);
-        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.DESTRUCTIVE };
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: EButtonType.DESTRUCTIVE };
 
         return BUTTON_CONFIG;
     }

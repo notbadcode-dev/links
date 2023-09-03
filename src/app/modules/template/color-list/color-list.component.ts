@@ -13,34 +13,19 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class ColorListComponent implements OnInit {
     public templateColorList: TemplateColor[] = [];
-
     private primaryColorName = 'Primary color';
-
     private primaryColorCode = '#4b2af2';
-
     private passivePrimaryColorCode = '#c9bffb';
-
     private secondaryColorName = 'Secondary color';
-
     private secondaryColorCode = '#cccccc';
-
     private passiveSecondaryColorCode = '#efefef';
-
     private accentColorName = 'Accent color';
-
     private accentColorCode = '#00ac7c';
-
     private passiveAccentColorCode = '#b2e6d7';
-
     private destructiveColorName = 'Destructive color';
-
     private destructiveColorCode = '#d93057';
-
     private passiveDestructiveColorCode = '#fbebef';
-
     private passiveDescription = 'Passive';
-
-    constructor() {}
 
     ngOnInit(): void {
         this.generateTemplateColorList();

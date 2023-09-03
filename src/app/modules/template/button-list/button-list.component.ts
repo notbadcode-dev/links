@@ -68,8 +68,6 @@ export class ButtonListComponent implements OnInit {
 
     private timesIcon = 'ri-close-line';
 
-    constructor() {}
-
     ngOnInit(): void {
         this.generateTemplateButtonList();
     }

@@ -5,12 +5,11 @@ import * as dayjs from 'dayjs';
     providedIn: 'root',
 })
 export class UtilDateService {
-    constructor() {}
-
     /**
      * @description Format date to string
      * @param  {string} format
      * @param  {Date} date? When not exist use current date
+     * @returns string
      */
     public static formatDate(format: string, date?: Date): string {
         if (!format || typeof format !== 'string' || format.trim().length === 0) {

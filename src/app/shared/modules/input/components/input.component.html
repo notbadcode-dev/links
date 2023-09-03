@@ -41,7 +41,7 @@
 
         <small class="error-context" [ngClass]="{ visible: inputControl.errors }">
             <i [hidden]="!inputControl.errors" class="ri-error-warning-line"></i>
-            <span [hidden]="!inputControl.hasError('required')"> {{ errorMessage.REQUIRES(config.label | titlecase) }}</span>
+            <span [hidden]="!inputControl.hasError('required')"> {{ errorMessage.REQUIRED }}</span>
         </small>
     </div>
 </ng-container>

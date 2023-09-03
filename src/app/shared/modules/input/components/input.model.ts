@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-import { inputTypes, INPUT_TYPE } from './input.enum';
+import { EInputType, TInputTypes } from './input.enum';
 
 export class InputConfig {
     constructor(
@@ -7,7 +7,7 @@ export class InputConfig {
         public title: string,
         public disabled: boolean,
         public readonly: boolean,
-        public type: inputTypes,
+        public type: TInputTypes,
         public parentFormGroup?: FormGroup,
         public formControlName?: string,
         public placeholder?: string,
@@ -26,6 +26,6 @@ export class InputConfigHelper {
      * @returns {InputConfig}
      */
     static defaultInputConfig(): InputConfig {
-        return new InputConfig('', '', false, false, INPUT_TYPE.TEXT);
+        return new InputConfig('', '', false, false, EInputType.TEXT);
     }
 }

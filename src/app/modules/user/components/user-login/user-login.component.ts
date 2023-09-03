@@ -5,7 +5,7 @@ import { AuthService } from '@app/core/auth/service/auth.service';
 import { IUserLogin } from '@app/core/models/user/user.model';
 import { SessionService } from '@app/core/services/session/session.service';
 import { Observable } from 'rxjs';
-import { UserLoginForm } from './user-login.interface';
+import { IUserLoginForm } from './user-login.interface';
 
 @Component({
     selector: 'lnk-user-login',
@@ -31,7 +31,7 @@ export class UserLoginComponent implements OnInit {
      * @returns void
      */
     private initializeUserLoginForm(): void {
-        this.userLoginForm = new FormGroup<UserLoginForm>({
+        this.userLoginForm = new FormGroup<IUserLoginForm>({
             userName: new FormControl('notbadcode@gmail.com', { nonNullable: true }),
             password: new FormControl('6900', { nonNullable: true }),
         });

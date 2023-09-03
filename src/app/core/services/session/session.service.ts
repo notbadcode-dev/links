@@ -36,7 +36,7 @@ export class SessionService {
                 this._localStorageService.setLocalStorageUserItem(response);
                 this._sidebarService.setHiddenSidebar(false);
             },
-            error: (e) => {
+            error: () => {
                 this.destroySession();
             },
         });

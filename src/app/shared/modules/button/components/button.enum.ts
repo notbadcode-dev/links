@@ -1,8 +1,8 @@
-export const enum BUTTON_TYPE {
+export const enum EButtonType {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
     ACCENT = 'accent',
     DESTRUCTIVE = 'destructive',
 }
 
-export type buttonTypes = BUTTON_TYPE.PRIMARY | BUTTON_TYPE.SECONDARY | BUTTON_TYPE.ACCENT | BUTTON_TYPE.DESTRUCTIVE;
+export type TButtonType = EButtonType.PRIMARY | EButtonType.SECONDARY | EButtonType.ACCENT | EButtonType.DESTRUCTIVE;

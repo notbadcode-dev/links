@@ -9,7 +9,5 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./user-signin.component.scss'],
 })
 export class UserSigninComponent implements OnInit {
-    constructor() {}
-
     ngOnInit(): void {}
 }

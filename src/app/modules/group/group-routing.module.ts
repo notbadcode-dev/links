@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const ROUTE_LIST: Routes = [];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
+    imports: [RouterModule.forChild(ROUTE_LIST)],
     exports: [RouterModule],
 })
 export class GroupRoutingModule {}

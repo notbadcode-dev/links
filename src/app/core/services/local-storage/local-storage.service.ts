@@ -6,36 +6,6 @@ import { IUser } from '@models/user/user.model';
     providedIn: 'root',
 })
 export class LocalStorageService {
-    private getLocalStorageItem(localStorageKey: string): any {
-        if (!localStorageKey || !localStorageKey.length) {
-            return;
-        }
-
-        const LOCAL_STORAGE_ITEM: any = localStorage.getItem(localStorageKey);
-        if (typeof LOCAL_STORAGE_ITEM === 'object' && LOCAL_STORAGE_ITEM !== null) {
-            return JSON.parse(LOCAL_STORAGE_ITEM);
-        }
-
-        return LOCAL_STORAGE_ITEM;
-    }
-
-    private setLocalStorageItem(localStorageKey: string, localStorageValue: any): void {
-        if (!localStorageKey || !localStorageKey.length) {
-            return;
-        }
-
-        if (!localStorageValue) {
-            return;
-        }
-
-        if (typeof localStorageValue === 'object' && localStorageValue !== null) {
-            localStorage.setItem(localStorageKey, JSON.stringify(localStorageValue));
-            return;
-        }
-
-        localStorage.setItem(localStorageKey, localStorageValue);
-    }
-
     public removeAllLocalStorage(): void {
         localStorage.clear();
     }
@@ -72,5 +42,35 @@ export class LocalStorageService {
             return;
         }
         this.setLocalStorageItem(LOCAL_STORAGE_KEY.USER_DATA, user);
+    }
+
+    private getLocalStorageItem(localStorageKey: string): any {
+        if (!localStorageKey || !localStorageKey.length) {
+            return;
+        }
+
+        const LOCAL_STORAGE_ITEM: any = localStorage.getItem(localStorageKey);
+        if (typeof LOCAL_STORAGE_ITEM === 'object' && LOCAL_STORAGE_ITEM !== null) {
+            return JSON.parse(LOCAL_STORAGE_ITEM);
+        }
+
+        return LOCAL_STORAGE_ITEM;
+    }
+
+    private setLocalStorageItem(localStorageKey: string, localStorageValue: any): void {
+        if (!localStorageKey || !localStorageKey.length) {
+            return;
+        }
+
+        if (!localStorageValue) {
+            return;
+        }
+
+        if (typeof localStorageValue === 'object' && localStorageValue !== null) {
+            localStorage.setItem(localStorageKey, JSON.stringify(localStorageValue));
+            return;
+        }
+
+        localStorage.setItem(localStorageKey, localStorageValue);
     }
 }

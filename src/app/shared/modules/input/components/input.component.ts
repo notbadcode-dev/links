@@ -17,18 +17,12 @@ export class InputComponent implements OnInit {
     }
 
     @Output() onInputFocusEvent: EventEmitter<string> = new EventEmitter();
-
     @Output() onInputValueChangeEvent: EventEmitter<string> = new EventEmitter();
 
     public config!: InputConfig;
-
     public inputControl: FormControl = new FormControl('');
-
     public isOptional = true;
-
     public errorMessage = ERROR_INPUT_MESSAGE;
-
-    constructor() {}
 
     ngOnInit(): void {}
 
@@ -76,7 +70,7 @@ export class InputComponent implements OnInit {
         this.isOptional = !this.inputControl.hasValidator(Validators.required);
     }
 
-    public onFocus() {
+    public onFocus(): void {
         this.onInputFocusEvent.emit(this.inputControl?.value || '');
     }
 }

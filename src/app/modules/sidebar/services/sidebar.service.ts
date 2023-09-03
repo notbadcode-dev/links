@@ -7,8 +7,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class SidebarService {
     private hiddenSidebarObservable: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-    constructor() {}
-
     /**
      * @description Get hidden sidebar
      * @returns Observable<boolean>
@@ -20,8 +18,9 @@ export class SidebarService {
     /**
      * @description Set hidden sidebar
      * @param  {boolean} value
+     * @returns void
      */
-    setHiddenSidebar(value: boolean) {
+    setHiddenSidebar(value: boolean): void {
         this.hiddenSidebarObservable.next(value);
     }
 }
