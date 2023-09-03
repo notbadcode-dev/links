@@ -1,24 +1,22 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '@app/core/models/user/user.model';
 import { LOCAL_STORAGE_KEY } from '@constants/local-storage.constant';
+import { IUser } from '@models/user/user.model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class LocalStorageService {
-    constructor() {}
-
     private getLocalStorageItem(localStorageKey: string): any {
         if (!localStorageKey || !localStorageKey.length) {
             return;
         }
 
-        const localStorageItem: any = localStorage.getItem(localStorageKey);
-        if (typeof localStorageItem === 'object' && localStorageItem !== null) {
-            return JSON.parse(localStorageItem);
+        const LOCAL_STORAGE_ITEM: any = localStorage.getItem(localStorageKey);
+        if (typeof LOCAL_STORAGE_ITEM === 'object' && LOCAL_STORAGE_ITEM !== null) {
+            return JSON.parse(LOCAL_STORAGE_ITEM);
         }
 
-        return localStorageItem;
+        return LOCAL_STORAGE_ITEM;
     }
 
     private setLocalStorageItem(localStorageKey: string, localStorageValue: any): void {
@@ -43,13 +41,13 @@ export class LocalStorageService {
     }
 
     get getLocalStorageTokenItem(): string {
-        const token: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.TOKEN);
+        const TOKEN: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.TOKEN);
 
-        if (!token || !token.length) {
+        if (!TOKEN || !TOKEN.length) {
             return '';
         }
 
-        return token;
+        return TOKEN;
     }
 
     public setLocalStorageTokenItem(token: string): void {
@@ -60,13 +58,13 @@ export class LocalStorageService {
     }
 
     get getLocalStorageUserItem(): string {
-        const token: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.USER_DATA);
+        const TOKEN: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.USER_DATA);
 
-        if (!token || !token.length) {
+        if (!TOKEN || !TOKEN.length) {
             return '';
         }
 
-        return token;
+        return TOKEN;
     }
 
     public setLocalStorageUserItem(user: IUser): void {
