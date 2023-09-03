@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReorderLinkRequest } from '@app/core/models/user-link.model';
-import { environment } from '@environment/environment';
+import { ENVIRONMENT } from '@environment/environment';
 import { map, Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class LinkGroupService {
     private controller = 'linkGroup';
 
     private endpoints = {
-        reorderLink: `${environment.linkApi}/${this.controller}/reorderLink`,
+        reorderLink: `${ENVIRONMENT.linkApi}/${this.controller}/reorderLink`,
     };
 
     constructor(private _http: HttpClient) {}

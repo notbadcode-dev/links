@@ -47,10 +47,10 @@ export class ButtonConfigHelper {
      * @returns ButtonConfig
      */
     static getPrimaryButtonConfig(partialPrimaryButtonConfig: ButtonConfig): ButtonConfig {
-        const baseButtonConfig = this.getBaseButtonConfig(partialPrimaryButtonConfig);
-        const buttonConfig = { ...baseButtonConfig, type: BUTTON_TYPE.PRIMARY };
+        const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialPrimaryButtonConfig);
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.PRIMARY };
 
-        return buttonConfig;
+        return BUTTON_CONFIG;
     }
 
     /**
@@ -59,10 +59,10 @@ export class ButtonConfigHelper {
      * @returns ButtonConfig
      */
     static getSecondaryButtonConfig(partialSecondaryButtonConfig: ButtonConfig): ButtonConfig {
-        const baseButtonConfig = this.getBaseButtonConfig(partialSecondaryButtonConfig);
-        const buttonConfig = { ...baseButtonConfig, type: BUTTON_TYPE.SECONDARY };
+        const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialSecondaryButtonConfig);
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.SECONDARY };
 
-        return buttonConfig;
+        return BUTTON_CONFIG;
     }
 
     /**
@@ -71,10 +71,10 @@ export class ButtonConfigHelper {
      * @returns ButtonConfig
      */
     static getAccentButtonConfig(partialAccentButtonConfig: ButtonConfig): ButtonConfig {
-        const baseButtonConfig = this.getBaseButtonConfig(partialAccentButtonConfig);
-        const buttonConfig = { ...baseButtonConfig, type: BUTTON_TYPE.ACCENT };
+        const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialAccentButtonConfig);
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.ACCENT };
 
-        return buttonConfig;
+        return BUTTON_CONFIG;
     }
 
     /**
@@ -83,9 +83,9 @@ export class ButtonConfigHelper {
      * @returns ButtonConfig
      */
     static getDestructiveButtonConfig(partialDestructiveButtonConfig: ButtonConfig): ButtonConfig {
-        const baseButtonConfig = this.getBaseButtonConfig(partialDestructiveButtonConfig);
-        const buttonConfig = { ...baseButtonConfig, type: BUTTON_TYPE.DESTRUCTIVE };
+        const BASE_BUTTON_CONFIG = this.getBaseButtonConfig(partialDestructiveButtonConfig);
+        const BUTTON_CONFIG = { ...BASE_BUTTON_CONFIG, type: BUTTON_TYPE.DESTRUCTIVE };
 
-        return buttonConfig;
+        return BUTTON_CONFIG;
     }
 }

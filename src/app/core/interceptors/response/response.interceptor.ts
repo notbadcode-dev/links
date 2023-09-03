@@ -1,6 +1,6 @@
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '@environment/environment';
+import { ENVIRONMENT } from '@environment/environment';
 import { HttpResponseBody } from '@models/http-response.model';
 import { map, Observable } from 'rxjs';
 
@@ -9,7 +9,7 @@ export class ResponseInterceptor implements HttpInterceptor {
     constructor() {}
 
     intercept(_request: HttpRequest<any>, _next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if (!_request.url.includes(environment.authApi) && !_request.url.includes(environment.linkApi)) {
+        if (!_request.url.includes(ENVIRONMENT.authApi) && !_request.url.includes(ENVIRONMENT.linkApi)) {
             return _next.handle(_request);
         }
 
@@ -43,25 +43,25 @@ export class ResponseInterceptor implements HttpInterceptor {
             return false;
         }
 
-        const responseHeaders: HttpHeaders = event?.headers ?? null;
+        const RESPONSE_HEADER: HttpHeaders = event?.headers ?? null;
 
-        if (!responseHeaders) {
+        if (!RESPONSE_HEADER) {
             return false;
         }
 
-        const includesApplicationJson: boolean = responseHeaders.get('content-type')?.toString()?.includes('application/json') ?? false;
+        const INCLUDES_APPLICATION_JSON: boolean = RESPONSE_HEADER.get('content-type')?.toString()?.includes('application/json') ?? false;
 
-        if (!includesApplicationJson) {
+        if (!INCLUDES_APPLICATION_JSON) {
             return false;
         }
 
-        const body: HttpResponseBody = event.body;
-        if (!body) {
+        const BODY: HttpResponseBody = event.body;
+        if (!BODY) {
             return false;
         }
 
-        const data: any = body.data;
-        if (!data) {
+        const DATA: any = BODY.data;
+        if (!DATA) {
             return false;
         }
 
@@ -74,9 +74,9 @@ export class ResponseInterceptor implements HttpInterceptor {
      * @returns HttpRequest
      */
     private setResponseDataOnRequestBody(event: any): HttpRequest<any> {
-        const parsedBody: any = JSON.parse(JSON.stringify(event.body.data));
-        const transformRequest: HttpRequest<any> = event.clone({ body: parsedBody });
+        const PARSED_BODY: any = JSON.parse(JSON.stringify(event.body.data));
+        const TRANSFORM_REQUEST: HttpRequest<any> = event.clone({ body: PARSED_BODY });
 
-        return transformRequest;
+        return TRANSFORM_REQUEST;
     }
 }

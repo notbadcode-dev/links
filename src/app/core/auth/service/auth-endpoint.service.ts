@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { environment } from '@environment/environment';
+import { ENVIRONMENT } from '@environment/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthEndpointService {
-    private authApiUrl = `${environment.authApi}/authentication`;
+    private authApiUrl = `${ENVIRONMENT.authApi}/authentication`;
 
     public get getSignUpEndpoint(): string {
         return `${this.authApiUrl}/signUp`;

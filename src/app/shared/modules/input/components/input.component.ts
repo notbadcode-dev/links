@@ -50,24 +50,24 @@ export class InputComponent implements OnInit {
             return;
         }
 
-        const formGroup: FormGroup = config.parentFormGroup;
-        const formControlName: string = config.formControlName;
-        const formControl: FormControl = formGroup.get(formControlName) as FormControl;
+        const FORM_GROUP: FormGroup = config.parentFormGroup;
+        const FORM_CONTROL_NAME: string = config.formControlName;
+        const FORM_CONTROL: FormControl = FORM_GROUP.get(FORM_CONTROL_NAME) as FormControl;
 
-        this.inputControl = formControl;
+        this.inputControl = FORM_CONTROL;
 
         this.inputControl.valueChanges.subscribe((inputValue: string) => {
             if (typeof inputValue === 'string') {
-                const inputElement: HTMLElement | null = document.getElementById(this.config.label);
+                const INPUT_ELEMENT: HTMLElement | null = document.getElementById(this.config.label);
                 this.onInputValueChangeEvent.emit(inputValue);
 
-                if (inputElement) {
+                if (INPUT_ELEMENT) {
                     if (inputValue.length > 0) {
-                        inputElement?.classList.add('not-empty');
+                        INPUT_ELEMENT?.classList.add('not-empty');
                     }
 
                     if (inputValue.length === 0) {
-                        inputElement?.classList.remove('not-empty');
+                        INPUT_ELEMENT?.classList.remove('not-empty');
                     }
                 }
             }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserLink, UserLinkHelper } from '@app/core/models/user-link.model';
 import { UtilStringService } from '@app/core/services/util/util-string/util-string.service';
-import { environment } from '@environment/environment';
+import { ENVIRONMENT } from '@environment/environment';
 import { map, Observable } from 'rxjs';
 
 @Injectable({
@@ -12,13 +12,13 @@ export class LinkService {
     private controller = 'link';
 
     private endpoints = {
-        getAllUserLink: `${environment.linkApi}/${this.controller}/getAll?active=1&favorite=1`,
-        getAllUserLinkByGroupId: `${environment.linkApi}/${this.controller}/getLinkByUserLinkIdAndUserId/{0}`,
-        createUserLink: `${environment.linkApi}/${this.controller}/create`,
-        updateUserLink: `${environment.linkApi}/${this.controller}/update`,
-        deleteUserLink: `${environment.linkApi}/${this.controller}/delete/{0}`,
-        toggleFavoriteUserLink: `${environment.linkApi}/${this.controller}/toggleFavorite/{0}`,
-        toggleActiveUserLink: `${environment.linkApi}/${this.controller}/toggleActive/{0}`,
+        getAllUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/getAll?active=1&favorite=1`,
+        getAllUserLinkByGroupId: `${ENVIRONMENT.linkApi}/${this.controller}/getLinkByUserLinkIdAndUserId/{0}`,
+        createUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/create`,
+        updateUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/update`,
+        deleteUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/delete/{0}`,
+        toggleFavoriteUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/toggleFavorite/{0}`,
+        toggleActiveUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/toggleActive/{0}`,
     };
 
     constructor(private _http: HttpClient, private _utilStringService: UtilStringService) {}

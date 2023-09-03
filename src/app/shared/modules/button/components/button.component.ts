@@ -82,22 +82,22 @@ export class ButtonComponent implements OnInit {
             return false;
         }
 
-        const hotKey: string =
+        const HOT_KEY: string =
             this.config?.hotkeys
                 ?.find((findHotKey: string) => findHotKey !== APP_CONSTANT.MASTER_HOTKEY)
                 ?.toString()
                 ?.toUpperCase() || '';
-        if (hotKey === '') {
+        if (HOT_KEY === '') {
             return false;
         }
 
-        const keyPressed: string = event?.key?.toString()?.toUpperCase() || '';
+        const KEY_PRESSED: string = event?.key?.toString()?.toUpperCase() || '';
 
-        if (keyPressed === '') {
+        if (KEY_PRESSED === '') {
             return true;
         }
 
-        if (keyPressed !== hotKey) {
+        if (KEY_PRESSED !== HOT_KEY) {
             return false;
         }
 

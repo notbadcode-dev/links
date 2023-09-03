@@ -126,23 +126,23 @@ export class ColorListComponent implements OnInit {
      * @returns void
      */
     private addTemplateColorToTemplateColorList(templateColor: TemplateColor): void {
-        const templateColorCode: string = templateColor.code;
-        const templateColorName: string = templateColor?.name || '';
-        const templateColorhighlightColor: TemplateColor | null = templateColor?.highlightColor ?? null;
-        const templateColorhighlightColorCode: string | null = templateColorhighlightColor?.code ?? '';
+        const TEMPLATE_COLOR_CODE: string = templateColor.code;
+        const TEMPLATE_COLOR_NAME: string = templateColor?.name || '';
+        const TEMPLATE_COLOR_HIGHLIGHT_COLOR: TemplateColor | null = templateColor?.highlightColor ?? null;
+        const TEMPLATE_COLOR_HIGHLIGHT_COLOR_CODE: string | null = TEMPLATE_COLOR_HIGHLIGHT_COLOR?.code ?? '';
 
-        if (!templateColorCode || typeof templateColorCode !== 'string' || templateColorCode.length === 0) {
+        if (!TEMPLATE_COLOR_CODE || typeof TEMPLATE_COLOR_CODE !== 'string' || TEMPLATE_COLOR_CODE.length === 0) {
             return;
         }
 
-        if (!templateColorName || typeof templateColorName !== 'string' || templateColorName.length === 0) {
+        if (!TEMPLATE_COLOR_NAME || typeof TEMPLATE_COLOR_NAME !== 'string' || TEMPLATE_COLOR_NAME.length === 0) {
             return;
         }
 
         if (
-            !templateColorhighlightColorCode ||
-            typeof templateColorhighlightColorCode !== 'string' ||
-            templateColorhighlightColorCode.length === 0
+            !TEMPLATE_COLOR_HIGHLIGHT_COLOR_CODE ||
+            typeof TEMPLATE_COLOR_HIGHLIGHT_COLOR_CODE !== 'string' ||
+            TEMPLATE_COLOR_HIGHLIGHT_COLOR_CODE.length === 0
         ) {
             return;
         }

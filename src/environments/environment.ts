@@ -1,3 +1,3 @@
-import { environment as developmentEnvironment } from './environment.dev';
+import { ENVIRONMENT as developmentEnvironment } from './environment.dev';
 
-export const environment = developmentEnvironment;
+export const ENVIRONMENT = developmentEnvironment;

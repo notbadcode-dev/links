@@ -42,11 +42,11 @@ export class TooltipDirective {
 
         this.elementRef.nativeElement.title = '';
 
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(TooltipComponent);
-        this.componentRef = componentFactory.create(this.injector);
+        const COMPONENT_FACTORY = this.componentFactoryResolver.resolveComponentFactory(TooltipComponent);
+        this.componentRef = COMPONENT_FACTORY.create(this.injector);
         this.appRef.attachView(this.componentRef.hostView);
-        const domElem = (this.componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
-        document.body.appendChild(domElem);
+        const DOM_ELEMENT = (this.componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+        document.body.appendChild(DOM_ELEMENT);
         this.setTooltipComponentProperties();
     }
 

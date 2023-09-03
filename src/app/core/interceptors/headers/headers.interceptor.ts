@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from '@app/core/services/local-storage/local-storage.service';
 import { HTTP_HEADERS } from '@constants/http-header.constant';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { ENVIRONMENT } from 'src/environments/environment';
 
 @Injectable()
 export class HeadersInterceptor implements HttpInterceptor {
     constructor(private _localStorageService: LocalStorageService) {}
 
     intercept(_request: HttpRequest<unknown>, _next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if (!_request.url.includes(environment.authApi) && !_request.url.includes(environment.linkApi)) {
+        if (!_request.url.includes(ENVIRONMENT.authApi) && !_request.url.includes(ENVIRONMENT.linkApi)) {
             return _next.handle(_request);
         }
 

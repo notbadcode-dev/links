@@ -90,193 +90,193 @@ export class InputListComponent implements OnInit {
     }
 
     generateOnlyInputList(): void {
-        const baseInputConfig: InputConfig = {
+        const BASE_INPUT_CONFIG: InputConfig = {
             ...InputConfigHelper.defaultInputConfig(),
             label: 'Only input',
             title: 'This is a only input',
             parentFormGroup: this.inputListForm,
             formControlName: 'onlyInput',
         };
-        this.onlyInputConfig = baseInputConfig;
+        this.onlyInputConfig = BASE_INPUT_CONFIG;
 
-        const prependIcon = 'ri-user-line';
-        const prependIconTooltip = 'Prepend tooltip';
+        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependOnlyInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'P. only input',
-            prependIcon: prependIcon,
-            prependTooltip: prependIconTooltip,
+            prependIcon: PREPEND_ICON,
+            prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const appendIcon = 'ri-user-line';
-        const appendIconTooltip = 'Append tooltip';
+        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendOnlyInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'A. only input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
 
         this.prependAppendOnlyInputConfig = {
             ...this.prependOnlyInputConfig,
             label: 'P/A only input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
     }
 
     generateDisabledInputList(): void {
-        const baseInputConfig: InputConfig = {
+        const BASE_INPUT_CONFIG: InputConfig = {
             ...InputConfigHelper.defaultInputConfig(),
             label: 'Disabled input',
             title: '',
             formControlName: 'disabledInput',
             parentFormGroup: this.inputListForm,
         };
-        this.disabledInputConfig = baseInputConfig;
+        this.disabledInputConfig = BASE_INPUT_CONFIG;
 
-        const prependIcon = 'ri-user-line';
-        const prependIconTooltip = 'Prepend tooltip';
+        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependDisabledInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'P. disabled input',
-            prependIcon: prependIcon,
-            prependTooltip: prependIconTooltip,
+            prependIcon: PREPEND_ICON,
+            prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const appendIcon = 'ri-user-line';
-        const appendIconTooltip = 'Append tooltip';
+        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendDisabledInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'A. disabled input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
 
         this.prependAppendDisabledInputConfig = {
             ...this.prependDisabledInputConfig,
             label: 'P/A disabled input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
     }
 
     generateErrorRequiredInputList(): void {
-        const baseInputConfig: InputConfig = {
+        const BASE_INPUT_CONFIG: InputConfig = {
             ...InputConfigHelper.defaultInputConfig(),
             label: 'Error Required input',
             title: 'This is a input with error required',
             formControlName: 'errorRequierdInput',
             parentFormGroup: this.inputListForm,
         };
-        this.errorRequiredInputConfig = baseInputConfig;
+        this.errorRequiredInputConfig = BASE_INPUT_CONFIG;
 
-        const prependIcon = 'ri-user-line';
-        const prependIconTooltip = 'Prepend tooltip';
+        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependErrorRequiredInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'P. E. required input',
-            prependIcon: prependIcon,
-            prependTooltip: prependIconTooltip,
+            prependIcon: PREPEND_ICON,
+            prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const appendIcon = 'ri-user-line';
-        const appendIconTooltip = 'Append tooltip';
+        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendErrorRequiredInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'A. E. required input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
 
         this.prependAppendErrorRequiredInputConfig = {
             ...this.prependErrorRequiredInputConfig,
             label: 'P/A E. required input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
     }
 
     generateHintInputList(): void {
-        const title = 'This is a input with hint';
-        const baseInputConfig = {
+        const TITLE = 'This is a input with hint';
+        const BASE_INPUT_CONFIG = {
             ...InputConfigHelper.defaultInputConfig(),
             label: 'Hint input',
-            title: title,
-            hint: title,
+            title: TITLE,
+            hint: TITLE,
             formControlName: 'hintInput',
         };
-        this.hintInputConfig = baseInputConfig;
+        this.hintInputConfig = BASE_INPUT_CONFIG;
 
-        const prependIcon = 'ri-user-line';
-        const prependIconTooltip = 'Prepend tooltip';
+        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependHintInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'P. Hint input',
-            prependIcon: prependIcon,
-            prependTooltip: prependIconTooltip,
+            prependIcon: PREPEND_ICON,
+            prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const appendIcon = 'ri-user-line';
-        const appendIconTooltip = 'Append tooltip';
+        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendHintInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'A. Hint input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
 
         this.prependAppendHintInputConfig = {
             ...this.prependHintInputConfig,
             label: 'P/A Hint input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
     }
 
     generatePlaceholderInputList(): void {
-        const baseInputConfig = {
+        const BASE_INPUT_CONFIG = {
             ...this.onlyInputConfig,
             label: 'Placeholder input',
             title: 'This is a input with placeholder',
             formControlName: 'placeholderInput',
             placeholder: 'eg.: placeholder',
         };
-        this.placeholderInputConfig = baseInputConfig;
+        this.placeholderInputConfig = BASE_INPUT_CONFIG;
 
-        const prependIcon = 'ri-user-line';
-        const prependIconTooltip = 'Prepend tooltip';
+        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependPlaceholderInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'P. Placeholder input',
-            prependIcon: prependIcon,
-            prependTooltip: prependIconTooltip,
+            prependIcon: PREPEND_ICON,
+            prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const appendIcon = 'ri-user-line';
-        const appendIconTooltip = 'Append tooltip';
+        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendPlaceholderInputConfig = {
-            ...baseInputConfig,
+            ...BASE_INPUT_CONFIG,
             label: 'A. Placeholder input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
 
         this.prependAppendPlaceholderInputConfig = {
             ...this.prependPlaceholderInputConfig,
             label: 'P/A Placeholder input',
-            appendIcon: appendIcon,
-            appendTooltip: appendIconTooltip,
+            appendIcon: APPEND_ICON,
+            appendTooltip: APPEND_ICON_TOOLTIP,
         };
     }
 }

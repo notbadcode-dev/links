@@ -90,22 +90,22 @@ export class ButtonListComponent implements OnInit {
      * @returns {void}
      */
     private generateTemplatePrimaryButtonList(buttonText: string, buttonTooltip: string): void {
-        const validArguments: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
-        if (!validArguments) {
+        const VALID_ARGUMENTS: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
+        if (!VALID_ARGUMENTS) {
             return;
         }
 
-        const buttonConfig: ButtonConfig = ButtonConfigHelper.getPrimaryButtonConfig({
+        const BUTTON_CONFIG: ButtonConfig = ButtonConfigHelper.getPrimaryButtonConfig({
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
             hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'P'],
         });
 
-        this.primaryButtonConfig = buttonConfig;
-        this.primaryButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
-        this.primaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.linkIcon);
-        this.primaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.linkIcon);
+        this.primaryButtonConfig = BUTTON_CONFIG;
+        this.primaryButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
+        this.primaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.linkIcon);
+        this.primaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.linkIcon);
     }
 
     /**
@@ -113,22 +113,22 @@ export class ButtonListComponent implements OnInit {
      * @returns {void}
      */
     private generateTemplateSecondaryButtonList(buttonText: string, buttonTooltip: string): void {
-        const validArguments: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
-        if (!validArguments) {
+        const VALID_ARGUMENTS: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
+        if (!VALID_ARGUMENTS) {
             return;
         }
 
-        const buttonConfig: ButtonConfig = ButtonConfigHelper.getSecondaryButtonConfig({
+        const BUTTON_CONFIG: ButtonConfig = ButtonConfigHelper.getSecondaryButtonConfig({
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
             hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'S'],
         });
 
-        this.secondaryButtonConfig = buttonConfig;
-        this.secondaryButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
-        this.secondaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.linkIcon);
-        this.secondaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.linkIcon);
+        this.secondaryButtonConfig = BUTTON_CONFIG;
+        this.secondaryButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
+        this.secondaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.linkIcon);
+        this.secondaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.linkIcon);
     }
 
     /**
@@ -136,22 +136,22 @@ export class ButtonListComponent implements OnInit {
      * @returns {void}
      */
     private generateTemplateAccentButtonList(buttonText: string, buttonTooltip: string): void {
-        const validArguments: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
-        if (!validArguments) {
+        const VALID_ARGUMENTS: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
+        if (!VALID_ARGUMENTS) {
             return;
         }
 
-        const buttonConfig: ButtonConfig = ButtonConfigHelper.getAccentButtonConfig({
+        const BUTTON_CONFIG: ButtonConfig = ButtonConfigHelper.getAccentButtonConfig({
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
             hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'A'],
         });
 
-        this.accentButtonConfig = buttonConfig;
-        this.accentButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
-        this.accentButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.heartIcon);
-        this.accentButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.heartIcon);
+        this.accentButtonConfig = BUTTON_CONFIG;
+        this.accentButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
+        this.accentButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.heartIcon);
+        this.accentButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.heartIcon);
     }
 
     /**
@@ -159,22 +159,22 @@ export class ButtonListComponent implements OnInit {
      * @returns {void}
      */
     private generateTemplateDestructiveButtonList(buttonText: string, buttonTooltip: string): void {
-        const validArguments: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
-        if (!validArguments) {
+        const VALID_ARGUMENTS: boolean = this.validateArgumentForGenerateTemplatePrimaryButtonList(buttonText, buttonTooltip);
+        if (!VALID_ARGUMENTS) {
             return;
         }
 
-        const buttonConfig: ButtonConfig = ButtonConfigHelper.getDestructiveButtonConfig({
+        const BUTTON_CONFIG: ButtonConfig = ButtonConfigHelper.getDestructiveButtonConfig({
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
             hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'D'],
         });
 
-        this.destructiveButtonConfig = buttonConfig;
-        this.destructiveButtonDisabledConfig = this.generateTemplateButtonDisabled(buttonConfig);
-        this.destructiveButtonWithIconConfig = this.generateTemplateButtonWithIcon(buttonConfig, this.timesIcon);
-        this.destructiveButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(buttonConfig, this.timesIcon);
+        this.destructiveButtonConfig = BUTTON_CONFIG;
+        this.destructiveButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
+        this.destructiveButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.timesIcon);
+        this.destructiveButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.timesIcon);
     }
 
     /**
@@ -247,8 +247,8 @@ export class ButtonListComponent implements OnInit {
             return;
         }
 
-        const buttonText: string = clickedButtonCondig.text || clickedButtonCondig.tooltip;
+        const BUTTON_TEXT: string = clickedButtonCondig.text || clickedButtonCondig.tooltip;
 
-        console.log(`${buttonText} button clicked`);
+        console.log(`${BUTTON_TEXT} button clicked`);
     }
 }
