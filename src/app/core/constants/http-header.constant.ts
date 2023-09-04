@@ -5,7 +5,7 @@ export const HTTP_HEADERS = {
             APPLICATION_JSON: 'application/json',
         },
     },
-    AUTHOTIZATION: {
+    AUTHORIZATION: {
         KEY: 'Authorization',
     },
 };

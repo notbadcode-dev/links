@@ -6,24 +6,19 @@ import { SessionService } from '@app/core/services/session/session.service';
     providedIn: 'root',
 })
 export class AppInitService {
-    constructor() {}
+    constructor(private localStorageService: LocalStorageService, private sessionService: SessionService) {}
 
-    Init(localStorageService: LocalStorageService, sessionService: SessionService) {
-        return new Promise<void>((resolve, reject) => {
+    init(): Promise<void> {
+        return new Promise<void>((resolve) => {
             console.info('Initialize with AppInitService.init()');
-            if (!localStorageService || !sessionService) {
-                sessionService.destroySession();
+            const TOKEN: string = this.localStorageService.getLocalStorageTokenItem;
+
+            if (!TOKEN) {
+                this.sessionService.destroySession();
+                resolve();
             }
 
-            const token: string = localStorageService.getLocalStorageTokenItem;
-            if (!token) {
-                sessionService.destroySession();
-            }
-
-            if (token) {
-                sessionService.initializeSession(token);
-            }
-
+            this.sessionService.initializeSession(TOKEN);
             resolve();
         });
     }

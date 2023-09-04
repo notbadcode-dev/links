@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserLink, UserLinkHelper } from '@app/core/models/user-link.model';
-import { UtilStringService } from '@app/core/services/util/util-string/util-string.service';
-import { ENVIRONMENT } from '@environment/environment';
-import { map, Observable } from 'rxjs';
+import { HttpBaseService } from '@http-services/http-base/http-base.service';
+import { LinkEndpointService } from '@http-services/link-endpoint/link-endpoint.service';
+import { ILinkCreate } from '@models/link/link-create.model';
+import { ILink } from '@models/link/link.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -11,106 +11,85 @@ import { map, Observable } from 'rxjs';
 export class LinkService {
     private controller = 'link';
 
-    private endpoints = {
-        getAllUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/getAll?active=1&favorite=1`,
-        getAllUserLinkByGroupId: `${ENVIRONMENT.linkApi}/${this.controller}/getLinkByUserLinkIdAndUserId/{0}`,
-        createUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/create`,
-        updateUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/update`,
-        deleteUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/delete/{0}`,
-        toggleFavoriteUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/toggleFavorite/{0}`,
-        toggleActiveUserLink: `${ENVIRONMENT.linkApi}/${this.controller}/toggleActive/{0}`,
-    };
-
-    constructor(private _http: HttpClient, private _utilStringService: UtilStringService) {}
+    constructor(private _httpBaseService: HttpBaseService, private _linkEndpointService: LinkEndpointService) {}
 
     /**
-     * @description Get all user links
-     * @returns Observable<UserLink[]>
+     * @description Create a link
+     * @param  {ILinkCreate} linkCreate
+     * @returns Observable<Link[]>
      */
-    getAll(): Observable<UserLink[]> {
-        return this._http.get(this.endpoints.getAllUserLink).pipe(
-            map((result: any) => {
-                return UserLinkHelper.mapToObjectList<UserLink>(result);
-            })
-        );
+    create(linkCreate: ILinkCreate): Observable<ILink> {
+        return this._httpBaseService.httpPost<ILink, ILinkCreate>(this._linkEndpointService.getCreateEndpoint, linkCreate);
     }
 
     /**
-     * @description Get all favorite user links
-     * @returns Observable<UserLink[]>
+     * @description Update a link
+     * @param  {ILink} link
+     * @returns Observable<Link[]>
      */
-    getAllFavorite(): Observable<UserLink[]> {
-        return this.getAll().pipe(map((result: UserLink[]) => result.filter((result: UserLink) => result.favorite)));
+    update(link: ILink): Observable<ILink> {
+        return this._httpBaseService.httpPatch<ILink, ILink>(this._linkEndpointService.getUpdateEndpoint(link.id), link);
     }
 
     /**
-     * @description Get all deactivate user links
-     * @returns Observable<UserLink[]>
+     * @description Get link by id
+     * @param  {number} linkId
+     * @returns Observable<Link>
      */
-    getAllDeactivate(): Observable<UserLink[]> {
-        return this.getAll().pipe(map((result: UserLink[]) => result.filter((result: UserLink) => !result.active)));
+    getOneById(linkId: number): Observable<ILink> {
+        return this._httpBaseService.httpGet<ILink>(this._linkEndpointService.getOneByIdEndpoint(linkId));
     }
 
     /**
-     * @description Get all user links by group id
-     * @returns Observable<UserLink[]>
+     * @description Get all links
+     * @returns Observable<Link[]>
      */
-    getAllByGroupId(groupId: number): Observable<UserLink[]> {
-        return this._http.get(this._utilStringService.formatString(this.endpoints.getAllUserLinkByGroupId, [groupId])).pipe(
-            map((result: any) => {
-                return UserLinkHelper.mapToObjectList<UserLink>(result);
-            })
-        );
+    getAll(): Observable<ILink[]> {
+        return this._httpBaseService.httpGet<ILink[]>(this._linkEndpointService.getAllEndpoint);
     }
 
     /**
-     * @description Create a new user link
-     * @param  {UserLink} userLink
-     * @returns Observable<number> - Created user link id
+     * @description Toggle activate flag to TRUE
+     * @param  {number} linkId
+     * @returns Observable<Link>
      */
-    create(userLink: UserLink): Observable<number> {
-        return this._http.post(this.endpoints.createUserLink, userLink).pipe(map((result: any) => result));
+    activate(linkId: number): Observable<ILink> {
+        return this._httpBaseService.httpPatch<ILink, null>(this._linkEndpointService.getActivateEndpoint(linkId));
     }
 
     /**
-     * @description Update a user link
-     * @param  {UserLink} userLink
-     * @returns Observable<number> - Updated user link id
+     * @description Toggle activate flag to FALSE
+     * @param  {number} linkId
+     * @returns Observable<Link>
      */
-    update(userLink: UserLink): Observable<number> {
-        return this._http.put(this.endpoints.updateUserLink, userLink).pipe(map((result: any) => result));
+    deactivate(linkId: number): Observable<ILink> {
+        return this._httpBaseService.httpPatch<ILink, null>(this._linkEndpointService.getDeactivateEndpoint(linkId));
     }
 
     /**
-     * @description Delete a user link
-     * @param  {number} userLinkId
-     * @returns Observable<number> - Deleted user link id
+     * @description Toggle favorite flag to FALSE
+     * @param  {number} linkId
+     * @returns Observable<Link>
      */
-    delete(userLinkId: number): Observable<UserLink> {
-        return this._http
-            .delete(this._utilStringService.formatString(this.endpoints.deleteUserLink, [userLinkId]))
-            .pipe(map((result: any) => result));
+    favorite(linkId: number): Observable<ILink> {
+        return this._httpBaseService.httpPatch<ILink, null>(this._linkEndpointService.getFavoriteEndpoint(linkId));
     }
 
     /**
-     * @description Update a user link changing a property favorite.
-     * @param  {number} userLinkId
-     * @returns Observable<UserLink> - Updated user link
+     * @description Toggle favorite flag to FALSE
+     * @param  {number} linkId
+     * @returns Observable<Link>
      */
-    toggleFavorite(userLinkId: number): Observable<UserLink> {
-        return this._http
-            .put(this._utilStringService.formatString(this.endpoints.toggleFavoriteUserLink, [userLinkId]), null)
-            .pipe(map((result: any) => UserLinkHelper.mapToObject(result)));
+    unFavorite(linkId: number): Observable<ILink> {
+        return this._httpBaseService.httpPatch<ILink, null>(this._linkEndpointService.getUnfavoriteEndpoint(linkId));
     }
 
     /**
-     * @description Update a user link changing a property active.
-     * @param  {number} userLinkId
-     * @returns Observable<UserLink> - Updated user link
+     * @description Delete link
+     * @param  {number} linkId
+     * @returns Observable<Link>
      */
-    toggleActive(userLinkId: number): Observable<UserLink> {
-        return this._http
-            .put(this._utilStringService.formatString(this.endpoints.toggleActiveUserLink, [userLinkId]), null)
-            .pipe(map((result: any) => UserLinkHelper.mapToObject(result)));
+    delete(linkId: number): Observable<ILink> {
+        return this._httpBaseService.httpDelete<ILink>(this._linkEndpointService.getDeleteEndpoint(linkId));
     }
 }

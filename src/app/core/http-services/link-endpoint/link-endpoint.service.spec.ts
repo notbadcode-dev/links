@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LinkGroupService } from './link-group.service';
+import { LinkEndpointService } from './link-endpoint.service';
 
-describe('LinkGroupService', () => {
-    let service: LinkGroupService;
+describe('LinkEndpointService', () => {
+    let service: LinkEndpointService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(LinkGroupService);
+        service = TestBed.inject(LinkEndpointService);
     });
 
     it('should be created', () => {

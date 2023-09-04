@@ -18,6 +18,7 @@ export class ButtonComponent implements OnInit {
     @Output() onClickEvent: EventEmitter<ButtonConfig> = new EventEmitter();
 
     public config!: ButtonConfig;
+
     public onlyIcon!: boolean;
 
     ngOnInit(): void {}

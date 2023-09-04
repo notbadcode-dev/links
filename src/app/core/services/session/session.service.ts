@@ -6,7 +6,7 @@ import { IGetUserByToken } from '@app/core/models/user/get-user-by-token.model';
 import { IUser } from '@app/core/models/user/user.model';
 import { LocalStorageService } from '@app/core/services/local-storage/local-storage.service';
 import { SidebarService } from '@app/modules/sidebar/services/sidebar.service';
-import { ENVIRONMENT } from '@environment/environment';
+import { EnvironmentService } from '../environment/environment.service';
 
 @Injectable({
     providedIn: 'root',
@@ -16,7 +16,8 @@ export class SessionService {
         private _localStorageService: LocalStorageService,
         private _sidebarService: SidebarService,
         private _authService: AuthService,
-        private _router: Router
+        private _router: Router,
+        private _environmentService: EnvironmentService
     ) {}
 
     initializeSession(token: string): void {
@@ -27,7 +28,7 @@ export class SessionService {
         this._localStorageService.setLocalStorageTokenItem(token);
 
         const GET_USER_BY_TOKEN: IGetUserByToken = {
-            applicationId: ENVIRONMENT.applicationId,
+            applicationId: this._environmentService.getApplicationId,
             token: token,
         };
         this._authService.getUserByToken(GET_USER_BY_TOKEN).subscribe({

@@ -1,4 +1,4 @@
-export const enum HTTP_RESPONSE_CODE {
+export const enum EHttpResponseCode {
     OK = 200,
     CREATED = 201,
     NO_CONTENT = 204,
@@ -9,9 +9,9 @@ export const enum HTTP_RESPONSE_CODE {
     INTERNAL_SERVER_ERROR = 500,
 }
 
-export const enum HTTP_RESPONSE_MESSAGE {
-    OK = 'Request operation succesfully processed',
-    CREATED = 'Created operation succesfully processed',
+export const enum EHttpResponseMessage {
+    OK = 'Request operation successfully processed',
+    CREATED = 'Created operation successfully processed',
     NO_CONTENT = 'No content',
     BAD_REQUEST = 'Bad request',
     UNAUTHORIZED = 'Unauthorized',

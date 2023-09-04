@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ENVIRONMENT } from '@environment/environment';
 import { HttpResponseBody } from '@models/http-response.model';
+import { EnvironmentService } from '@services/environment/environment.service';
 import { map, Observable } from 'rxjs';
 
 @Injectable()
 export class ResponseInterceptor implements HttpInterceptor {
-    constructor() {}
+    constructor(private _environmentService: EnvironmentService) {}
 
     intercept(_request: HttpRequest<any>, _next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if (!_request.url.includes(ENVIRONMENT.authApi) && !_request.url.includes(ENVIRONMENT.linkApi)) {
+        if (!this.shouldInterceptRequest(_request)) {
             return _next.handle(_request);
         }
 
@@ -66,6 +67,15 @@ export class ResponseInterceptor implements HttpInterceptor {
         }
 
         return true;
+    }
+
+    /**
+     * @description Url request is successfully
+     * @param  {HttpRequest<any>} request
+     * @returns boolean
+     */
+    private shouldInterceptRequest(request: HttpRequest<any>): boolean {
+        return request.url.includes(this._environmentService.getAuthApi) || request.url.includes(this._environmentService.getLinkApi);
     }
 
     /**

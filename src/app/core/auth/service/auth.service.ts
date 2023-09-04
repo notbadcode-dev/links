@@ -2,38 +2,34 @@ import { Injectable } from '@angular/core';
 import { HttpBaseService } from '@app/core/http-services/http-base/http-base.service';
 import { IGetUserByToken } from '@app/core/models/user/get-user-by-token.model';
 import { IUser, IUserLogin } from '@app/core/models/user/user.model';
-import { EMPTY, map, Observable } from 'rxjs';
+import { EnvironmentService } from '@app/core/services/environment/environment.service';
+import { EMPTY, Observable } from 'rxjs';
 import { AuthEndpointService } from './auth-endpoint.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    //#region Constructor
-
-    constructor(private _httpBaseService: HttpBaseService, private _authEndpointService: AuthEndpointService) {}
-
-    //#endregion
-
-    //#region Public method
+    constructor(
+        private _httpBaseService: HttpBaseService,
+        private _authEndpointService: AuthEndpointService,
+        private _environmentService: EnvironmentService
+    ) {}
 
     /**
-     * @description Call API with user data for sign in APP
+     * @description Login on application with username and password
      * @param  {IUserLogin} userLogin
      * @returns Observable<string> - token
      */
     public userSignIn(userLogin: IUserLogin): Observable<string> {
-        return this._httpBaseService.httpPost(this._authEndpointService.getSignInEndpoint, userLogin).pipe(
-            map((result: any) => {
-                return `${result}`;
-            })
-        );
+        userLogin.applicationId = this._environmentService.getApplicationId;
+        return this._httpBaseService.httpPost<string, IUserLogin>(this._authEndpointService.getSignInEndpoint, userLogin);
     }
 
     /**
-     * @description Call API with user data for sign in APP
-     * @param  {IUserLogin} userLogin
-     * @returns Observable<string> - token
+     * @description Get user according token
+     * @param  {IGetUserByToken} getUserByToken
+     * @returns Observable<IUser>
      */
     public getUserByToken(getUserByToken: IGetUserByToken): Observable<IUser> {
         const TOKEN: string = getUserByToken?.token?.trim() ?? '';
@@ -43,16 +39,6 @@ export class AuthService {
             return EMPTY;
         }
 
-        return this._httpBaseService.httpPost(this._authEndpointService.getUserByTokenEndpoint, getUserByToken).pipe(
-            map((result: any) => {
-                return result;
-            })
-        );
+        return this._httpBaseService.httpPost<IUser, IGetUserByToken>(this._authEndpointService.getUserByTokenEndpoint, getUserByToken);
     }
-
-    //#endregion
-
-    //#region Private methods
-
-    //#endregion
 }

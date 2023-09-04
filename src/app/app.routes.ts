@@ -12,7 +12,7 @@ const APP_ROUTES_FOR_ROOT: Routes = [
     },
     {
         path: RELATIVE_ROUTES.TEMPLATE,
-        loadChildren: () => import('../app/modules/template/template.routes').then((mod) => mod.TEMPLATE_ROUTES),
+        loadChildren: () => import('../app/modules/template/template.routes').then((mod) => mod.TEMPLATE_ROUTE_LIST),
     },
 ];
 

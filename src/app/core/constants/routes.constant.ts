@@ -12,8 +12,8 @@ export const RELATIVE_ROUTES = {
 };
 
 export const ABSOLUTE_ROUTES_FROM_PARENT = {
-    USER: (child: string) => `${RELATIVE_ROUTES.USER}/${child}`,
-    TEMPLATE: (child: string) => `${RELATIVE_ROUTES.TEMPLATE}/${child}`,
+    USER: (child: string): string => `${RELATIVE_ROUTES.USER}/${child}`,
+    TEMPLATE: (child: string): string => `${RELATIVE_ROUTES.TEMPLATE}/${child}`,
 };
 
 export const ABSOLUTE_ROUTES = {

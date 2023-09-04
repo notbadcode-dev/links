@@ -1,6 +1,6 @@
-import { HTTP_RESPONSE_MESSAGE } from '@enums/http-response.enum';
-import { MessageTypes } from '@enums/message.enum';
+import { EHttpResponseMessage } from '@enums/http-response.enum';
+import { TMessageType } from '@enums/message.enum';
 
 export class Message {
-    constructor(public content: HTTP_RESPONSE_MESSAGE, public type: MessageTypes) {}
+    constructor(public content: EHttpResponseMessage, public type: TMessageType) {}
 }

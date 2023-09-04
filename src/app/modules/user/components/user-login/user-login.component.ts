@@ -53,9 +53,8 @@ export class UserLoginComponent implements OnInit {
      * @description Call AuthService with user data for sign in APP
      * @returns Observable<string>
      */
-    private getUserSignObservable(userlogin: IUserLogin): Observable<string> {
-        userlogin.applicationId = 1;
-        return this._authService.userSignIn(userlogin);
+    private getUserSignObservable(userLogin: IUserLogin): Observable<string> {
+        return this._authService.userSignIn(userLogin);
     }
 
     public userSign(): void {

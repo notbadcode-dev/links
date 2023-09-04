@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { RELATIVE_ROUTES } from '@constants/routes.constant';
 
-export const TEMPLATE_ROUTES: Routes = [
+export const TEMPLATE_ROUTE_LIST: Routes = [
     {
         path: '',
         pathMatch: 'full',

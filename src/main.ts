@@ -20,15 +20,19 @@ if (ENVIRONMENT.production) {
     enableProdMode();
 }
 
-function initializeApp(appInitService: AppInitService, localStorageService: LocalStorageService, sessionService: SessionService) {
-    return (): Promise<any> => {
-        return appInitService.Init(localStorageService, sessionService);
+function initializeApp(appInitService: AppInitService) {
+    return (): Promise<void> => {
+        return appInitService.init();
     };
 }
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(RouterModule.forRoot(APP_ROUTES_FOR_ROOT), TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT), HttpClientModule),
+        importProvidersFrom(
+            RouterModule.forRoot(APP_ROUTES_FOR_ROOT, { useHash: true }),
+            TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT),
+            HttpClientModule
+        ),
         {
             provide: APP_INITIALIZER,
             useFactory: initializeApp,

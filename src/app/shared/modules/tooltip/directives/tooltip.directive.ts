@@ -83,6 +83,7 @@ export class TooltipDirective {
         }
 
         this.componentRef.instance.tooltip = this.tooltip;
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         const { left, right, bottom } = this.elementRef.nativeElement.getBoundingClientRect();
         this.componentRef.instance.left = (right - left) / 2 + left;
         this.componentRef.instance.top = bottom;

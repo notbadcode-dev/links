@@ -1,8 +1,8 @@
-export enum MessageType {
+export enum EMessageType {
     info = 'info',
     success = 'success',
     warning = 'warning',
     error = 'error',
 }
 
-export type MessageTypes = MessageType.info | MessageType.success | MessageType.warning | MessageType.error;
+export type TMessageType = EMessageType.info | EMessageType.success | EMessageType.warning | EMessageType.error;

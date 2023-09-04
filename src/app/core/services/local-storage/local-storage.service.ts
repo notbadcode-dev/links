@@ -10,8 +10,8 @@ export class LocalStorageService {
         localStorage.clear();
     }
 
-    get getLocalStorageTokenItem(): string {
-        const TOKEN: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.TOKEN);
+    public get getLocalStorageTokenItem(): string {
+        const TOKEN: string | null = this.getLocalStorageItem<string>(LOCAL_STORAGE_KEY.TOKEN);
 
         if (!TOKEN || !TOKEN.length) {
             return '';
@@ -24,40 +24,42 @@ export class LocalStorageService {
         if (!token || !token.length) {
             return;
         }
-        this.setLocalStorageItem(LOCAL_STORAGE_KEY.TOKEN, token);
+        this.setLocalStorageItem<string>(LOCAL_STORAGE_KEY.TOKEN, token);
     }
 
-    get getLocalStorageUserItem(): string {
-        const TOKEN: string = this.getLocalStorageItem(LOCAL_STORAGE_KEY.USER_DATA);
+    getLocalStorageUserItem(): IUser | null {
+        const USER: IUser | null = this.getLocalStorageItem<IUser>(LOCAL_STORAGE_KEY.USER_DATA) ?? null;
 
-        if (!TOKEN || !TOKEN.length) {
-            return '';
-        }
-
-        return TOKEN;
+        return USER;
     }
 
     public setLocalStorageUserItem(user: IUser): void {
         if (!user || !user.id || !user.userName || !user.userName.length) {
             return;
         }
-        this.setLocalStorageItem(LOCAL_STORAGE_KEY.USER_DATA, user);
+        this.setLocalStorageItem<IUser>(LOCAL_STORAGE_KEY.USER_DATA, user);
     }
 
-    private getLocalStorageItem(localStorageKey: string): any {
+    private getLocalStorageItem<T>(localStorageKey: string): T | null {
         if (!localStorageKey || !localStorageKey.length) {
-            return;
+            return null;
         }
 
-        const LOCAL_STORAGE_ITEM: any = localStorage.getItem(localStorageKey);
-        if (typeof LOCAL_STORAGE_ITEM === 'object' && LOCAL_STORAGE_ITEM !== null) {
-            return JSON.parse(LOCAL_STORAGE_ITEM);
+        const LOCAL_STORAGE_ITEM: string | null = localStorage.getItem(localStorageKey);
+
+        if (LOCAL_STORAGE_ITEM !== null) {
+            try {
+                return JSON.parse(LOCAL_STORAGE_ITEM) as T;
+            } catch (error) {
+                console.error(`Error parsing localStorage item '${localStorageKey}':`, error);
+                return null;
+            }
         }
 
-        return LOCAL_STORAGE_ITEM;
+        return null;
     }
 
-    private setLocalStorageItem(localStorageKey: string, localStorageValue: any): void {
+    private setLocalStorageItem<T>(localStorageKey: string, localStorageValue: T): void {
         if (!localStorageKey || !localStorageKey.length) {
             return;
         }
@@ -66,11 +68,11 @@ export class LocalStorageService {
             return;
         }
 
-        if (typeof localStorageValue === 'object' && localStorageValue !== null) {
-            localStorage.setItem(localStorageKey, JSON.stringify(localStorageValue));
-            return;
+        try {
+            const SERIALIZED_VALUE: string = JSON.stringify(localStorageValue);
+            localStorage.setItem(localStorageKey, SERIALIZED_VALUE);
+        } catch (error) {
+            console.error(`Error serializing and setting localStorage item '${localStorageKey}':`, error);
         }
-
-        localStorage.setItem(localStorageKey, localStorageValue);
     }
 }
