@@ -39,4 +39,21 @@ export class UtilStringService {
 
         return data + '';
     }
+    /**
+     * @description Determine is equals two text without sensitive-case
+     * @param  {string} firstText
+     * @param  {string} secondText
+     * @returns boolean
+     */
+    public isEqualsTextWithoutSensitiveCase(firstText: string, secondText: string): boolean {
+        if (!firstText?.length || typeof firstText !== 'string') {
+            return true;
+        }
+
+        if (!secondText?.length || typeof secondText !== 'string') {
+            return true;
+        }
+
+        return firstText.trim().toLowerCase() === secondText.trim().toLowerCase();
+    }
 }

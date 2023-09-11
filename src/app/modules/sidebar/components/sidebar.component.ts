@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
      * @returns void
      */
     initializeButtonConfig(): void {
-        this.logoutButtonConfig = ButtonConfigHelper.getAccentButtonConfig({
+        this.logoutButtonConfig = ButtonConfigHelper.getDestructiveButtonConfig({
             text: 'Logout',
             tooltip: 'Close session',
             disabled: false,

@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LANGUAGE } from '@constants/language.constant';
+import { HomeModule } from '@modules/home/home.module';
 import { TranslateService } from '@ngx-translate/core';
-import { HomeModule } from './modules/home/home.module';
 
 @Component({
     selector: 'app-root',

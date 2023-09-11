@@ -1,0 +1,24 @@
+<article class="container-fluid user-login-container">
+    <lnk-card [_config]="cardConfig" class="container-fluid">
+        <form [formGroup]="userLoginForm" class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <lnk-social-login-button class="col-md-6" [_config]="appleSocialLoginButton"></lnk-social-login-button>
+                    <lnk-social-login-button class="col-md-6" [_config]="googleSocialLoginButton"></lnk-social-login-button>
+                </div>
+            </div>
+
+            <lnk-text-with-delimiter class="col-sm-12" [_text]="'o inicia sesión con tu e-mail'"></lnk-text-with-delimiter>
+
+            <lnk-input class="col-sm-12" [_config]="userNameInputConfig"></lnk-input>
+
+            <lnk-input class="col-sm-12" [_config]="passwordInputConfig"></lnk-input>
+
+            <lnk-primary-button
+                *ngIf="loginButtonConfig"
+                class="col-md-12"
+                [_config]="loginButtonConfig"
+                (onClickEvent)="userSign()"></lnk-primary-button>
+        </form>
+    </lnk-card>
+</article>

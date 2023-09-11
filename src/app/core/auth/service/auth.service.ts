@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpBaseService } from '@app/core/http-services/http-base/http-base.service';
-import { IGetUserByToken } from '@app/core/models/user/get-user-by-token.model';
-import { IUser, IUserLogin } from '@app/core/models/user/user.model';
-import { EnvironmentService } from '@app/core/services/environment/environment.service';
+import { AuthEndpointService } from '@auth/service/auth-endpoint.service';
+import { HttpBaseService } from '@http-services/http-base/http-base.service';
+import { IGetUserByToken } from '@models/user/get-user-by-token.model';
+import { IUser, IUserLogin } from '@models/user/user.model';
+import { EnvironmentService } from '@services/environment/environment.service';
 import { EMPTY, Observable } from 'rxjs';
-import { AuthEndpointService } from './auth-endpoint.service';
 
 @Injectable({
     providedIn: 'root',

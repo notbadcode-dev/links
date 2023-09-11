@@ -1,4 +1,4 @@
-.container {
+.navbar-container {
     display: flex;
     align-items: center;
     padding: 1rem 10rem;
@@ -33,8 +33,7 @@
         }
 
         i::before {
-            filter: invert(21%) sepia(1%) saturate(3362%) hue-rotate(318deg) brightness(103%)
-                contrast(82%);
+            filter: invert(21%) sepia(1%) saturate(3362%) hue-rotate(318deg) brightness(103%) contrast(82%);
             content: url('../../../../assets/images/logo/link_round_32.png');
         }
     }

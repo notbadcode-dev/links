@@ -4,4 +4,4 @@ export const enum EInputType {
     EMAIL = 'email',
 }
 
-export type TInputTypes = EInputType.TEXT | EInputType.PASSWORD | EInputType.EMAIL;
+export type TInputTypes = EInputType;

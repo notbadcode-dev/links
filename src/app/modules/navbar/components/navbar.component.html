@@ -1,4 +1,4 @@
-<div class="container">
+<div class="navbar-container">
     <div class="header-container">
         <!-- <i></i> -->
         <span [routerLink]="['//']"> Link</span>
@@ -9,10 +9,6 @@
     <div class="user-container">
         <i class="ri-user-line"></i>
         <span> cbalaguer@gmail.com </span>
-        <i
-            class="ri-arrow-up-s-line"
-            [ngClass]="{ opened: openArrow, closed: !openArrow }"
-            role="button"
-            (click)="arrowAction()"></i>
+        <i class="ri-arrow-up-s-line" [ngClass]="{ opened: openArrow, closed: !openArrow }" role="button" (click)="arrowAction()"></i>
     </div>
 </div>

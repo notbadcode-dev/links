@@ -1,0 +1,36 @@
+.card-container {
+    border-radius: var(--default-border-radius);
+    border: 0.08rem solid var(--default-border-color-gradient-010);
+    background: var(--default-background-element-color);
+    padding-inline: 3rem;
+
+    > :first-child {
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+
+        > p {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        &[data-align] {
+            display: grid;
+        }
+
+        &[data-align='left'] {
+            place-items: left;
+        }
+
+        &[data-align='right'] {
+            place-items: right;
+        }
+
+        &[data-align='center'] {
+            place-items: center;
+        }
+    }
+
+    > :last-child {
+        padding-bottom: 0;
+    }
+}

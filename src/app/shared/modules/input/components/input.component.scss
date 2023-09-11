@@ -1,14 +1,14 @@
-.container,
-.container > .input-context,
-.container > .input-context > * > i,
-.container > .input-context > .body > input,
-.container > .hint,
-.container > .error {
+.input-container,
+.input-container > .input-context,
+.input-container > .input-context > * > i,
+.input-container > .input-context > .body > input,
+.input-container > .hint,
+.input-container > .error {
     width: 100%;
 }
 
-.container {
-    padding: 1.8rem 0.2rem 1.2rem 0.2rem;
+.input-container {
+    padding: 1.8rem 0.2rem 0.2rem 0.2rem;
 
     .input-context {
         position: relative;
@@ -30,7 +30,7 @@
 
                 transition: all 300ms ease;
 
-                :first-child {
+                > :first-child {
                     color: var(--default-border-color-gradient-030);
                 }
             }
@@ -78,6 +78,35 @@
                     &:hover {
                         cursor: text;
                     }
+                }
+            }
+
+            > i {
+                position: absolute;
+                top: 0.52rem;
+                left: calc(100% - 1.75rem);
+                transition: background-color 300ms ease-in-out;
+
+                &::before {
+                    padding: 0.06rem;
+                    background-color: var(--primary-passive-color);
+                    color: var(--primary-color);
+                    border-color: var(--primary-color);
+
+                    border-radius: 50%;
+
+                    opacity: 0;
+                    transition: opacity 300ms ease-in-out;
+                }
+
+                &:hover::before {
+                    opacity: 1;
+                }
+
+                cursor: pointer;
+
+                &.visible:not(:hover):before {
+                    opacity: 0.4;
                 }
             }
         }

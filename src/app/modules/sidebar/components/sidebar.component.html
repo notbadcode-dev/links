@@ -2,6 +2,9 @@
     <header></header>
     <main></main>
     <footer>
-        <lnk-accent-button *ngIf="logoutButtonConfig" [_config]="logoutButtonConfig" (onClickEvent)="logout()"></lnk-accent-button>
+        <lnk-destructive-button
+            *ngIf="logoutButtonConfig"
+            [_config]="logoutButtonConfig"
+            (onClickEvent)="logout()"></lnk-destructive-button>
     </footer>
 </div>

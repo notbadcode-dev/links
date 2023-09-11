@@ -1,9 +1,9 @@
 <ng-container *ngIf="config && config.label && config.label.length > 0">
     <div
-        class="container"
+        class="input-container"
         [ngClass]="{
             disabled: config.disabled || inputControl.disabled,
-            error: inputControl.errors,
+            error: inputControl.errors && inputControl.touched,
             'prepend-container': config.prependIcon && config.prependTooltip,
             'append-container': config.appendIcon && config.appendTooltip
         }">
@@ -17,13 +17,24 @@
                     id="{{ config.label }}"
                     type="{{ config.type }}"
                     title="{{ config.title || '' }}"
+                    placeholder="{{ config.placeholder || '' }}"
+                    autocomplete="off"
+                    autofocus="false"
                     [formControl]="inputControl"
-                    (focus)="onFocus()"
-                    placeholder="{{ config.placeholder || '' }}" />
+                    [ngClass]="{ 'not-empty': !this.isEmpty }"
+                    (focus)="onFocus()" />
                 <label for="{{ config.label }}">
-                    {{ config.label | titlecase }}
+                    <span>{{ config.label | titlecase }}</span>
                     <small *ngIf="isOptional"> (Optional) </small>
                 </label>
+
+                <i
+                    [ngClass]="{ visible: !isEmpty }"
+                    title=" {{ 'Delete ' + (config.label | titlecase) }}"
+                    class="ri-close-line"
+                    [tooltip]="'Delete ' + (config.label | titlecase)"
+                    role="button"
+                    (click)="deleteInput()"></i>
             </div>
 
             <div class="append" *ngIf="config.appendIcon && config.appendTooltip" [tooltip]="config.appendTooltip || ''">
@@ -39,7 +50,7 @@
             <span>{{ config.hint }}</span>
         </small>
 
-        <small class="error-context" [ngClass]="{ visible: inputControl.errors }">
+        <small class="error-context" [ngClass]="{ visible: inputControl.errors && inputControl.touched }">
             <i [hidden]="!inputControl.errors" class="ri-error-warning-line"></i>
             <span [hidden]="!inputControl.hasError('required')"> {{ errorMessage.REQUIRED }}</span>
         </small>

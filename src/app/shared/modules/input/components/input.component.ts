@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ERROR_INPUT_MESSAGE } from './input.constant';
+import { Subject, takeUntil } from 'rxjs';
+import { INPUT_CONSTANT } from './input.constant';
 import { InputConfig } from './input.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { InputConfig } from './input.model';
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.scss'],
 })
-export class InputComponent implements OnInit {
+export class InputComponent implements OnInit, OnDestroy {
     @Input() set _config(_config: InputConfig) {
         if (_config) {
             this.config = _config;
@@ -17,64 +18,95 @@ export class InputComponent implements OnInit {
     }
 
     @Output() onInputFocusEvent: EventEmitter<string> = new EventEmitter();
-
     @Output() onInputValueChangeEvent: EventEmitter<string> = new EventEmitter();
 
     public config!: InputConfig;
-
     public inputControl: FormControl = new FormControl('');
-
     public isOptional = true;
+    public isEmpty = true;
+    public errorMessage = INPUT_CONSTANT.ERROR_INPUT_MESSAGE;
 
-    public errorMessage = ERROR_INPUT_MESSAGE;
+    private destroy$ = new Subject<void>();
 
     ngOnInit(): void {}
 
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
+
     /**
-     * @description Initilize formControl and initilizae listen changes
+     * @description Called when focus on input
+     * @returns void
+     */
+    public onFocus(): void {
+        this.onInputFocusEvent.emit(this.inputControl?.value || '');
+    }
+
+    /**
+     * @description Delete input
+     * @returns void
+     */
+    public deleteInput(): void {
+        this.inputControl.patchValue('');
+    }
+
+    /**
+     * @description Initialize formControl and initialize listen changes
      * @param  {InputConfig} config
      * @returns {void}
      */
     private initializeFormControl(config: InputConfig): void {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        const { parentFormGroup, formControlName } = config;
+
         if (!config) {
             return;
         }
 
-        if (!config.parentFormGroup) {
+        if (!parentFormGroup) {
             return;
         }
 
-        if (!config.formControlName || config.formControlName.length === 0) {
+        if (!formControlName?.length) {
             return;
         }
 
-        const FORM_GROUP: FormGroup = config.parentFormGroup;
-        const FORM_CONTROL_NAME: string = config.formControlName;
+        const FORM_GROUP: FormGroup = parentFormGroup as FormGroup;
+        const FORM_CONTROL_NAME: string = formControlName;
         const FORM_CONTROL: FormControl = FORM_GROUP.get(FORM_CONTROL_NAME) as FormControl;
 
         this.inputControl = FORM_CONTROL;
-
-        this.inputControl.valueChanges.subscribe((inputValue: string) => {
-            if (typeof inputValue === 'string') {
-                const INPUT_ELEMENT: HTMLElement | null = document.getElementById(this.config.label);
-                this.onInputValueChangeEvent.emit(inputValue);
-
-                if (INPUT_ELEMENT) {
-                    if (inputValue.length > 0) {
-                        INPUT_ELEMENT?.classList.add('not-empty');
-                    }
-
-                    if (inputValue.length === 0) {
-                        INPUT_ELEMENT?.classList.remove('not-empty');
-                    }
-                }
-            }
-        });
-
         this.isOptional = !this.inputControl.hasValidator(Validators.required);
+
+        this.formControlValueChanges();
+        this.manageEmptyClassToInputElement(this.inputControl?.value);
     }
 
-    public onFocus(): void {
-        this.onInputFocusEvent.emit(this.inputControl?.value || '');
+    /**
+     * @private
+     * @description Listen value changes on input formControl
+     * @returns void
+     */
+    private formControlValueChanges(): void {
+        if (!this.inputControl) {
+            return;
+        }
+
+        this.inputControl.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((inputValue: string) => {
+            if (typeof inputValue === 'string') {
+                this.onInputValueChangeEvent.emit(inputValue);
+                this.manageEmptyClassToInputElement(inputValue);
+            }
+        });
+    }
+    /**
+     * @private
+     * @description Add or removed empty class to input HTML Element
+     * @param  {string} inputValue
+     * @returns void
+     */
+    private manageEmptyClassToInputElement(inputValue: string): void {
+        this.isEmpty = !inputValue?.length;
     }
 }

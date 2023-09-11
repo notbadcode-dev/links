@@ -1,11 +1,12 @@
-.container,
-.container > button,
-.container > :last-child {
+.button-container,
+.button-container > button,
+.button-container > :last-child {
     width: 100%;
 }
 
-.container {
+.button-container {
     position: relative;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 
     button {
@@ -45,7 +46,6 @@
     }
 
     small {
-        z-index: -1;
         position: absolute;
         bottom: 1rem;
         opacity: 0.75;

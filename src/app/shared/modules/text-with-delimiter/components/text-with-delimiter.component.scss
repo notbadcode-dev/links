@@ -1,0 +1,19 @@
+.text-with-delimiter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+
+    > :first-child,
+    > :last-child {
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 2rem;
+            background-color: #f3f3f3;
+            height: 1px;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+    }
+}

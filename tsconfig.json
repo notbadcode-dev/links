@@ -27,10 +27,11 @@
             "@http-services/*": ["src/app/core/http-services/*"],
             "@models/*": ["src/app/core/models/*"],
             "@services/*": ["src/app/core/services/*"],
+            "@interceptors/*": ["src/app/core/interceptors/*"],
             "@shared/*": ["src/app/shared/*"],
             "@modules/*": ["src/app/modules/*"],
             "@assets/*": ["src/assets/*"],
-            "@environment/*": ["src/environments/*"]
+            "@environments/*": ["src/environments/*"]
         },
         "useDefineForClassFields": false
     },
