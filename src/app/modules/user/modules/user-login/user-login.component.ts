@@ -18,6 +18,7 @@ import { EInputType } from '@app/shared/modules/input/components/input.enum';
 import { InputConfig } from '@app/shared/modules/input/components/input.model';
 import { InputModule } from '@app/shared/modules/input/input.module';
 import { TextWithDelimiterModule } from '@app/shared/modules/text-with-delimiter/text-with-delimiter.module';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { SOCIAL_LOGIN_BUTTON } from './components/social-login-button/social-login-button.constant';
 import { IUserLoginForm } from './user-login.interface';
@@ -35,6 +36,7 @@ import { IUserLoginForm } from './user-login.interface';
         SocialLoginButtonModule,
         SocialLoginButtonModule,
         TextWithDelimiterModule,
+        TranslateModule,
     ],
     templateUrl: './user-login.component.html',
     styleUrls: ['./user-login.component.scss'],
@@ -51,7 +53,8 @@ export class UserLoginComponent implements OnInit {
     constructor(
         private _authService: AuthService,
         private _sessionService: SessionService,
-        private _utilStringService: UtilStringService
+        private _utilStringService: UtilStringService,
+        private _translateService: TranslateService
     ) {}
 
     ngOnInit(): void {
@@ -106,7 +109,7 @@ export class UserLoginComponent implements OnInit {
      */
     private initializeCardConfig(): void {
         this.cardConfig = {
-            title: 'Inicia sesión en tu cuenta',
+            title: this._translateService.instant('COMPONENTS.LOGIN.TITLE'),
             alignTitle: ECardAlignTitle.CENTER,
         };
     }

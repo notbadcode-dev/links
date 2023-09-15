@@ -2,8 +2,12 @@
     "CONFIGURATION": {
         "LANGUAGE": {
             "TITLE": "Español",
-            "CODE": "ES",
-            "SPANISH_TITLE": "Español"
+            "CODE": "ES"
+        }
+    },
+    "COMPONENTS": {
+        "LOGIN": {
+            "TITLE": "Inicia sesión en tu cuenta"
         }
     }
 }

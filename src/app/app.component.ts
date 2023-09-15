@@ -8,28 +8,23 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
     selector: 'app-root',
     standalone: true,
-    styles: [
-        `
-            :host {
-                height: 100%;
-            }
-        `,
-    ],
+    styles: [],
     template: '<lnk-home></lnk-home>',
     imports: [CommonModule, RouterModule, HomeModule],
 })
 export class AppComponent {
-    constructor(translateService: TranslateService) {
-        this.initilizeLanguage(translateService, LANGUAGE.ENGLISH.CODE);
+    constructor(private _translateService: TranslateService) {
+        this.initializeLanguage(_translateService);
     }
 
     /**
+     * @private
      * @description Set language for translate service
      * @param  {TranslateService} translateService
-     * @param  {string} languageCode utf-8 code of language
+     * @param  {string} languageCode='en' utf-8 code of language
      * @returns void
      */
-    initilizeLanguage(translateService: TranslateService, languageCode: string): void {
+    private initializeLanguage(translateService: TranslateService, languageCode: string = LANGUAGE.ENGLISH.CODE): void {
         translateService.setDefaultLang(languageCode);
         translateService.use(languageCode);
     }

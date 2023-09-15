@@ -2,8 +2,12 @@
     "CONFIGURATION": {
         "LANGUAGE": {
             "TITLE": "English",
-            "CODE": "EN",
-            "SPANISH_TITLE": "Inglés"
+            "CODE": "EN"
+        }
+    },
+    "COMPONENTS": {
+        "LOGIN": {
+            "TITLE": "Log in to your account"
         }
     }
 }
