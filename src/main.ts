@@ -11,7 +11,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import APP_ROUTES_FOR_ROOT from '@app/app.routes';
 import APP_TRANSLATE_FOR_ROOT from '@app/app.translate';
 
-import { LANGUAGE } from '@app/core/constants/language.constant';
+import { LANGUAGE_CONSTANT } from '@app/core/constants/language.constant';
 import { INTERCEPTOR_PROVIDER_LIST } from '@app/core/interceptors/interceptor.index';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppInitService } from '@services/app-init/app-init.service';
@@ -29,7 +29,7 @@ function initializeApp(appInitService: AppInitService) {
 }
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
-    return new TranslateHttpLoader(http, LANGUAGE.TRANSLATE_FILE_PATH, LANGUAGE.TRANSLATE_FILE_EXTENSION);
+    return new TranslateHttpLoader(http, LANGUAGE_CONSTANT.TRANSLATE_FILE_PATH, LANGUAGE_CONSTANT.TRANSLATE_FILE_EXTENSION);
 }
 
 bootstrapApplication(AppComponent, {

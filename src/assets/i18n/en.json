@@ -6,8 +6,24 @@
         }
     },
     "COMPONENTS": {
-        "LOGIN": {
+        "USER_LOGIN": {
             "TITLE": "Log in to your account"
+        },
+        "SESSION_INFORMATION": {
+            "CONNECTED_FROM": "Connected"
+        },
+        "LANGUAGE": {
+            "TITLE": "Language selection",
+            "LIST": {
+                "ES": {
+                    "LONG": "Spanish",
+                    "SHORT": "SP"
+                },
+                "EN": {
+                    "LONG": "English",
+                    "SHORT": "EN"
+                }
+            }
         }
     }
 }

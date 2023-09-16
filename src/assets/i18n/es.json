@@ -6,8 +6,24 @@
         }
     },
     "COMPONENTS": {
-        "LOGIN": {
+        "USER_LOGIN": {
             "TITLE": "Inicia sesión en tu cuenta"
+        },
+        "SESSION_INFORMATION": {
+            "CONNECTED_FROM": "Conectado/a"
+        },
+        "LANGUAGE": {
+            "TITLE": "Selección de idioma",
+            "LIST": {
+                "ES": {
+                    "LONG": "Español",
+                    "SHORT": "ES"
+                },
+                "EN": {
+                    "LONG": "Ingles",
+                    "SHORT": "IN"
+                }
+            }
         }
     }
 }

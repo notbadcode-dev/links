@@ -1,0 +1,9 @@
+.logo-container {
+    flex: 0 auto;
+    color: var(--default-font-color);
+    padding: 0.2rem 1rem;
+
+    > span {
+        font-size: 1.4rem;
+    }
+}

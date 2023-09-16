@@ -109,7 +109,7 @@ export class UserLoginComponent implements OnInit {
      */
     private initializeCardConfig(): void {
         this.cardConfig = {
-            title: this._translateService.instant('COMPONENTS.LOGIN.TITLE'),
+            title: this._translateService.instant('COMPONENTS.USER_LOGIN.TITLE'),
             alignTitle: ECardAlignTitle.CENTER,
         };
     }
@@ -117,15 +117,13 @@ export class UserLoginComponent implements OnInit {
     private initializeSocialButtonConfig(): void {
         this.appleSocialLoginButton = {
             altImage: 'apple',
-            reference:
-                'https://user-api.setapp.com/v1/auth/apple?state=eyJwYXlsb2FkIjp7InNpZ251cFBhcmFtcyI6eyJpbm5lclJlZGlyZWN0VXJpIjoiL3N1YnNjcmlwdGlvbiJ9fSwidGltZXN0YW1wIjoxNjk0MzAxNzM1MzExfQ%3D%3D',
+            reference: '',
             svgImage: SOCIAL_LOGIN_BUTTON.FILES.SVG_APPLE,
         };
 
         this.googleSocialLoginButton = {
             altImage: 'google',
-            reference:
-                'https://accounts.google.com/o/oauth2/v2/auth?client_id=627325736153-dhnfoqli9fuf40ld8s1c5imtu7p833hs.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fmy.setapp.com%2Fauth%2Fgoogle&amp;response_type=token&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&amp;state=eyJwYXlsb2FkIjp7InNpZ251cFBhcmFtcyI6eyJpbm5lclJlZGlyZWN0VXJpIjoiL3N1YnNjcmlwdGlvbiJ9fSwidGltZXN0YW1wIjoxNjk0MzAxNzM1MzExfQ%3D%3D',
+            reference: '',
             svgImage: SOCIAL_LOGIN_BUTTON.FILES.SVG_GOOGLE,
         };
     }

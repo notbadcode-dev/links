@@ -12,7 +12,7 @@ export class SocialLoginButtonComponent {
     @Input() set _config(_config: SocialLoginButtonConfig) {
         if (_config) {
             this.config = _config;
-            this.svgImageUrl = this._utilDocumentService.getLogoFile(this.config.svgImage);
+            this.svgImageUrl = this._utilDocumentService.getCorporateLogoFile(this.config.svgImage);
         }
     }
 

@@ -1,0 +1,38 @@
+.user-container,
+.user-container > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-container {
+    > i {
+        background-color: rgba(68, 68, 68, 0.1);
+        border-radius: var(--rounded-border-radius);
+        height: 32px;
+        width: 32px;
+        margin-inline: 0.6rem;
+    }
+
+    > div {
+        display: grid;
+        place-items: center;
+
+        > * {
+            display: block;
+        }
+
+        > :last-child {
+            padding-top: 0.4rem;
+            font-size: 0.7rem;
+            small {
+                font-size: 0.58rem;
+                background-color: var(--primary-passive-color);
+                border: var(--primary-color);
+                border-radius: var(--default-border-radius-small-elements);
+                padding: 0.15rem 0.4rem;
+                margin-left: 0.2rem;
+            }
+        }
+    }
+}

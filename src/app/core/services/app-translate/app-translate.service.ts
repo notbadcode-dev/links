@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LANGUAGE } from '@app/core/constants/language.constant';
+import { LANGUAGE_CONSTANT } from '@app/core/constants/language.constant';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -14,8 +14,9 @@ export class AppTranslateService {
      * @returns void
      */
     public initializeLanguage(): void {
-        this._translateService.setDefaultLang(LANGUAGE.ENGLISH.CODE);
-        this.setUseLanguage(LANGUAGE.ENGLISH.CODE);
+        this._translateService.addLangs([LANGUAGE_CONSTANT.ENGLISH.CODE, LANGUAGE_CONSTANT.SPANISH.CODE]);
+        this._translateService.setDefaultLang(LANGUAGE_CONSTANT.ENGLISH.CODE);
+        this.setUseLanguage(LANGUAGE_CONSTANT.ENGLISH.CODE);
     }
 
     /**
@@ -25,6 +26,23 @@ export class AppTranslateService {
      */
     public setUseLanguage(languageCode: string): void {
         this._translateService.use(languageCode);
+    }
+
+    /**
+     * @description Translate a tag
+     * @param  {string} translateTag
+     * @returns string
+     */
+    public instant(translateTag: string): string {
+        return this._translateService.instant(translateTag);
+    }
+
+    /**
+     * @description Get configure language list
+     * @returns string
+     */
+    public getLanguageList(): string[] {
+        return this._translateService.getLangs();
     }
 
     /**
