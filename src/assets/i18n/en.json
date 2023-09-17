@@ -5,6 +5,14 @@
             "CODE": "EN"
         }
     },
+    "SERVICES": {
+        "LOCAL_STORAGE": {
+            "ERRORS": {
+                "SAVE_ITEM": "Error saving session data",
+                "GET_ITEM": "Error getting session data"
+            }
+        }
+    },
     "COMPONENTS": {
         "USER_LOGIN": {
             "TITLE": "Log in to your account"

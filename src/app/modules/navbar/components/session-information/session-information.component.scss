@@ -23,6 +23,10 @@
         }
 
         > :last-child {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
             padding-top: 0.4rem;
             font-size: 0.7rem;
             small {

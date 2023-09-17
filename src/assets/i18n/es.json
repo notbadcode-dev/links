@@ -5,6 +5,14 @@
             "CODE": "ES"
         }
     },
+    "SERVICES": {
+        "LOCAL_STORAGE": {
+            "ERRORS": {
+                "SAVE_ITEM": "Error al guardar datos de la sesión",
+                "GET_ITEM": "Error al recuperar datos de la sesión"
+            }
+        }
+    },
     "COMPONENTS": {
         "USER_LOGIN": {
             "TITLE": "Inicia sesión en tu cuenta"

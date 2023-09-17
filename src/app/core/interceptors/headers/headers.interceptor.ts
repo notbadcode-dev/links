@@ -15,12 +15,14 @@ export class HeadersInterceptor implements HttpInterceptor {
             return _next.handle(_request);
         }
 
-        const TOKEN: string = this._localStorageService?.getLocalStorageTokenItem ?? null;
+        const TOKEN: string = this._localStorageService?.getLocalStorageTokenItem ?? '';
+        const LANGUAGE: string = this._localStorageService?.getLocalStorageLanguageItem ?? '';
 
         _request = _request.clone({
             headers: new HttpHeaders({
                 [HTTP_HEADERS.CONTENT_TYPE.KEY]: HTTP_HEADERS.CONTENT_TYPE.VALUES.APPLICATION_JSON,
                 [HTTP_HEADERS.AUTHORIZATION.KEY]: TOKEN,
+                [HTTP_HEADERS.LANGUAGE.KEY]: LANGUAGE,
             }),
         });
 

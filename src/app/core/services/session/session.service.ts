@@ -44,7 +44,7 @@ export class SessionService {
     }
 
     destroySession(): void {
-        this._localStorageService.removeAllLocalStorage();
+        this._localStorageService.clearAllLocalStorageItems();
         this._sidebarService.setHiddenSidebar(true);
         this._router.navigate([ABSOLUTE_ROUTES.LOGIN]);
     }

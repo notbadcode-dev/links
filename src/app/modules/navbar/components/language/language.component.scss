@@ -10,12 +10,14 @@
     }
 
     ul {
+        z-index: 99999;
         position: absolute;
         top: 100%;
-        left: -1rem;
+        left: -0.2rem;
         border-top: 3px solid transparent;
         list-style: none;
-        padding-top: 0;
+        padding-top: 0.2rem;
+        padding-bottom: 0.4rem;
         margin: 0;
         margin-top: 1.5rem;
         opacity: 0;
@@ -23,10 +25,11 @@
         box-shadow: var(--default-box-shadow);
         border-radius: var(--default-border-radius);
         background-color: var(--white-color);
+        animation: fadeOut 300ms 0 ease forwards;
 
         &.show {
-            opacity: 1;
             pointer-events: auto;
+            animation: fadeIn 300ms ease forwards;
         }
 
         li,
@@ -36,14 +39,18 @@
         }
 
         li {
-            padding-inline: 1rem;
-            animation: fadeIn 300ms ease-in-out;
+            padding: 0 0.6rem 0 0.2rem;
+            min-width: 8rem;
 
-            padding-top: 0.2rem;
-            padding-bottom: 0.4rem;
-
-            > div > span {
+            > div > div {
                 margin-left: 0.5rem;
+                display: grid;
+                justify-content: flex-start;
+
+                small {
+                    padding-left: 0.2rem;
+                    font-size: 0.65rem;
+                }
             }
         }
     }
@@ -57,5 +64,16 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        display: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 }

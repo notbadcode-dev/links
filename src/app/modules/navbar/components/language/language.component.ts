@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ASSETS_CONSTANTS } from '@app/core/constants/assets.constant';
-import { LANGUAGE_CONSTANT } from '@app/core/constants/language.constant';
+import { LANGUAGE_CONSTANT, LANGUAGE_NATIVE_TEXT } from '@app/core/constants/language.constant';
 import { AppTranslateService } from '@app/core/services/app-translate/app-translate.service';
 import { UtilDocumentService } from '@app/core/services/util/util-document/util-document.service';
 import { ISelectableLanguage } from './models/language.model';
@@ -18,7 +18,7 @@ export class LanguageComponent implements OnInit, AfterViewInit {
 
     isMouseOverUl = false;
 
-    private showOptions = false;
+    showOptions = false;
     private hideTimeout!: ReturnType<typeof setTimeout>;
 
     constructor(private _appTranslateService: AppTranslateService, private _utilDocumentService: UtilDocumentService) {}
@@ -66,7 +66,7 @@ export class LanguageComponent implements OnInit, AfterViewInit {
     @HostListener('mouseenter')
     private onMouseEnter(): void {
         clearTimeout(this.hideTimeout);
-        this.isMouseOverUl = true;
+        this.showOptions = true;
     }
 
     /**
@@ -80,7 +80,7 @@ export class LanguageComponent implements OnInit, AfterViewInit {
             if (!this.isMouseOverUl) {
                 this.showOptions = false;
             }
-        }, 1000);
+        }, 300);
     }
 
     /**
@@ -89,8 +89,8 @@ export class LanguageComponent implements OnInit, AfterViewInit {
      * @returns void
      */
     private initializeSelectableLanguageList(): void {
-        this.selectableLanguageList = this.getSelectableLanguageList(LANGUAGE_CONSTANT.ENGLISH.CODE);
-        this.selectLanguage(LANGUAGE_CONSTANT.ENGLISH.CODE);
+        this.selectableLanguageList = this.getSelectableLanguageList(LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE);
+        this.selectLanguage(LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE);
     }
 
     /**
@@ -112,6 +112,7 @@ export class LanguageComponent implements OnInit, AfterViewInit {
                 return {
                     logoFlagPath: `${this._utilDocumentService.getFlagLogoFile(languageCode)}${ASSETS_CONSTANTS.FLAGS_EXTENSION}`,
                     alternativeText: 'COMPONENTS.LANGUAGE.LIST.' + languageCode.toUpperCase() + '.LONG',
+                    nativeText: LANGUAGE_NATIVE_TEXT[languageCode],
                     languageCode: languageCode,
                 };
             });

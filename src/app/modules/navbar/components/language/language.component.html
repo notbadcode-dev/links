@@ -1,11 +1,14 @@
 <div class="language-container" role="button" (click)="toggleOptions()">
     <img [hidden]="!selectedLanguage" [attr.src]="selectedLanguage?.logoFlagPath" alt="{{ selectedLanguage?.alternativeText }}" />
 
-    <ul #languageList [hidden]="!!selectableLanguageList.length" [ngClass]="{ show: isMouseOverUl }">
+    <ul #languageList [ngClass]="{ show: showOptions }">
         <li *ngFor="let selectableLanguage of selectableLanguageList">
             <div role="button" (click)="changeLanguage(selectableLanguage.languageCode)">
                 <img [attr.src]="selectableLanguage.logoFlagPath" alt="{{ selectableLanguage.alternativeText }}" />
-                <span>{{ selectableLanguage.alternativeText | translate }}</span>
+                <div>
+                    <span>{{ selectableLanguage.alternativeText | translate }}</span>
+                    <small>{{ selectableLanguage.nativeText }}</small>
+                </div>
             </div>
         </li>
     </ul>

@@ -14,9 +14,9 @@ export class AppTranslateService {
      * @returns void
      */
     public initializeLanguage(): void {
-        this._translateService.addLangs([LANGUAGE_CONSTANT.ENGLISH.CODE, LANGUAGE_CONSTANT.SPANISH.CODE]);
-        this._translateService.setDefaultLang(LANGUAGE_CONSTANT.ENGLISH.CODE);
-        this.setUseLanguage(LANGUAGE_CONSTANT.ENGLISH.CODE);
+        this._translateService.addLangs([LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE, LANGUAGE_CONSTANT.TRANSLATE_SPANISH_CODE]);
+        this._translateService.setDefaultLang(LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE);
+        this.setUseLanguage(LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE);
     }
 
     /**
@@ -33,8 +33,18 @@ export class AppTranslateService {
      * @param  {string} translateTag
      * @returns string
      */
-    public instant(translateTag: string): string {
+    public getTranslateText(translateTag: string): string {
         return this._translateService.instant(translateTag);
+    }
+
+    /**
+     * @description Translate a tag
+     * @param  {string} translateTag
+     * @param  {T} parameters
+     * @returns string
+     */
+    public getTranslateTextWithParameters<T>(translateTag: string, parameters: T): string {
+        return this._translateService.instant(translateTag, parameters as object);
     }
 
     /**

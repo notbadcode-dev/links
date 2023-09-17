@@ -1,6 +1,7 @@
 export interface IUser {
     id: number;
-    userName: string;
+    username: string;
+    connectedFrom: Date;
 }
 
 export interface IUserLogin extends IUser {

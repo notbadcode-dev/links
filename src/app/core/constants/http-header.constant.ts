@@ -8,4 +8,7 @@ export const HTTP_HEADERS = {
     AUTHORIZATION: {
         KEY: 'Authorization',
     },
+    LANGUAGE: {
+        KEY: 'Language',
+    },
 };
