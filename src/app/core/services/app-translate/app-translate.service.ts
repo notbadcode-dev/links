@@ -5,17 +5,15 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable({
     providedIn: 'root',
 })
-export class AppTranslateService {
-    constructor(private _translateService: TranslateService) {}
-
+export class AppTranslateService extends TranslateService {
     /**
      * @private
      * @description Set language for translate service
      * @returns void
      */
     public initializeLanguage(): void {
-        this._translateService.addLangs([LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE, LANGUAGE_CONSTANT.TRANSLATE_SPANISH_CODE]);
-        this._translateService.setDefaultLang(LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE);
+        this.addLangs([LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE, LANGUAGE_CONSTANT.TRANSLATE_SPANISH_CODE]);
+        this.setDefaultLang(LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE);
         this.setUseLanguage(LANGUAGE_CONSTANT.TRANSLATE_ENGLISH_CODE);
     }
 
@@ -25,7 +23,7 @@ export class AppTranslateService {
      * @returns void
      */
     public setUseLanguage(languageCode: string): void {
-        this._translateService.use(languageCode);
+        this.use(languageCode);
     }
 
     /**
@@ -34,7 +32,7 @@ export class AppTranslateService {
      * @returns string
      */
     public getTranslateText(translateTag: string): string {
-        return this._translateService.instant(translateTag);
+        return this.instant(translateTag);
     }
 
     /**
@@ -44,7 +42,7 @@ export class AppTranslateService {
      * @returns string
      */
     public getTranslateTextWithParameters<T>(translateTag: string, parameters: T): string {
-        return this._translateService.instant(translateTag, parameters as object);
+        return this.instant(translateTag, parameters as object);
     }
 
     /**
@@ -52,7 +50,7 @@ export class AppTranslateService {
      * @returns string
      */
     public getLanguageList(): string[] {
-        return this._translateService.getLangs();
+        return this.getLangs();
     }
 
     /**
@@ -62,6 +60,6 @@ export class AppTranslateService {
      * @returns void
      */
     private setLanguageDefaultLanguage(languageCode: string): void {
-        this._translateService.setDefaultLang(languageCode);
+        this.setDefaultLang(languageCode);
     }
 }

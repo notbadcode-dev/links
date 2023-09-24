@@ -15,7 +15,36 @@
     },
     "COMPONENTS": {
         "USER_LOGIN": {
-            "TITLE": "Inicia sesión en tu cuenta"
+            "TITLE": "Inicia sesión en tu cuenta",
+            "CARD": {
+                "LOGIN": {
+                    "TITLE": "Inicia sesión en tu cuenta"
+                }
+            },
+            "INPUT": {
+                "USERNAME": {
+                    "LABEL": "Nombre usuario",
+                    "TITLE": "Nombre usuario"
+                },
+                "PASSWORD": {
+                    "LABEL": "Contraseña",
+                    "TITLE": "Contraseña"
+                }
+            },
+            "BUTTON": {
+                "LOGIN": {
+                    "TEXT": "Iniciar",
+                    "TOOLTIP": "Iniciar sesión"
+                }
+            }
+        },
+        "SIDEBAR": {
+            "BUTTON": {
+                "LOGOUT": {
+                    "TEXT": "Salir",
+                    "TOOLTIP": "Cerrar sesión"
+                }
+            }
         },
         "SESSION_INFORMATION": {
             "CONNECTED_FROM": "Conectado/a"

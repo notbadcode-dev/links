@@ -109,7 +109,7 @@ export class UserLoginComponent implements OnInit {
      */
     private initializeCardConfig(): void {
         this.cardConfig = {
-            title: this._translateService.instant('COMPONENTS.USER_LOGIN.TITLE'),
+            title: 'COMPONENTS.USER_LOGIN.CARD.LOGIN.TITLE',
             alignTitle: ECardAlignTitle.CENTER,
         };
     }
@@ -134,8 +134,8 @@ export class UserLoginComponent implements OnInit {
      */
     private initializeInputConfig(): void {
         this.userNameInputConfig = {
-            label: 'Username',
-            title: 'Username',
+            label: 'COMPONENTS.USER_LOGIN.INPUT.USERNAME.LABEL',
+            title: 'COMPONENTS.USER_LOGIN.INPUT.USERNAME.LABEL',
             disabled: false,
             readonly: false,
             type: EInputType.TEXT,
@@ -144,8 +144,8 @@ export class UserLoginComponent implements OnInit {
         };
 
         this.passwordInputConfig = {
-            label: 'Password',
-            title: 'Password',
+            label: 'COMPONENTS.USER_LOGIN.INPUT.PASSWORD.LABEL',
+            title: 'COMPONENTS.USER_LOGIN.INPUT.USERNAME.TITLE',
             disabled: false,
             readonly: false,
             type: EInputType.PASSWORD,
@@ -160,8 +160,8 @@ export class UserLoginComponent implements OnInit {
      */
     private initializeButtonConfig(): void {
         this.loginButtonConfig = ButtonConfigHelper.getPrimaryButtonConfig({
-            text: 'Login',
-            tooltip: 'Start session',
+            text: 'COMPONENTS.USER_LOGIN.BUTTON.LOGIN.TEXT',
+            tooltip: 'COMPONENTS.USER_LOGIN.BUTTON.LOGIN.TOOLTIP',
             disabled: true,
             icon: 'ri-user-line',
             hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'L'],

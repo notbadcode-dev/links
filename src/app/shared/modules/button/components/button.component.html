@@ -5,11 +5,11 @@
             title="{{ config.disabled ? '' : config.tooltip }}"
             [attr.data-type]="config.type"
             [disabled]="config.disabled"
-            [tooltip]="config.tooltip"
+            [tooltip]="config.tooltip | translate"
             (click)="onClick(config)">
             <div>
                 <span *ngIf="config?.text && config.text.length > 0">
-                    {{ config.text }}
+                    {{ config.text | translate }}
                 </span>
                 <i *ngIf="config.icon && config.icon.length > 0" [attr.class]="'ri-15x' + ' ' + config.icon"></i>
             </div>

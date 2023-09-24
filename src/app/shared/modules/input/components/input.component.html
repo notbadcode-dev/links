@@ -23,16 +23,16 @@
                     [formControl]="inputControl"
                     [ngClass]="{ 'not-empty': !this.isEmpty }"
                     (focus)="onFocus()" />
-                <label for="{{ config.label }}">
-                    <span>{{ config.label | titlecase }}</span>
+                <label for="{{ config.label | translate }}">
+                    <span>{{ config.label | translate | titlecase }}</span>
                     <small *ngIf="isOptional"> (Optional) </small>
                 </label>
 
                 <i
                     [ngClass]="{ visible: !isEmpty }"
-                    title=" {{ 'Delete ' + (config.label | titlecase) }}"
+                    title=" {{ 'Delete ' + (config.label | translate | titlecase) }}"
                     class="ri-close-line"
-                    [tooltip]="'Delete ' + (config.label | titlecase)"
+                    [tooltip]="'Delete ' + (config.label | translate | titlecase)"
                     role="button"
                     (click)="deleteInput()"></i>
             </div>

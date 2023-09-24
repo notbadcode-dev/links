@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { TooltipModule } from '../tooltip/tooltip.module';
 import { AccentButtonComponent } from './components/accent-button/accent-button.component';
 import { ButtonComponent } from './components/button.component';
@@ -15,7 +16,7 @@ const COMPONENT_LIST = [
     DestructiveButtonComponent,
 ];
 
-const MODULE_LIST = [CommonModule, TooltipModule];
+const MODULE_LIST = [CommonModule, TooltipModule, TranslateModule];
 
 @NgModule({
     declarations: [COMPONENT_LIST],

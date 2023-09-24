@@ -9,16 +9,45 @@
         "LOCAL_STORAGE": {
             "ERRORS": {
                 "SAVE_ITEM": "Error saving session data",
-                "GET_ITEM": "Error getting session data"
+                "GET_ITEM": "Error retrieving session data"
             }
         }
     },
     "COMPONENTS": {
         "USER_LOGIN": {
-            "TITLE": "Log in to your account"
+            "TITLE": "Log in to your account",
+            "CARD": {
+                "LOGIN": {
+                    "TITLE": "Log in to your account"
+                }
+            },
+            "INPUT": {
+                "USERNAME": {
+                    "LABEL": "Username",
+                    "TITLE": "Username"
+                },
+                "PASSWORD": {
+                    "LABEL": "Password",
+                    "TITLE": "Password"
+                }
+            },
+            "BUTTON": {
+                "LOGIN": {
+                    "TEXT": "Login",
+                    "TOOLTIP": "Start session"
+                }
+            }
+        },
+        "SIDEBAR": {
+            "BUTTON": {
+                "LOGOUT": {
+                    "TEXT": "Logout",
+                    "TOOLTIP": "Close session"
+                }
+            }
         },
         "SESSION_INFORMATION": {
-            "CONNECTED_FROM": "Connected"
+            "CONNECTED_FROM": "Connected from"
         },
         "LANGUAGE": {
             "TITLE": "Language selection",
@@ -26,10 +55,6 @@
                 "ES": {
                     "LONG": "Spanish",
                     "SHORT": "SP"
-                },
-                "EN": {
-                    "LONG": "English",
-                    "SHORT": "EN"
                 }
             }
         }
