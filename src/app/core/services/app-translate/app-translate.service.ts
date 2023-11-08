@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LANGUAGE_CONSTANT } from '@app/core/constants/language.constant';
+import { LANGUAGE_CONSTANT } from '@constants/language.constant';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({

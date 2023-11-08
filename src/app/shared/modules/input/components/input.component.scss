@@ -22,7 +22,7 @@
 
             > label {
                 position: absolute;
-                font-size: 0.9rem;
+                font-size: var(--default-font-size-large-element);
 
                 color: var(--default-border-color-gradient-050);
                 top: 0.4rem;
@@ -41,6 +41,7 @@
                 background: var(--default-background-element-color);
                 height: var(--default-input-height);
                 color: var(--default-border-color-gradient-070);
+                font-size: var(--default-font-size-medium-element);
 
                 padding: 0 0.4rem;
 
@@ -123,7 +124,7 @@
         height: 1.2rem;
         min-height: 1.2rem;
 
-        font-size: 0.7rem;
+        font-size: var(--default-font-size-small-element);
         opacity: 0;
 
         > :first-child {

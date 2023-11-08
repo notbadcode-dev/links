@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EnvironmentService } from '@app/core/services/environment/environment.service';
-import { LocalStorageService } from '@app/core/services/local-storage/local-storage.service';
 import { HTTP_HEADERS } from '@constants/http-header.constant';
+import { EnvironmentService } from '@services/environment/environment.service';
+import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { Observable } from 'rxjs';
 
 @Injectable()

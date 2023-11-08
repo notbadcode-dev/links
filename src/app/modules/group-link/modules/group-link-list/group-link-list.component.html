@@ -1,0 +1,18 @@
+<article class="group-link-container">
+    <ng-container *ngFor="let groupLinkCard of groupLinkCardConfigList">
+        <lnk-card [_config]="groupLinkCard">
+            <ng-container *ngFor="let link of groupLinkCard.containerItem?.linkList; let linkIndex = index">
+                <ng-container *ngIf="linkIndex < 5; else moreInformationSection">
+                    <lnk-link-list-item [_linkListItemPosition]="linkIndex + linkIndexOffset" [_linkListItem]="link"></lnk-link-list-item>
+                </ng-container>
+                <ng-template #moreInformationSection>
+                    <div class="down-section-container">
+                        <span></span>
+                        <span></span>
+                        <span> more +{{ (groupLinkCard.containerItem?.linkList?.length ?? 5) - 5 }} </span>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </lnk-card>
+    </ng-container>
+</article>

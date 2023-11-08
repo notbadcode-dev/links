@@ -1,4 +1,6 @@
 .sidebar-container {
+    background-color: var(--white-color);
+
     > * {
         width: 100%;
     }
@@ -13,12 +15,10 @@
 
     footer {
         grid-area: footer;
+        align-self: stretch;
     }
 
     display: grid;
     grid-template-columns: 'header main footer';
-
-    footer {
-        align-self: flex-end;
-    }
+    grid-template-rows: auto 1fr auto;
 }

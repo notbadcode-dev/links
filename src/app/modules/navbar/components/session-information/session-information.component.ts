@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SharingDataService } from '@app/core/services/sharing-data/sharing-data.service';
+import { SharingDataService } from '@services/sharing-data/sharing-data.service';
 
 @Component({
     selector: 'lnk-session-information',

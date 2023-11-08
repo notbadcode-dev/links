@@ -1,10 +1,11 @@
-import { EButtonType, TButtonType } from './button.enum';
+import { EButtonType, EButtonWeight, TButtonType, TButtonWeight } from './button.enum';
 
 export class ButtonConfig {
     constructor(
         public text: string,
         public tooltip: string,
         public disabled: boolean,
+        public weight?: TButtonWeight,
         public icon?: string,
         public submit?: boolean,
         public hotkeys?: string[],
@@ -18,7 +19,7 @@ export class ButtonConfigHelper {
      * @returns {ButtonConfig}
      */
     static defaultButtonConfig(): ButtonConfig {
-        return new ButtonConfig('', '', false);
+        return new ButtonConfig('', '', false, EButtonWeight.LARGE);
     }
 
     /**
@@ -35,6 +36,7 @@ export class ButtonConfigHelper {
             partialButtonConfig.text,
             partialButtonConfig.tooltip,
             partialButtonConfig?.disabled ?? false,
+            partialButtonConfig?.weight ?? EButtonWeight.LARGE,
             partialButtonConfig?.icon,
             partialButtonConfig?.submit ? partialButtonConfig.submit : false,
             partialButtonConfig?.hotkeys ?? ['master', partialButtonConfig.text.split('')[0].toLowerCase()]

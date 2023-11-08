@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { APP_CONSTANT } from '@app/core/constants/app.constant';
-import { SessionService } from '@app/core/services/session/session.service';
-import { ButtonConfig, ButtonConfigHelper } from '@app/shared/modules/button/components/button.model';
-import { TranslateService } from '@ngx-translate/core';
+import { ConfigButtonService } from '@services/config/config-button/config-button.service';
+import { SessionService } from '@services/session/session.service';
+import { ButtonConfig } from '@shared/modules/button/components/button.model';
 
 @Component({
     selector: 'lnk-sidebar',
@@ -12,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class SidebarComponent implements OnInit {
     public logoutButtonConfig!: ButtonConfig;
 
-    constructor(private _sessionService: SessionService, private translateService: TranslateService) {}
+    constructor(private _sessionService: SessionService, private _configButtonService: ConfigButtonService) {}
 
     ngOnInit(): void {
         this.initializeButtonConfig();
@@ -23,13 +22,7 @@ export class SidebarComponent implements OnInit {
      * @returns void
      */
     initializeButtonConfig(): void {
-        this.logoutButtonConfig = ButtonConfigHelper.getDestructiveButtonConfig({
-            text: 'COMPONENTS.SIDEBAR.BUTTON.LOGOUT.TEXT',
-            tooltip: 'COMPONENTS.SIDEBAR.BUTTON.LOGOUT.TEXT',
-            disabled: false,
-            icon: 'ri-user-unfollow-line',
-            hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'L'],
-        });
+        this.logoutButtonConfig = this._configButtonService.getLogoutButtonConfig();
     }
 
     /**

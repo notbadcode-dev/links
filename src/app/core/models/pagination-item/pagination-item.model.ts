@@ -3,13 +3,15 @@ import { PAGINATE_CONSTANT } from '@constants/paginate.constant';
 export interface IPartialPaginateItem {
     take: number;
     currentPage?: number;
+    skip?: number;
 }
 
 export class PartialPaginateItemHelper {
-    static mapToObject(currentPage?: number, take?: number): IPartialPaginateItem {
+    static mapToObject(currentPage = PAGINATE_CONSTANT.DEFAULT_CURRENT_PAGE, take = PAGINATE_CONSTANT.DEFAULT_TAKE): IPartialPaginateItem {
         return {
-            take: take ?? PAGINATE_CONSTANT.DEFAULT_TAKE,
-            currentPage: currentPage ?? PAGINATE_CONSTANT.DEFAULT_CURRENT_PAGE,
+            skip: PAGINATE_CONSTANT.DEFAULT_SKIP,
+            take: take,
+            currentPage: currentPage,
         };
     }
 }

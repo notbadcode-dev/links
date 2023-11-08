@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { ASSETS_CONSTANTS } from '@app/core/constants/assets.constant';
-import { LANGUAGE_CONSTANT, LANGUAGE_NATIVE_TEXT } from '@app/core/constants/language.constant';
-import { AppTranslateService } from '@app/core/services/app-translate/app-translate.service';
-import { UtilDocumentService } from '@app/core/services/util/util-document/util-document.service';
+import { ASSETS_CONSTANTS } from '@constants/assets.constant';
+import { LANGUAGE_CONSTANT, LANGUAGE_NATIVE_TEXT } from '@constants/language.constant';
+import { AppTranslateService } from '@services/app-translate/app-translate.service';
+import { UtilDocumentService } from '@services/util/util-document/util-document.service';
 import { ISelectableLanguage } from './models/language.model';
 
 @Component({

@@ -1,26 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '@app/core/auth/service/auth.service';
-import { APP_CONSTANT } from '@app/core/constants/app.constant';
-import { FORM_CONSTANT } from '@app/core/constants/form.constant';
-import { IUserLogin } from '@app/core/models/user/user.model';
-import { SessionService } from '@app/core/services/session/session.service';
-import { UtilStringService } from '@app/core/services/util/util-string/util-string.service';
-import { SocialLoginButtonConfig } from '@app/modules/user/modules/user-login/components/social-login-button/social-login-button.model';
-import { SocialLoginButtonModule } from '@app/modules/user/modules/user-login/components/social-login-button/social-login-button.module';
-import { ButtonModule } from '@app/shared/modules/button/button.module';
-import { ButtonConfig, ButtonConfigHelper } from '@app/shared/modules/button/components/button.model';
-import { ECardAlignTitle } from '@app/shared/modules/card/card.enum';
-import { CardConfig } from '@app/shared/modules/card/card.model';
-import { CardModule } from '@app/shared/modules/card/card.module';
-import { EInputType } from '@app/shared/modules/input/components/input.enum';
-import { InputConfig } from '@app/shared/modules/input/components/input.model';
-import { InputModule } from '@app/shared/modules/input/input.module';
-import { TextWithDelimiterModule } from '@app/shared/modules/text-with-delimiter/text-with-delimiter.module';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { AuthService } from '@auth/service/auth.service';
+import { FORM_CONSTANT } from '@constants/form.constant';
+import { IUserLogin } from '@models/user/user.model';
+import { SocialLoginButtonConfig } from '@modules/user/modules/user-login/components/social-login-button/social-login-button.model';
+import { SocialLoginButtonModule } from '@modules/user/modules/user-login/components/social-login-button/social-login-button.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { ConfigButtonService } from '@services/config/config-button/config-button.service';
+import { ConfigCardService } from '@services/config/config-card/config-card.service';
+import { ConfigInputService } from '@services/config/config-input/config-input.service';
+import { SessionService } from '@services/session/session.service';
+import { UtilStringService } from '@services/util/util-string/util-string.service';
+import { ButtonModule } from '@shared/modules/button/button.module';
+import { ButtonConfig } from '@shared/modules/button/components/button.model';
+import { CardConfig } from '@shared/modules/card/card.model';
+import { CardModule } from '@shared/modules/card/card.module';
+import { InputConfig } from '@shared/modules/input/components/input.model';
+import { InputModule } from '@shared/modules/input/input.module';
+import { TextWithDelimiterModule } from '@shared/modules/text-with-delimiter/text-with-delimiter.module';
 import { Observable } from 'rxjs';
-import { SOCIAL_LOGIN_BUTTON } from './components/social-login-button/social-login-button.constant';
+import { ConfigSocialLoginButtonService } from './components/social-login-button/config-social-login-button.service';
 import { IUserLoginForm } from './user-login.interface';
 
 @Component({
@@ -42,11 +42,16 @@ import { IUserLoginForm } from './user-login.interface';
     styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent implements OnInit {
-    cardConfig!: CardConfig;
+    userLoginCardConfig!: CardConfig;
     userLoginForm!: FormGroup;
+
     userNameInputConfig!: InputConfig;
+    userNameFormControlName = 'userName';
     passwordInputConfig!: InputConfig;
+    passwordFormControlName = 'password';
+
     loginButtonConfig!: ButtonConfig;
+
     appleSocialLoginButton!: SocialLoginButtonConfig;
     googleSocialLoginButton!: SocialLoginButtonConfig;
 
@@ -54,7 +59,10 @@ export class UserLoginComponent implements OnInit {
         private _authService: AuthService,
         private _sessionService: SessionService,
         private _utilStringService: UtilStringService,
-        private _translateService: TranslateService
+        private _configSocialLoginButtonService: ConfigSocialLoginButtonService,
+        private _configCardService: ConfigCardService,
+        private _configInputService: ConfigInputService,
+        private _configButtonService: ConfigButtonService
     ) {}
 
     ngOnInit(): void {
@@ -79,21 +87,21 @@ export class UserLoginComponent implements OnInit {
     }
 
     /**
+     * @private
      * @description Initialize userLoginForm
      * @returns void
      */
     private initializeUserLoginForm(): void {
         this.userLoginForm = new FormGroup<IUserLoginForm>({
-            // userName: new FormControl('', { nonNullable: true, validators: Validators.required }),
-            // password: new FormControl('', { nonNullable: true, validators: Validators.required }),
-            userName: new FormControl('notbadcode@gmail.com', { nonNullable: true, validators: Validators.required }),
-            password: new FormControl('6900', { nonNullable: true, validators: Validators.required }),
+            [this.userNameFormControlName]: new FormControl('notbadcode@gmail.com', { nonNullable: true, validators: Validators.required }),
+            [this.passwordFormControlName]: new FormControl('6900', { nonNullable: true, validators: Validators.required }),
         });
 
         this.userLoginFormStatusChanges();
     }
 
     /**
+     * @private
      * @description Listen status on userLoginForm
      * @returns void
      */
@@ -104,72 +112,46 @@ export class UserLoginComponent implements OnInit {
     }
 
     /**
-     * @private Initialize card config
+     * @private
+     * @description Initialize card config
      * @returns void
      */
     private initializeCardConfig(): void {
-        this.cardConfig = {
-            title: 'COMPONENTS.USER_LOGIN.CARD.LOGIN.TITLE',
-            alignTitle: ECardAlignTitle.CENTER,
-        };
+        this.userLoginCardConfig = this._configCardService.getUserLoginCardConfig();
     }
-
+    /**
+     * @private
+     * @description Initialize social button config
+     * @returns void
+     */
     private initializeSocialButtonConfig(): void {
-        this.appleSocialLoginButton = {
-            altImage: 'apple',
-            reference: '',
-            svgImage: SOCIAL_LOGIN_BUTTON.FILES.SVG_APPLE,
-        };
-
-        this.googleSocialLoginButton = {
-            altImage: 'google',
-            reference: '',
-            svgImage: SOCIAL_LOGIN_BUTTON.FILES.SVG_GOOGLE,
-        };
+        this.appleSocialLoginButton = this._configSocialLoginButtonService.getAppleSocialLoginButton();
+        this.googleSocialLoginButton = this._configSocialLoginButtonService.getGoogleSocialLoginButton();
     }
 
     /**
-     * @private Initialize input config
+     * @private
+     * @description Initialize input config
      * @returns void
      */
     private initializeInputConfig(): void {
-        this.userNameInputConfig = {
-            label: 'COMPONENTS.USER_LOGIN.INPUT.USERNAME.LABEL',
-            title: 'COMPONENTS.USER_LOGIN.INPUT.USERNAME.LABEL',
-            disabled: false,
-            readonly: false,
-            type: EInputType.TEXT,
-            parentFormGroup: this.userLoginForm,
-            formControlName: 'userName',
-        };
-
-        this.passwordInputConfig = {
-            label: 'COMPONENTS.USER_LOGIN.INPUT.PASSWORD.LABEL',
-            title: 'COMPONENTS.USER_LOGIN.INPUT.USERNAME.TITLE',
-            disabled: false,
-            readonly: false,
-            type: EInputType.PASSWORD,
-            parentFormGroup: this.userLoginForm,
-            formControlName: 'password',
-        };
+        this.userNameInputConfig = this._configInputService.getUserNameInputConfig(this.userLoginForm, this.userNameFormControlName);
+        this.passwordInputConfig = this._configInputService.getPasswordInputConfig(this.userLoginForm, this.passwordFormControlName);
     }
 
     /**
-     * @private Initialize button config
+     * @private
+     * @description Initialize button config
      * @returns void
      */
     private initializeButtonConfig(): void {
-        this.loginButtonConfig = ButtonConfigHelper.getPrimaryButtonConfig({
-            text: 'COMPONENTS.USER_LOGIN.BUTTON.LOGIN.TEXT',
-            tooltip: 'COMPONENTS.USER_LOGIN.BUTTON.LOGIN.TOOLTIP',
-            disabled: true,
-            icon: 'ri-user-line',
-            hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'L'],
-        });
+        this.loginButtonConfig = this._configButtonService.getLoginButtonConfig();
     }
 
     /**
+     * @private
      * @description Call AuthService with user data for sign in APP
+     * @param  {IUserLogin} userLogin
      * @returns Observable<string>
      */
     private getUserSignObservable(userLogin: IUserLogin): Observable<string> {

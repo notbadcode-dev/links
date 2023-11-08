@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { APP_CONSTANT } from '@constants/app.constant';
+import { APP_HOTKEY } from '@constants/app-hotkey.constant';
+import { APP_ICON_CONSTANT } from '@constants/app-icon.constant';
 import { ButtonModule } from '@shared/modules/button/button.module';
 import { ButtonConfig, ButtonConfigHelper } from '@shared/modules/button/components/button.model';
 
@@ -62,12 +63,6 @@ export class ButtonListComponent implements OnInit {
 
     public destructiveButtonWithOnlyIconConfig!: ButtonConfig;
 
-    private linkIcon = 'ri-link';
-
-    private heartIcon = 'ri-heart-fill';
-
-    private timesIcon = 'ri-close-line';
-
     ngOnInit(): void {
         this.generateTemplateButtonList();
     }
@@ -97,13 +92,13 @@ export class ButtonListComponent implements OnInit {
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
-            hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'P'],
+            hotkeys: [APP_HOTKEY.MASTER, APP_HOTKEY.TEMPLATE_PRIMARY_BUTTON],
         });
 
         this.primaryButtonConfig = BUTTON_CONFIG;
         this.primaryButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
-        this.primaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.linkIcon);
-        this.primaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.linkIcon);
+        this.primaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.LINK);
+        this.primaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.LINK);
     }
 
     /**
@@ -120,13 +115,13 @@ export class ButtonListComponent implements OnInit {
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
-            hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'S'],
+            hotkeys: [APP_HOTKEY.MASTER, APP_HOTKEY.TEMPLATE_SECONDARY_BUTTON],
         });
 
         this.secondaryButtonConfig = BUTTON_CONFIG;
         this.secondaryButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
-        this.secondaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.linkIcon);
-        this.secondaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.linkIcon);
+        this.secondaryButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.LINK);
+        this.secondaryButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.LINK);
     }
 
     /**
@@ -143,13 +138,13 @@ export class ButtonListComponent implements OnInit {
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
-            hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'A'],
+            hotkeys: [APP_HOTKEY.MASTER, APP_HOTKEY.TEMPLATE_ACCENT_BUTTON],
         });
 
         this.accentButtonConfig = BUTTON_CONFIG;
         this.accentButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
-        this.accentButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.heartIcon);
-        this.accentButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.heartIcon);
+        this.accentButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.HEART);
+        this.accentButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.HEART);
     }
 
     /**
@@ -166,13 +161,13 @@ export class ButtonListComponent implements OnInit {
             text: buttonText,
             tooltip: buttonTooltip,
             disabled: false,
-            hotkeys: [APP_CONSTANT.MASTER_HOTKEY, 'D'],
+            hotkeys: [APP_HOTKEY.MASTER, APP_HOTKEY.TEMPLATE_DESTRUCTIVE_BUTTON],
         });
 
         this.destructiveButtonConfig = BUTTON_CONFIG;
         this.destructiveButtonDisabledConfig = this.generateTemplateButtonDisabled(BUTTON_CONFIG);
-        this.destructiveButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, this.timesIcon);
-        this.destructiveButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, this.timesIcon);
+        this.destructiveButtonWithIconConfig = this.generateTemplateButtonWithIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.TIMES);
+        this.destructiveButtonWithOnlyIconConfig = this.generateTemplateButtonWithOnlyIcon(BUTTON_CONFIG, APP_ICON_CONSTANT.TIMES);
     }
 
     /**

@@ -33,7 +33,7 @@ export class SessionService {
         };
         this._authService.getUserByToken(GET_USER_BY_TOKEN).subscribe({
             next: (response: IUser) => {
-                this._router.navigate([ABSOLUTE_ROUTES.LOGOUT]);
+                this._router.navigate([ABSOLUTE_ROUTES.GROUP_LINK_LIST]);
                 this._localStorageService.setLocalStorageUserItem(response);
                 this._sidebarService.setHiddenSidebar(false);
             },

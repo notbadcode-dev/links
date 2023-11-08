@@ -61,6 +61,13 @@
                     "SHORT": "IN"
                 }
             }
+        },
+        "LINK-LIST-ITEM": {
+            "BUTTON": {
+                "OPEN_URL": {
+                    "TOOLTIP": "Abrir link"
+                }
+            }
         }
     }
 }

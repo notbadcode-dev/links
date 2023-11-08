@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { APP_CONSTANT } from '@app/core/constants/app.constant';
+import { APP_HOTKEY } from '@constants/app-hotkey.constant';
 import { ButtonConfig } from './button.model';
 
 @Component({
@@ -82,7 +82,7 @@ export class ButtonComponent implements OnInit {
 
         const HOT_KEY: string =
             this.config?.hotkeys
-                ?.find((findHotKey: string) => findHotKey !== APP_CONSTANT.MASTER_HOTKEY)
+                ?.find((findHotKey: string) => findHotKey !== APP_HOTKEY.MASTER)
                 ?.toString()
                 ?.toUpperCase() || '';
         if (HOT_KEY === '') {

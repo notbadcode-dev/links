@@ -20,10 +20,9 @@
         "module": "es2020",
         "lib": ["es2020", "dom"],
         "paths": {
-            "@app/*": ["src/app/*"],
             "@auth/*": ["src/app/core/auth/*"],
             "@constants/*": ["src/app/core/constants/*"],
-            "@enums/*": ["src/app/core/enums/*"],
+            "@enum/*": ["src/app/core/enum/*"],
             "@http-services/*": ["src/app/core/http-services/*"],
             "@models/*": ["src/app/core/models/*"],
             "@services/*": ["src/app/core/services/*"],

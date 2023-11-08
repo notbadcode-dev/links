@@ -1,5 +1,5 @@
 <ng-container *ngIf="config && (config.text || config.icon)">
-    <div [ngClass]="{ disabled: config.disabled, 'only-icon': onlyIcon }" class="button-container">
+    <div [ngClass]="{ disabled: config.disabled, 'only-icon': onlyIcon }" class="button-container" [attr.data-weight]="config.weight">
         <button
             type="{{ config.submit ? 'submit' : 'button' }}"
             title="{{ config.disabled ? '' : config.tooltip }}"

@@ -1,7 +1,7 @@
 <ng-container *ngIf="config">
     <div class="card-container">
-        <section *ngIf="config?.title" [attr.data-align]="config.alignTitle ?? ''">
-            <p>{{ config?.title ?? '' | translate }}</p>
+        <section *ngIf="config?.title" [attr.data-align]="config.alignTitle">
+            <p>{{ config.title ?? '' | translate }}</p>
         </section>
 
         <section>

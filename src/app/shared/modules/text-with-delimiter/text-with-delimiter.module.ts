@@ -1,13 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { TextWithDelimiterComponent } from './components/text-with-delimiter.component';
-
-const COMPONENT_LIST = [TextWithDelimiterComponent];
-const MODULE_LIST = [CommonModule];
+import { TextWithDelimiterComponent } from '@shared/modules/text-with-delimiter/components/text-with-delimiter.component';
 
 @NgModule({
-    declarations: [COMPONENT_LIST],
-    imports: [MODULE_LIST],
-    exports: [COMPONENT_LIST],
+    declarations: [TextWithDelimiterComponent],
+    imports: [CommonModule],
+    exports: [TextWithDelimiterComponent],
 })
 export class TextWithDelimiterModule {}

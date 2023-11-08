@@ -1,20 +1,19 @@
 import { APP_INITIALIZER, enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 
-import { AppComponent } from '@app/app.component';
 import { ENVIRONMENT } from '@environments/environment';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import APP_ROUTES_FOR_ROOT from '@app/app.routes';
-import APP_TRANSLATE_FOR_ROOT from '@app/app.translate';
-
-import { INTERCEPTOR_PROVIDER_LIST } from '@app/core/interceptors/interceptor.index';
+import { INTERCEPTOR_PROVIDER_LIST } from '@interceptors/interceptor.index';
 import { AppInitService } from '@services/app-init/app-init.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { SessionService } from '@services/session/session.service';
+import { AppComponent } from './app/app.component';
+import APP_ROUTES_FOR_ROOT from './app/app.routes';
+import APP_TRANSLATE_FOR_ROOT from './app/app.translate';
 
 if (ENVIRONMENT.production) {
     enableProdMode();

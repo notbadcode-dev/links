@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { FORMAT_DATE } from '@app/core/constants/format-dates.constant';
-import { UtilDateService } from '@app/core/services/util/util-date/util-date.service';
+import { FORMAT_DATE } from '@constants/format-dates.constant';
+import { UtilDateService } from '@services/util/util-date/util-date.service';
 
 @Injectable({
     providedIn: 'root',

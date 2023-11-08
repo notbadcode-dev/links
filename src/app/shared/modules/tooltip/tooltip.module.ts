@@ -1,15 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { TooltipComponent } from './components/tooltip.component';
-import { TooltipDirective } from './directives/tooltip.directive';
-
-const COMPONENT_LIST = [TooltipComponent];
-const DIRECTIVE_LIST = [TooltipDirective];
-const MODULE_LIST = [CommonModule];
+import { TooltipComponent } from '@shared/modules/tooltip/components/tooltip.component';
+import { TooltipDirective } from '@shared/modules/tooltip/directives/tooltip.directive';
 
 @NgModule({
-    declarations: [COMPONENT_LIST, DIRECTIVE_LIST],
-    imports: [MODULE_LIST],
-    exports: [DIRECTIVE_LIST],
+    declarations: [TooltipComponent, TooltipDirective],
+    imports: [CommonModule],
+    exports: [TooltipDirective],
 })
 export class TooltipModule {}

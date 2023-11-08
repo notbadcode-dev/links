@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { ASSETS_CONSTANTS } from '@app/core/constants/assets.constant';
+import { ASSETS_CONSTANTS } from '@constants/assets.constant';
 
 @Injectable({
     providedIn: 'root',

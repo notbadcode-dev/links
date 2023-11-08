@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SafeResourceUrl } from '@angular/platform-browser';
-import { UtilDocumentService } from '@app/core/services/util/util-document/util-document.service';
-import { SocialLoginButtonConfig } from '@app/modules/user/modules/user-login/components/social-login-button/social-login-button.model';
+import { SocialLoginButtonConfig } from '@modules/user/modules/user-login/components/social-login-button/social-login-button.model';
+import { UtilDocumentService } from '@services/util/util-document/util-document.service';
 
 @Component({
     selector: 'lnk-social-login-button',

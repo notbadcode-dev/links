@@ -3,20 +3,19 @@ import { HttpBaseService } from '@http-services/http-base/http-base.service';
 import { LinkEndpointService } from '@http-services/link-endpoint/link-endpoint.service';
 import { ILinkCreate } from '@models/link/link-create.model';
 import { ILink } from '@models/link/link.model';
+import { IPaginateItem } from '@models/pagination-item/pagination-item.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class LinkService {
-    private controller = 'link';
-
     constructor(private _httpBaseService: HttpBaseService, private _linkEndpointService: LinkEndpointService) {}
 
     /**
      * @description Create a link
      * @param  {ILinkCreate} linkCreate
-     * @returns Observable<Link[]>
+     * @returns Observable<Link>
      */
     create(linkCreate: ILinkCreate): Observable<ILink> {
         return this._httpBaseService.httpPost<ILink, ILinkCreate>(this._linkEndpointService.getCreateEndpoint, linkCreate);
@@ -25,7 +24,7 @@ export class LinkService {
     /**
      * @description Update a link
      * @param  {ILink} link
-     * @returns Observable<Link[]>
+     * @returns Observable<Link>
      */
     update(link: ILink): Observable<ILink> {
         return this._httpBaseService.httpPatch<ILink, ILink>(this._linkEndpointService.getUpdateEndpoint(link.id), link);
@@ -46,6 +45,14 @@ export class LinkService {
      */
     getAll(): Observable<ILink[]> {
         return this._httpBaseService.httpGet<ILink[]>(this._linkEndpointService.getAllEndpoint);
+    }
+
+    /**
+     * @description Get all links with paginated
+     * @returns Observable<IPaginateItem<ILink>>
+     */
+    getAllPaginated(): Observable<IPaginateItem<ILink>> {
+        return this._httpBaseService.httpGet<IPaginateItem<ILink>>(this._linkEndpointService.getAllPaginatedEndpoint);
     }
 
     /**

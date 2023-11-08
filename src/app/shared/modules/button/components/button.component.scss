@@ -80,11 +80,31 @@
         small {
             visibility: hidden;
         }
+
+        &[data-weight='small'] {
+            button {
+                width: 1.5rem;
+            }
+        }
     }
 
     &:not(.only-icon) {
         > button > div > i {
             font-size: 1rem;
+        }
+    }
+
+    &[data-weight='small'] {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        > button {
+            min-height: 1.5rem;
+            margin-bottom: 0;
+
+            > div > i {
+                font-size: 0.6rem;
+            }
         }
     }
 }

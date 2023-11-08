@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TooltipModule } from '@app/shared/modules/tooltip/tooltip.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { TooltipModule } from '@shared/modules/tooltip/tooltip.module';
 import { LanguageComponent } from './language.component';
 
 @NgModule({

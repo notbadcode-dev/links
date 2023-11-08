@@ -1,20 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HTTP_RESPONSE_STATUS } from '@constants/http.constant';
 import { HttpResponseBody } from '@models/http-response.model';
 import { EnvironmentService } from '@services/environment/environment.service';
+import { SessionService } from '@services/session/session.service';
 import { map, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class ResponseInterceptor implements HttpInterceptor {
-    constructor(private _environmentService: EnvironmentService) {}
+    constructor(private _environmentService: EnvironmentService, private _sessionService: SessionService) {}
 
-    intercept(_request: HttpRequest<any>, _next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if (!this.shouldInterceptRequest(_request)) {
-            return _next.handle(_request);
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+        if (!this.shouldInterceptRequest(request)) {
+            return next.handle(request);
         }
 
-        return _next.handle(_request).pipe(
+        return next.handle(request).pipe(
+            tap((event) => {
+                if (event instanceof HttpResponse) {
+                    if (this.isUnauthorizedResponse(event.status as number)) {
+                        this._sessionService.destroySession();
+                    }
+                }
+            }),
             map((event) => {
                 if (!this.validateArgumentsForInterceptorHandlerRequest(event)) {
                     return event;
@@ -26,11 +36,14 @@ export class ResponseInterceptor implements HttpInterceptor {
         );
     }
 
-    /**
-     * @description Validate arguments for interceptor handler request
-     * @param  {HttpEvent<any>} event
-     * @returns boolean
-     */
+    private isUnauthorizedResponse(httpResponseStatusCode: number): boolean {
+        return [HTTP_RESPONSE_STATUS.UNAUTHORIZED].includes(httpResponseStatusCode);
+    }
+
+    private shouldInterceptRequest(request: HttpRequest<any>): boolean {
+        return request.url.includes(this._environmentService.getAuthApi) || request.url.includes(this._environmentService.getLinkApi);
+    }
+
     private validateArgumentsForInterceptorHandlerRequest(event: HttpEvent<any>): boolean {
         if (!event) {
             return false;
@@ -44,13 +57,13 @@ export class ResponseInterceptor implements HttpInterceptor {
             return false;
         }
 
-        const RESPONSE_HEADER: HttpHeaders = event?.headers ?? null;
+        const RESPONSE_HEADER = event?.headers ?? null;
 
         if (!RESPONSE_HEADER) {
             return false;
         }
 
-        const INCLUDES_APPLICATION_JSON: boolean = RESPONSE_HEADER.get('content-type')?.toString()?.includes('application/json') ?? false;
+        const INCLUDES_APPLICATION_JSON = RESPONSE_HEADER.get('content-type')?.toString()?.includes('application/json') ?? false;
 
         if (!INCLUDES_APPLICATION_JSON) {
             return false;
@@ -61,7 +74,7 @@ export class ResponseInterceptor implements HttpInterceptor {
             return false;
         }
 
-        const DATA: any = BODY.data;
+        const DATA = BODY.data;
         if (!DATA) {
             return false;
         }
@@ -69,20 +82,6 @@ export class ResponseInterceptor implements HttpInterceptor {
         return true;
     }
 
-    /**
-     * @description Url request is successfully
-     * @param  {HttpRequest<any>} request
-     * @returns boolean
-     */
-    private shouldInterceptRequest(request: HttpRequest<any>): boolean {
-        return request.url.includes(this._environmentService.getAuthApi) || request.url.includes(this._environmentService.getLinkApi);
-    }
-
-    /**
-     * @description Set data property from body on body
-     * @param  {any} event
-     * @returns HttpRequest
-     */
     private setResponseDataOnRequestBody(event: any): HttpRequest<any> {
         const PARSED_BODY: any = JSON.parse(JSON.stringify(event.body.data));
         const TRANSFORM_REQUEST: HttpRequest<any> = event.clone({ body: PARSED_BODY });

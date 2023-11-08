@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { APP_ICON_CONSTANT } from '@constants/app-icon.constant';
 import { InputConfig, InputConfigHelper } from '@shared/modules/input/components/input.model';
 import { InputModule } from '@shared/modules/input/input.module';
 
@@ -99,7 +100,7 @@ export class InputListComponent implements OnInit {
         };
         this.onlyInputConfig = BASE_INPUT_CONFIG;
 
-        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON = APP_ICON_CONSTANT.USER;
         const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependOnlyInputConfig = {
@@ -109,7 +110,7 @@ export class InputListComponent implements OnInit {
             prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON = APP_ICON_CONSTANT.USER;
         const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendOnlyInputConfig = {
@@ -137,7 +138,7 @@ export class InputListComponent implements OnInit {
         };
         this.disabledInputConfig = BASE_INPUT_CONFIG;
 
-        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON = APP_ICON_CONSTANT.USER;
         const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependDisabledInputConfig = {
@@ -147,7 +148,7 @@ export class InputListComponent implements OnInit {
             prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON = APP_ICON_CONSTANT.USER;
         const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendDisabledInputConfig = {
@@ -175,7 +176,7 @@ export class InputListComponent implements OnInit {
         };
         this.errorRequiredInputConfig = BASE_INPUT_CONFIG;
 
-        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON = APP_ICON_CONSTANT.USER;
         const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependErrorRequiredInputConfig = {
@@ -185,7 +186,7 @@ export class InputListComponent implements OnInit {
             prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON = APP_ICON_CONSTANT.USER;
         const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendErrorRequiredInputConfig = {
@@ -214,7 +215,7 @@ export class InputListComponent implements OnInit {
         };
         this.hintInputConfig = BASE_INPUT_CONFIG;
 
-        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON = APP_ICON_CONSTANT.USER;
         const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependHintInputConfig = {
@@ -224,7 +225,7 @@ export class InputListComponent implements OnInit {
             prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON = APP_ICON_CONSTANT.USER;
         const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendHintInputConfig = {
@@ -252,7 +253,7 @@ export class InputListComponent implements OnInit {
         };
         this.placeholderInputConfig = BASE_INPUT_CONFIG;
 
-        const PREPEND_ICON = 'ri-user-line';
+        const PREPEND_ICON = APP_ICON_CONSTANT.USER;
         const PREPEND_ICON_TOOLTIP = 'Prepend tooltip';
 
         this.prependPlaceholderInputConfig = {
@@ -262,7 +263,7 @@ export class InputListComponent implements OnInit {
             prependTooltip: PREPEND_ICON_TOOLTIP,
         };
 
-        const APPEND_ICON = 'ri-user-line';
+        const APPEND_ICON = APP_ICON_CONSTANT.USER;
         const APPEND_ICON_TOOLTIP = 'Append tooltip';
 
         this.appendPlaceholderInputConfig = {

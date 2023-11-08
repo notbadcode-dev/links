@@ -1,10 +1,13 @@
 <div class="home-container">
     <lnk-navbar></lnk-navbar>
 
-    <aside [hidden]="$hiddenSidebar | async">
-        <lnk-sidebar></lnk-sidebar>
-    </aside>
-    <main>
-        <router-outlet></router-outlet>
-    </main>
+    <div class="side-content">
+        <aside class="sidebar" [hidden]="$hiddenSidebar | async">
+            <lnk-sidebar></lnk-sidebar>
+        </aside>
+
+        <main class="content">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
 </div>

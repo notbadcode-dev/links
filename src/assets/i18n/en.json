@@ -57,6 +57,13 @@
                     "SHORT": "SP"
                 }
             }
+        },
+        "LINK-LIST-ITEM": {
+            "BUTTON": {
+                "OPEN_URL": {
+                    "TOOLTIP": "Open link"
+                }
+            }
         }
     }
 }
