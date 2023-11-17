@@ -1,14 +1,17 @@
-<div class="user-container" *ngIf="_sharingDataService.getUserIsLogged() | async as userIsLogged">
-    <lnk-language></lnk-language>
+@if (_sharingDataService.getUserIsLogged() | async; as userIsLogged) {
+    <div class="user-container">
+        <lnk-language></lnk-language>
 
-    <ng-container *ngIf="_sharingDataService.getUser() | async as user">
-        <i class="ri-user-line"></i>
-        <div>
-            <span> {{ user.username }}</span>
-            <span>
-                <span> {{ 'COMPONENTS.SESSION_INFORMATION.CONNECTED_FROM' | translate }}: </span>
-                <small> {{ user.connectedFrom | date : 'EEE | HH:mm' }} </small>
-            </span>
-        </div>
-    </ng-container>
-</div>
+        @if (_sharingDataService.getUser() | async; as user) {
+            <i class="ri-user-line"></i>
+            <div>
+                <span> {{ user.username }}</span>
+                <span>
+                    <span> {{ 'COMPONENTS.SESSION_INFORMATION.CONNECTED_FROM' | translate }}: </span>
+                    <small> {{ user.connectedFrom | date : 'EEE | HH:mm' }} </small>
+                </span>
+            </div>
+        
+        }
+    </div>
+}

@@ -1,5 +1,7 @@
-<div class="text-with-delimiter-container" *ngIf="_text?.length">
-    <span></span>
-    <span>{{ _text }}</span>
-    <span></span>
-</div>
+@if (_text.length) {
+    <div class="text-with-delimiter-container">
+        <span></span>
+        <span>{{ _text }}</span>
+        <span></span>
+    </div>
+}

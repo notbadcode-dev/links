@@ -1,4 +1,4 @@
-<ng-container *ngIf="config && config.label && config.label.length > 0">
+@if (config && config.label && config.label.length > 0) {
     <div
         class="input-container"
         [ngClass]="{
@@ -8,9 +8,11 @@
             'append-container': config.appendIcon && config.appendTooltip
         }">
         <div class="input-context">
-            <div class="prepend" *ngIf="config.prependIcon && config.prependTooltip" [tooltip]="config.prependTooltip || ''">
-                <i class="ri-error-warning-line"></i>
-            </div>
+            @if (config.prependIcon && config.prependTooltip) {
+                <div class="prepend" [tooltip]="config.prependTooltip || ''">
+                    <i class="ri-error-warning-line"></i>
+                </div>
+            }
 
             <div class="body">
                 <input
@@ -25,7 +27,9 @@
                     (focus)="onFocus()" />
                 <label for="{{ config.label | translate }}">
                     <span>{{ config.label | translate | titlecase }}</span>
-                    <small *ngIf="isOptional"> (Optional) </small>
+                    @if (isOptional) {
+                        <small> (Optional) </small>
+                    }
                 </label>
 
                 <i
@@ -37,22 +41,24 @@
                     (click)="deleteInput()"></i>
             </div>
 
-            <div class="append" *ngIf="config.appendIcon && config.appendTooltip" [tooltip]="config.appendTooltip || ''">
-                <i class="ri-error-warning-line"></i>
-            </div>
+            @if (config.appendIcon && config.appendTooltip) {
+                <div class="append" [tooltip]="config.appendTooltip || ''">
+                    <i class="ri-error-warning-line"></i>
+                </div>
+            }
         </div>
 
-        <small
-            class="hint-context"
-            *ngIf="!inputControl.errors && config.hint"
-            [ngClass]="{ visible: config.hint && config.hint.length > 0 }">
-            <i class="ri-error-warning-line"></i>
-            <span>{{ config.hint }}</span>
-        </small>
+        @if (!inputControl.errors && config.hint) {
+            <small class="hint-context"
+                [ngClass]="{ visible: config.hint && config.hint.length > 0 }">
+                <i class="ri-error-warning-line"></i>
+                <span>{{ config.hint }}</span>
+            </small>
+        }
 
         <small class="error-context" [ngClass]="{ visible: inputControl.errors && inputControl.touched }">
             <i [hidden]="!inputControl.errors" class="ri-error-warning-line"></i>
             <span [hidden]="!inputControl.hasError('required')"> {{ errorMessage.REQUIRED }}</span>
         </small>
     </div>
-</ng-container>
+}

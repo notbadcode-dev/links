@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from '@modules/home/home.module';
@@ -15,7 +15,7 @@ import { AppTranslateService } from './core/services/app-translate/app-translate
         `,
     ],
     template: '<lnk-home></lnk-home>',
-    imports: [CommonModule, RouterModule, HomeModule],
+    imports: [RouterModule, HomeModule],
 })
 export class AppComponent {
     constructor(private _appTranslateService: AppTranslateService) {

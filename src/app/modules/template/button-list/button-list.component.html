@@ -9,22 +9,17 @@
                 <legend>Primary button</legend>
 
                 <div>
+                    @if (primaryButtonConfig) {
+                    <lnk-primary-button [_config]="primaryButtonConfig" (onClickEvent)="clickButton($event)"> </lnk-primary-button>
+                    } @if (primaryButtonDisabledConfig) {
+                    <lnk-primary-button [_config]="primaryButtonDisabledConfig" (onClickEvent)="clickButton($event)"></lnk-primary-button>
+                    } @if (primaryButtonWithIconConfig) {
+                    <lnk-primary-button [_config]="primaryButtonWithIconConfig" (onClickEvent)="clickButton($event)"></lnk-primary-button>
+                    } @if (primaryButtonWithOnlyIconConfig) {
                     <lnk-primary-button
-                        *ngIf="primaryButtonConfig"
-                        [_config]="primaryButtonConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-primary-button>
-                    <lnk-primary-button
-                        *ngIf="primaryButtonDisabledConfig"
-                        [_config]="primaryButtonDisabledConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-primary-button>
-                    <lnk-primary-button
-                        *ngIf="primaryButtonWithIconConfig"
-                        [_config]="primaryButtonWithIconConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-primary-button>
-                    <lnk-primary-button
-                        *ngIf="primaryButtonWithOnlyIconConfig"
                         [_config]="primaryButtonWithOnlyIconConfig"
                         (onClickEvent)="clickButton($event)"></lnk-primary-button>
+                    }
                 </div>
             </fieldset>
 
@@ -32,22 +27,21 @@
                 <legend>Secondary button</legend>
 
                 <div>
+                    @if (secondaryButtonConfig) {
+                    <lnk-secondary-button [_config]="secondaryButtonConfig" (onClickEvent)="clickButton($event)"></lnk-secondary-button>
+                    } @if (secondaryButtonDisabledConfig) {
                     <lnk-secondary-button
-                        *ngIf="secondaryButtonConfig"
-                        [_config]="secondaryButtonConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-secondary-button>
-                    <lnk-secondary-button
-                        *ngIf="secondaryButtonDisabledConfig"
                         [_config]="secondaryButtonDisabledConfig"
                         (onClickEvent)="clickButton($event)"></lnk-secondary-button>
+                    } @if (secondaryButtonWithIconConfig) {
                     <lnk-secondary-button
-                        *ngIf="secondaryButtonWithIconConfig"
                         [_config]="secondaryButtonWithIconConfig"
                         (onClickEvent)="clickButton($event)"></lnk-secondary-button>
+                    } @if (secondaryButtonWithOnlyIconConfig) {
                     <lnk-secondary-button
-                        *ngIf="secondaryButtonWithOnlyIconConfig"
                         [_config]="secondaryButtonWithOnlyIconConfig"
                         (onClickEvent)="clickButton($event)"></lnk-secondary-button>
+                    }
                 </div>
             </fieldset>
 
@@ -55,22 +49,10 @@
                 <legend>Accent button</legend>
 
                 <div>
-                    <lnk-accent-button
-                        *ngIf="accentButtonConfig"
-                        [_config]="accentButtonConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-accent-button>
-                    <lnk-accent-button
-                        *ngIf="accentButtonDisabledConfig"
-                        [_config]="accentButtonDisabledConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-accent-button>
-                    <lnk-accent-button
-                        *ngIf="accentButtonWithIconConfig"
-                        [_config]="accentButtonWithIconConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-accent-button>
-                    <lnk-accent-button
-                        *ngIf="accentButtonWithOnlyIconConfig"
-                        [_config]="accentButtonWithOnlyIconConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-accent-button>
+                    <lnk-accent-button [_config]="accentButtonConfig" (onClickEvent)="clickButton($event)"></lnk-accent-button>
+                    <lnk-accent-button [_config]="accentButtonDisabledConfig" (onClickEvent)="clickButton($event)"></lnk-accent-button>
+                    <lnk-accent-button [_config]="accentButtonWithIconConfig" (onClickEvent)="clickButton($event)"></lnk-accent-button>
+                    <lnk-accent-button [_config]="accentButtonWithOnlyIconConfig" (onClickEvent)="clickButton($event)"></lnk-accent-button>
                 </div>
             </fieldset>
 
@@ -78,22 +60,17 @@
                 <legend>Destructive button</legend>
 
                 <div>
-                    <lnk-destructive-button
-                        *ngIf="destructiveButtonConfig"
-                        [_config]="destructiveButtonConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-destructive-button>
-                    <lnk-destructive-button
-                        *ngIf="destructiveButtonDisabledConfig"
-                        [_config]="destructiveButtonDisabledConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-destructive-button>
-                    <lnk-destructive-button
-                        *ngIf="destructiveButtonWithIconConfig"
-                        [_config]="destructiveButtonWithIconConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-destructive-button>
-                    <lnk-destructive-button
-                        *ngIf="destructiveButtonWithOnlyIconConfig"
-                        [_config]="destructiveButtonWithOnlyIconConfig"
-                        (onClickEvent)="clickButton($event)"></lnk-destructive-button>
+                    <lnk-destructive-button [_config]="destructiveButtonConfig" (onClickEvent)="clickButton($event)">
+                    </lnk-destructive-button>
+
+                    <lnk-destructive-button [_config]="destructiveButtonDisabledConfig" (onClickEvent)="clickButton($event)">
+                    </lnk-destructive-button>
+
+                    <lnk-destructive-button [_config]="destructiveButtonWithIconConfig" (onClickEvent)="clickButton($event)">
+                    </lnk-destructive-button>
+
+                    <lnk-destructive-button [_config]="destructiveButtonWithOnlyIconConfig" (onClickEvent)="clickButton($event)">
+                    </lnk-destructive-button>
                 </div>
             </fieldset>
         </div>

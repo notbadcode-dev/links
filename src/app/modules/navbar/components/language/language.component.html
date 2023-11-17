@@ -2,14 +2,16 @@
     <img [hidden]="!selectedLanguage" [attr.src]="selectedLanguage?.logoFlagPath" alt="{{ selectedLanguage?.alternativeText }}" />
 
     <ul #languageList [ngClass]="{ show: showOptions }">
-        <li *ngFor="let selectableLanguage of selectableLanguageList">
-            <div role="button" (click)="changeLanguage(selectableLanguage.languageCode)">
-                <img [attr.src]="selectableLanguage.logoFlagPath" alt="{{ selectableLanguage.alternativeText }}" />
-                <div>
-                    <span>{{ selectableLanguage.alternativeText | translate }}</span>
-                    <small>{{ selectableLanguage.nativeText }}</small>
+        @for (selectableLanguage of selectableLanguageList; track selectableLanguage) {
+            <li>
+                <div role="button" (click)="changeLanguage(selectableLanguage.languageCode)">
+                    <img [attr.src]="selectableLanguage.logoFlagPath" alt="{{ selectableLanguage.alternativeText }}" />
+                    <div>
+                        <span>{{ selectableLanguage.alternativeText | translate }}</span>
+                        <small>{{ selectableLanguage.nativeText }}</small>
+                    </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        }
     </ul>
 </div>

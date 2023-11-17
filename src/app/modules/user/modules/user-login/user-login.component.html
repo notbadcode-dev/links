@@ -5,11 +5,10 @@
 
             <lnk-input class="col-sm-12" [_config]="passwordInputConfig"></lnk-input>
 
-            <lnk-primary-button
-                *ngIf="loginButtonConfig"
-                class="col-md-12"
+            <lnk-primary-button class="col-md-12"
                 [_config]="loginButtonConfig"
-                (onClickEvent)="userSign()"></lnk-primary-button>
+                (onClickEvent)="userSign()">
+            </lnk-primary-button>
         </form>
     </lnk-simple-card>
 </article>

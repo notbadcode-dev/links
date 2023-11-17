@@ -1,4 +1,4 @@
-<ng-container *ngIf="config && (config.text || config.icon)">
+@if (config && (config.text || config.icon)) {
     <div [ngClass]="{ disabled: config.disabled, 'only-icon': onlyIcon }" class="button-container" [attr.data-weight]="config.weight">
         <button
             type="{{ config.submit ? 'submit' : 'button' }}"
@@ -8,16 +8,27 @@
             [tooltip]="config.tooltip | translate"
             (click)="onClick(config)">
             <div>
-                <span *ngIf="config?.text && config.text.length > 0">
-                    {{ config.text | translate }}
-                </span>
-                <i *ngIf="config.icon && config.icon.length > 0" [attr.class]="'ri-15x' + ' ' + config.icon"></i>
+                @if (config.text && config.text.length > 0) {
+                    <span> {{ config.text | translate }}</span>
+                }
+
+                @if (config.icon && config.icon.length > 0) {
+                    <i [attr.class]="'ri-15x' + ' ' + config.icon"></i>
+                }
             </div>
         </button>
-        <small *ngIf="config.hotkeys && config.hotkeys.length > 0">
-            <span *ngIf="config.hotkeys[0]"> {{ config.hotkeys[0] | titlecase }} </span>
-            <span> + </span>
-            <span *ngIf="config.hotkeys[1]"> {{ config.hotkeys[1] | titlecase }} </span>
-        </small>
+        @if (config.hotkeys && config.hotkeys.length > 0) {
+            <small>
+                @if (config.hotkeys[0]) {
+                    <span> {{ config.hotkeys[0] | titlecase }} </span>
+                }
+            
+                <span> + </span>
+
+                @if (config.hotkeys[1]) {
+                    <span> {{ config.hotkeys[1] | titlecase }} </span>
+                }
+            </small>
+        }
     </div>
-</ng-container>
+}

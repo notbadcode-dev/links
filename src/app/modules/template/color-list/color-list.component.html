@@ -5,19 +5,22 @@
 
     <div class="body">
         <div class="grid">
-            <ng-container *ngFor="let templateColor of templateColorList">
+            @for (templateColor of templateColorList; track templateColor) {
                 <div class="card" role="button" cdkCopyToClipboard="{{ templateColor.code | uppercase }}">
                     <div [attr.style]="'background-color: ' + templateColor.code + '; border: 1px solid ' + templateColor.code">
                         <span [attr.style]="'color: ' + templateColor.highlightColor?.code">{{ templateColor.code | uppercase }}</span>
                     </div>
                     <div>
                         <h4>{{ templateColor.name | titlecase }}</h4>
-                        <small *ngIf="templateColor?.description">
-                            {{ templateColor.description | titlecase }}
-                        </small>
+                        @if (templateColor?.description) {
+                            <small>
+                                {{ templateColor.description | titlecase }}
+                            </small>
+                        }
                     </div>
                 </div>
-            </ng-container>
+            
+            }
         </div>
     </div>
 </article>

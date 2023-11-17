@@ -1,21 +1,22 @@
 <article class="group-link-container">
-    <ng-container *ngFor="let groupLinkListItem of groupLinkListItemList">
+    @for (groupLinkListItem of groupLinkListItemList; track groupLinkListItem) {
         <lnk-simple-card [_config]="groupLinkListItem.cardConfig">
             <div class="link-list-container">
-                <ng-container *ngFor="let link of groupLinkListItem.cardConfig.containerItem?.linkList; let linkIndex = index">
+                @for (link of groupLinkListItem.cardConfig.containerItem?.linkList; track link; let linkIndex = $index) {
                     <lnk-link-list-item
                         [_linkListItemPosition]="linkIndex + linkIndexOffset"
                         [_limit]="5"
-                        [_linkListItem]="link"></lnk-link-list-item>
-                </ng-container>
+                        [_linkListItem]="link">
+                    </lnk-link-list-item>
+                }
             </div>
 
             <div class="info-actions-container">
                 <div>
                     <lnk-primary-button
-                        *ngIf="addNewLinkIntoGroupLinkButtonConfig"
                         [_config]="addNewLinkIntoGroupLinkButtonConfig"
-                        (onClickEvent)="addNewLinkIntoGroup(groupLinkListItem)"></lnk-primary-button>
+                        (onClickEvent)="addNewLinkIntoGroup(groupLinkListItem)">
+                    </lnk-primary-button>
                 </div>
 
                 <div>
@@ -29,5 +30,5 @@
                 </lnk-modal>
             </div>
         </lnk-simple-card>
-    </ng-container>
+    }
 </article>

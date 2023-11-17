@@ -1,6 +1,9 @@
-<section class="list-item-container" *ngIf="_linkListItem && showLinkItem">
+@if (_linkListItem && showLinkItem) {
+<section class="list-item-container">
     <div>
-        <span *ngIf="_linkListItemPosition">{{ _linkListItemPosition }}</span>
+        @if (_linkListItemPosition) {
+            <span>{{ _linkListItemPosition }}</span>
+        }
     </div>
 
     <div>
@@ -8,9 +11,10 @@
     </div>
 
     <div class="link-item-button">
-        <lnk-primary-button
-            *ngIf="openUrlButtonConfig"
+        <lnk-primary-button 
             [_config]="openUrlButtonConfig"
-            (onClickEvent)="openExternalLink(_linkListItem.url)"></lnk-primary-button>
+            (onClickEvent)="openExternalLink(_linkListItem.url)">
+        </lnk-primary-button>
     </div>
 </section>
+}

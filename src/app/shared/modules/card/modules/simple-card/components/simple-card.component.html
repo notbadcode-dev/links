@@ -1,11 +1,13 @@
-<ng-container *ngIf="config">
+@if (config) {
     <div class="card-container">
-        <section *ngIf="config?.title" [attr.data-align]="config.alignTitle">
-            <p>{{ config.title ?? '' | translate }}</p>
-        </section>
+        @if (config.title) {
+            <section [attr.data-align]="config.alignTitle">
+                <p>{{ config.title | translate }}</p>
+            </section>
+        }
 
         <section>
             <ng-content></ng-content>
         </section>
     </div>
-</ng-container>
+}
