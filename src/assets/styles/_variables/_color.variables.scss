@@ -72,4 +72,41 @@
     /* SHADOW */
     --default-box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 0px;
     --navbar-box-shadow: 0 0 2px 0 rgb(0 35 90 / 6%);
+
+    /* TOASTR */
+    --toastr-background: rgba(255, 255, 255, 0.6);
+    --toastr-font-family: 'remixicon';
+    --toastr-close-icon: '\eb99';
+
+    --percent-bg: 0.9;
+    --percent-bg-hover: 0.6;
+    --percent-shadow: 0.3;
+
+    --toastr-info: #8ab4f8;
+    --toastr-info-dark: #0d47a1;
+    --toastr-info-bg: rgba(138, 180, 248, var(--percent-bg));
+    --toastr-info-bg-hover: rgba(13, 71, 161, var(--percent-bg-hover));
+    --toastr-info-shadow: rgba(13, 71, 161, var(--percent-shadow));
+    --toastr-info-icon: '\ee59';
+
+    --toastr-success: #00c851;
+    --toastr-success-dark: #007e33;
+    --toastr-success-bg: rgba(129, 201, 149, var(--percent-bg));
+    --toastr-success-bg-hover: rgba(0, 126, 51, var(--percent-bg-hover));
+    --toastr-success-shadow: rgba(0, 126, 51, var(--percent-shadow));
+    --toastr-success-icon: '\eb79';
+
+    --toastr-warning: #fdd663;
+    --toastr-warning-dark: #ff8800;
+    --toastr-warning-bg: rgba(253, 214, 99, var(--percent-bg));
+    --toastr-warning-bg-hover: rgba(255, 136, 0, var(--percent-bg-hover));
+    --toastr-warning-shadow: rgba(255, 136, 0, var(--percent-shadow));
+    --toastr-warning-icon: '\ea21';
+
+    --toastr-error: #f28b82;
+    --toastr-error-dark: #cc0000;
+    --toastr-error-bg: rgba(242, 139, 130, var(--percent-bg));
+    --toastr-error-bg-hover: rgba(204, 0, 0, var(--percent-bg-hover));
+    --toastr-error-shadow: rgba(204, 0, 0, var(--percent-shadow));
+    --toastr-error-icon: '\eca1';
 }

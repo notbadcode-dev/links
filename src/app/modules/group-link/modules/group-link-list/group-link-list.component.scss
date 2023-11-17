@@ -5,7 +5,22 @@
     align-items: flex-start;
     justify-items: start;
 
-    .informatio-section-container {
+    .link-list-container {
+        height: 8rem;
+        max-height: 8rem;
+        min-height: 8rem;
+    }
+
+    .info-actions-container {
+        padding-top: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        :last-child {
+            display: flex;
+            flex: 0 auto;
+        }
     }
 }
 

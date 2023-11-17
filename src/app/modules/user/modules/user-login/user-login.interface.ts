@@ -1,5 +1,3 @@
-import { FormControl } from '@angular/forms';
+import { IFormBase } from '@models/form.model';
 
-export interface IUserLoginForm {
-    [key: string]: FormControl<string | null>;
-}
+export type TUserLoginForm = IFormBase;

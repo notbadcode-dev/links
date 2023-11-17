@@ -1,18 +1,33 @@
 <article class="group-link-container">
-    <ng-container *ngFor="let groupLinkCard of groupLinkCardConfigList">
-        <lnk-card [_config]="groupLinkCard">
-            <ng-container *ngFor="let link of groupLinkCard.containerItem?.linkList; let linkIndex = index">
-                <ng-container *ngIf="linkIndex < 5; else moreInformationSection">
-                    <lnk-link-list-item [_linkListItemPosition]="linkIndex + linkIndexOffset" [_linkListItem]="link"></lnk-link-list-item>
+    <ng-container *ngFor="let groupLinkListItem of groupLinkListItemList">
+        <lnk-simple-card [_config]="groupLinkListItem.cardConfig">
+            <div class="link-list-container">
+                <ng-container *ngFor="let link of groupLinkListItem.cardConfig.containerItem?.linkList; let linkIndex = index">
+                    <lnk-link-list-item
+                        [_linkListItemPosition]="linkIndex + linkIndexOffset"
+                        [_limit]="5"
+                        [_linkListItem]="link"></lnk-link-list-item>
                 </ng-container>
-                <ng-template #moreInformationSection>
-                    <div class="down-section-container">
-                        <span></span>
-                        <span></span>
-                        <span> more +{{ (groupLinkCard.containerItem?.linkList?.length ?? 5) - 5 }} </span>
-                    </div>
-                </ng-template>
-            </ng-container>
-        </lnk-card>
+            </div>
+
+            <div class="info-actions-container">
+                <div>
+                    <lnk-primary-button
+                        *ngIf="addNewLinkIntoGroupLinkButtonConfig"
+                        [_config]="addNewLinkIntoGroupLinkButtonConfig"
+                        (onClickEvent)="addNewLinkIntoGroup(groupLinkListItem)"></lnk-primary-button>
+                </div>
+
+                <div>
+                    <small>Showing 5 of {{ groupLinkListItem.cardConfig.containerItem?.linkList?.length ?? 5 }}</small>
+                </div>
+
+                <lnk-modal [_isOpen]="groupLinkListItem.openModalCreateNewLink">
+                    <lnk-create-link
+                        [_config]="groupLinkListItem.createLinkConfig"
+                        (_cancel)="groupLinkListItem.openModalCreateNewLink = false"></lnk-create-link>
+                </lnk-modal>
+            </div>
+        </lnk-simple-card>
     </ng-container>
 </article>

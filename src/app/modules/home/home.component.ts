@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppBackdropService } from '@services/app-backdrop/app-backdrop.service';
 import { Observable } from 'rxjs';
 import { SidebarService } from '../sidebar/services/sidebar.service';
 
@@ -9,9 +10,11 @@ import { SidebarService } from '../sidebar/services/sidebar.service';
 })
 export class HomeComponent implements OnInit {
     $hiddenSidebar!: Observable<boolean>;
+    $visibleBackdrop!: Observable<boolean>;
 
-    constructor(_sidebarService: SidebarService) {
+    constructor(private _sidebarService: SidebarService, private _appBackdropService: AppBackdropService) {
         this.$hiddenSidebar = _sidebarService.getHiddenSidebar;
+        this.$visibleBackdrop = _appBackdropService.getVisibleBackdrop();
     }
 
     ngOnInit(): void {}

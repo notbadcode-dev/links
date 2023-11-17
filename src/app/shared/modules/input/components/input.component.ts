@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
-import { INPUT_CONSTANT } from './input.constant';
-import { InputConfig } from './input.model';
+import { INPUT_CONSTANT } from '../constants/input.constant';
+import { InputConfig } from '../models/input.model';
 
 @Component({
     selector: 'lnk-input',

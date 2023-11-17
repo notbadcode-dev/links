@@ -1,0 +1,168 @@
+.toast-container {
+    box-shadow: none;
+    top: 6rem;
+
+    &.toast-top-full-width {
+        top: 1em;
+    }
+
+    > .ngx-toastr {
+        border-radius: 0.4rem;
+        border: 1px solid;
+        margin-bottom: 1rem;
+        font-weight: 600;
+
+        &::before {
+            position: absolute;
+            left: 0rem;
+            top: 0;
+            font-size: 1.5rem;
+            background: var(--toastr-background);
+            padding: 0 0.32rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: 300;
+        }
+
+        button {
+            text-shadow: none;
+            height: 0.9rem;
+            width: 1.25rem;
+            span {
+                display: none;
+            }
+
+            &::after {
+                font-family: var(--toastr-font-family);
+                content: var(--toastr-close-icon);
+                position: relative;
+                right: -0.25rem;
+                top: -0.5rem;
+                background: rgba(255, 255, 255, 0.6);
+                border-radius: 100%;
+                text-shadow: none;
+            }
+
+            &:hover {
+                opacity: 0.2;
+            }
+        }
+
+        &.toastr-info {
+            color: var(--toastr-info-dark);
+            background: var(--toastr-info-bg) !important;
+            border-color: var(--toastr-info-shadow);
+            box-shadow: 0 2px 26px var(--toastr-info-shadow);
+
+            &::before {
+                font-family: var(--toastr-font-family);
+                content: var(--toastr-info-icon);
+                transform: rotate(180);
+            }
+
+            &.toastr-download {
+                &::before {
+                    content: var(--toastr-download-icon);
+                    transform: inherit;
+                }
+            }
+
+            button {
+                color: var(--toastr-info-dark);
+
+                &::after {
+                    border: 1px solid var(--toastr-info-shadow);
+                }
+            }
+
+            .toast-progress {
+                background-color: var(--toastr-info-dark);
+            }
+        }
+
+        &.toastr-success {
+            color: var(--toastr-success-dark);
+            background: var(--toastr-success-bg);
+            border-color: var(--toastr-success-shadow);
+            box-shadow: 0 2px 26px var(--toastr-success-shadow);
+
+            &::before {
+                font-family: var(--toastr-font-family);
+                content: var(--toastr-success-icon);
+            }
+
+            &.toastr-download {
+                &::before {
+                    content: var(--toastr-download-icon);
+                }
+            }
+
+            button {
+                color: var(--toastr-success-dark);
+
+                &::after {
+                    border: 1px solid var(--toastr-success-shadow);
+                }
+            }
+
+            .toast-progress {
+                background-color: var(--toastr-success-dark);
+            }
+        }
+
+        &.toastr-warning {
+            color: var(--toastr-warning-dark);
+            background: var(--toastr-warning-bg);
+            border-color: var(--toastr-warning-shadow);
+            box-shadow: 0 2px 26px var(--toastr-warning-shadow);
+
+            &::before {
+                font-family: var(--toastr-font-family);
+                content: var(--toastr-warning-icon);
+            }
+
+            button {
+                color: var(--toastr-warning-dark);
+
+                &::after {
+                    border: 1px solid var(--toastr-warning-shadow);
+                }
+            }
+
+            .toast-progress {
+                background-color: var(--toastr-warning-dark);
+            }
+        }
+
+        &.toastr-error {
+            color: var(--toastr-error-dark);
+            background: var(--toastr-error-bg);
+            border-color: var(--toastr-error-shadow);
+            box-shadow: 0 2px 26px var(--toastr-error-shadow);
+
+            &::before {
+                font-family: var(--toastr-font-family);
+                content: var(--toastr-error-icon);
+            }
+
+            &.toastr-download {
+                &::before {
+                    content: var(--toastr-download-icon);
+                }
+            }
+
+            button {
+                color: var(--toastr-error-dark);
+
+                &::after {
+                    border: 1px solid var(--toastr-error-shadow);
+                }
+            }
+
+            .toast-progress {
+                background-color: var(--toastr-error-dark);
+            }
+        }
+    }
+}

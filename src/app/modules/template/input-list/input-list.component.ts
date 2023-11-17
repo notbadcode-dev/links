@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { APP_ICON_CONSTANT } from '@constants/app-icon.constant';
-import { InputConfig, InputConfigHelper } from '@shared/modules/input/components/input.model';
 import { InputModule } from '@shared/modules/input/input.module';
+import { InputConfig, InputConfigHelper } from '@shared/modules/input/models/input.model';
 
 @Component({
     selector: 'lnk-input-list',

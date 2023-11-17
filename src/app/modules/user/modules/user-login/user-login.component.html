@@ -1,5 +1,5 @@
-<article class="container-fluid user-login-container">
-    <lnk-card [_config]="userLoginCardConfig" class="container-fluid">
+<article class="user-login-container">
+    <lnk-simple-card [_config]="userLoginCardConfig" class="container-fluid">
         <form [formGroup]="userLoginForm" class="row">
             <lnk-input class="col-sm-12" [_config]="userNameInputConfig"></lnk-input>
 
@@ -11,5 +11,5 @@
                 [_config]="loginButtonConfig"
                 (onClickEvent)="userSign()"></lnk-primary-button>
         </form>
-    </lnk-card>
+    </lnk-simple-card>
 </article>

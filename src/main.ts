@@ -7,10 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { INTERCEPTOR_PROVIDER_LIST } from '@interceptors/interceptor.index';
 import { AppInitService } from '@services/app-init/app-init.service';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { SessionService } from '@services/session/session.service';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app/app.component';
 import APP_ROUTES_FOR_ROOT from './app/app.routes';
 import APP_TRANSLATE_FOR_ROOT from './app/app.translate';
@@ -30,7 +32,14 @@ bootstrapApplication(AppComponent, {
         importProvidersFrom(
             RouterModule.forRoot(APP_ROUTES_FOR_ROOT, { useHash: true }),
             TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT),
-            HttpClientModule
+            ToastrModule.forRoot({
+                timeOut: 10000,
+                closeButton: true,
+                preventDuplicates: true,
+                extendedTimeOut: 100000000000000,
+            }),
+            HttpClientModule,
+            BrowserAnimationsModule
         ),
         {
             provide: APP_INITIALIZER,

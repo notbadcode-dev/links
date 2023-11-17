@@ -5,6 +5,14 @@
             "CODE": "EN"
         }
     },
+    "APP": {
+        "BUTTON": {
+            "CANCEL": {
+                "TEXT": "Cancel",
+                "TOOLTIP": "Cancel"
+            }
+        }
+    },
     "SERVICES": {
         "LOCAL_STORAGE": {
             "ERRORS": {
@@ -62,6 +70,38 @@
             "BUTTON": {
                 "OPEN_URL": {
                     "TOOLTIP": "Open link"
+                }
+            }
+        },
+        "GROUP_LINK_LIST": {
+            "BUTTON": {
+                "ADD_NEW_LINK": {
+                    "TEXT": "Add link",
+                    "TOOLTIP": "Add new link into group"
+                }
+            }
+        },
+        "CREATE_LINK": {
+            "TITLE": "Create Link",
+            "CARD": {
+                "CREATE_LINK": {
+                    "TITLE": "Create Link on group: "
+                }
+            },
+            "INPUT": {
+                "NAME": {
+                    "LABEL": "Name",
+                    "TITLE": "Link Name"
+                },
+                "URL": {
+                    "LABEL": "URL",
+                    "TITLE": "URL"
+                }
+            },
+            "BUTTON": {
+                "CREATE_LINK": {
+                    "TEXT": "Create",
+                    "TOOLTIP": "Create Link"
                 }
             }
         }

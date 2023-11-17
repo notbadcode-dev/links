@@ -14,14 +14,14 @@ import { SessionService } from '@services/session/session.service';
 import { UtilStringService } from '@services/util/util-string/util-string.service';
 import { ButtonModule } from '@shared/modules/button/button.module';
 import { ButtonConfig } from '@shared/modules/button/components/button.model';
-import { CardConfig } from '@shared/modules/card/card.model';
-import { CardModule } from '@shared/modules/card/card.module';
-import { InputConfig } from '@shared/modules/input/components/input.model';
+import { CardConfig } from '@shared/modules/card/models/card.model';
+import { SimpleCardModule } from '@shared/modules/card/modules/simple-card/simple-card.module';
 import { InputModule } from '@shared/modules/input/input.module';
+import { InputConfig } from '@shared/modules/input/models/input.model';
 import { TextWithDelimiterModule } from '@shared/modules/text-with-delimiter/text-with-delimiter.module';
 import { Observable } from 'rxjs';
 import { ConfigSocialLoginButtonService } from './components/social-login-button/config-social-login-button.service';
-import { IUserLoginForm } from './user-login.interface';
+import { TUserLoginForm } from './user-login.interface';
 
 @Component({
     selector: 'lnk-user-login',
@@ -31,7 +31,7 @@ import { IUserLoginForm } from './user-login.interface';
         FormsModule,
         ReactiveFormsModule,
         InputModule,
-        CardModule,
+        SimpleCardModule,
         ButtonModule,
         SocialLoginButtonModule,
         SocialLoginButtonModule,
@@ -66,7 +66,7 @@ export class UserLoginComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.initializeUserLoginForm();
+        this.initializeForm();
         this.initializeCardConfig();
         this.initializeInputConfig();
         this.initializeButtonConfig();
@@ -91,8 +91,8 @@ export class UserLoginComponent implements OnInit {
      * @description Initialize userLoginForm
      * @returns void
      */
-    private initializeUserLoginForm(): void {
-        this.userLoginForm = new FormGroup<IUserLoginForm>({
+    private initializeForm(): void {
+        this.userLoginForm = new FormGroup<TUserLoginForm>({
             [this.userNameFormControlName]: new FormControl('notbadcode@gmail.com', { nonNullable: true, validators: Validators.required }),
             [this.passwordFormControlName]: new FormControl('6900', { nonNullable: true, validators: Validators.required }),
         });
@@ -119,6 +119,7 @@ export class UserLoginComponent implements OnInit {
     private initializeCardConfig(): void {
         this.userLoginCardConfig = this._configCardService.getUserLoginCardConfig();
     }
+
     /**
      * @private
      * @description Initialize social button config

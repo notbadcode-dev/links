@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-import { EInputType, TInputTypes } from './input.enum';
+import { EInputType, TInputTypes } from '../enums/input.enum';
 
 export class InputConfig {
     constructor(

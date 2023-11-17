@@ -1,1 +1,7 @@
 @import url('./bootstrap.css');
+@import url('./spacing-bootstrap.css');
+
+.container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+}

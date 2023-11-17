@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { WINDOW_CONSTANT } from '@constants/window.constant';
 
 @Injectable({
     providedIn: 'root',
@@ -10,13 +11,26 @@ export class UtilWindowService {
      * @returns void
      */
     openNewTab(link: string): void {
-        window.open(link, '_blank');
+        if (!link?.length) {
+            return;
+        }
+
+        window.open(link, WINDOW_CONSTANT.TARGET_BLANK);
     }
+
     /**
      * @description Scroll to top on view
      * @returns void
      */
     scrollToTop(): void {
-        window.scrollTo(0, 0);
+        window.scrollTo(WINDOW_CONSTANT.SCROLL_TO_TOP_X, WINDOW_CONSTANT.SCROLL_TO_TOP_Y);
+    }
+
+    /**
+     * @description Determine is mobile platform based of inner height
+     * @returns boolean
+     */
+    isMobilePlatform(): boolean {
+        return window.innerHeight < WINDOW_CONSTANT.INNER_HEIGHT_MOBILE;
     }
 }

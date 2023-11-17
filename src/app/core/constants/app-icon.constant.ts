@@ -5,4 +5,6 @@ export const APP_ICON_CONSTANT = {
     EXTERNAL_LINK: 'ri-external-link-fill',
     HEART: 'ri-heart-fill',
     TIMES: 'ri-close-line',
+    ADD: 'ri-add-circle-line',
+    CANCEL_ARROW: 'ri-arrow-go-back-line',
 };
