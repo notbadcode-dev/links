@@ -7,18 +7,17 @@
 .button-container {
     position: relative;
     margin-top: 1rem;
-    // margin-bottom: 1rem;
 
     button {
         border-radius: var(--default-border-radius);
         min-height: 2.5rem;
-        margin-bottom: 2rem;
         cursor: pointer;
         transform: scale(1);
         transition: all 300ms ease-in-out;
         border-style: 0.15rem solid;
         border-color: transparent;
         box-shadow: var(--default-box-shadow);
+        padding-inline: 0.4rem;
 
         &:not(:disabled):hover {
             border-color: transparent;
@@ -42,6 +41,10 @@
 
         &:active {
             transform: scale(0.95);
+        }
+
+        &:not([data-hotkeys="0"]) {
+            margin-bottom: 2rem;
         }
     }
 
@@ -81,7 +84,8 @@
             visibility: hidden;
         }
 
-        &[data-weight='small'] {
+        &[data-weight='small'],
+        &[data-weight='extraSmall'] {
             button {
                 width: 1.5rem;
             }
@@ -91,6 +95,23 @@
     &:not(.only-icon) {
         > button > div > i {
             font-size: 1rem;
+        }
+    }
+
+    &[data-weight='extraSmall'] {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        > button {
+            min-height: 1rem;
+            margin-bottom: 0;
+
+            > div {
+                > span,
+                > i {
+                    font-size: 0.6rem;
+                }
+            }
         }
     }
 

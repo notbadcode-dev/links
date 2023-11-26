@@ -4,7 +4,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { ENVIRONMENT } from '@environments/environment';
 
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, withViewTransitions } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,7 +39,7 @@ bootstrapApplication(AppComponent, {
                 extendedTimeOut: 100000000000000,
             }),
             HttpClientModule,
-            BrowserAnimationsModule
+            BrowserAnimationsModule,
         ),
         {
             provide: APP_INITIALIZER,

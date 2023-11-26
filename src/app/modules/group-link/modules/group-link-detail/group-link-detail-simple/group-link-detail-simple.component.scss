@@ -1,0 +1,17 @@
+.link-list-header {
+    ::ng-deep {
+        button {
+            position: relative;
+            left: -1rem;
+            > div > i {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+.link-list-container {
+    height: 8.7rem;
+    max-height: 8.7rem;
+    min-height: 8.7rem;
+}

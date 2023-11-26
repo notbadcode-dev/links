@@ -1,0 +1,20 @@
+@if (_linkListItem && showLinkItem) {
+<section class="list-item-container">
+    <div>
+        @if (_linkListItemPosition) {
+            <span>{{ _linkListItemPosition }}</span>
+        }
+    </div>
+
+    <div>
+        <span [tooltip]="_linkListItem.url">{{ _linkListItem.name }}</span>
+    </div>
+
+    <div class="link-item-button">
+        <lnk-primary-button 
+            [_config]="openUrlButtonConfig"
+            (onClickEvent)="openExternalLink(_linkListItem.url)">
+        </lnk-primary-button>
+    </div>
+</section>
+}

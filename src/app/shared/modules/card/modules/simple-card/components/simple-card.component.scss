@@ -4,36 +4,29 @@
     background: var(--default-background-element-color);
     min-width: 20rem;
     min-height: 16rem;
-    padding-inline: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    transition:
+        transform 0.3s ease,
+        width 0.3s ease,
+        height 0.3s ease;
 
     > :first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         padding-top: 1rem;
         padding-bottom: 0.4rem;
+        padding-inline: 1rem;
 
         > p {
             font-weight: bold;
             font-size: var(--default-font-size-large-element);
         }
-
-        &[data-align] {
-            display: grid;
-        }
-
-        &[data-align='left'] {
-            place-items: left;
-        }
-
-        &[data-align='right'] {
-            place-items: right;
-        }
-
-        &[data-align='center'] {
-            place-items: center;
-        }
     }
 
     > :last-child {
         padding-bottom: 0;
+        padding-inline: 1.5rem;
     }
 }

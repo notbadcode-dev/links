@@ -1,13 +1,15 @@
 @if (config) {
-    <div class="card-container">
+    <div class="card-container" [attr.data-expand]="config.expandConfig.expanded">
         @if (config.title) {
-            <section [attr.data-align]="config.alignTitle">
+            <section [attr.data-align]="config.styleConfig.alignTitle" class="card-header-container">
                 <p>{{ config.title | translate }}</p>
+
+                <ng-content select="[extraCardHeader]"></ng-content>
             </section>
         }
 
         <section>
-            <ng-content></ng-content>
+            <ng-content select="[cardContent]"></ng-content>
         </section>
     </div>
 }

@@ -1,23 +1,25 @@
 @if (createLinkCardConfig) {
-<lnk-simple-card [_config]="createLinkCardConfig" class="container-fluid">
-    <form [formGroup]="createLinkForm" class="row px-2 p-y-2">
-        <lnk-input class="col-12" [_config]="nameLinkInputConfig"></lnk-input>
+    <lnk-simple-card [_config]="createLinkCardConfig" class="container-fluid">
+        <div extraCardHeader></div>
 
-        <lnk-input class="col-12" [_config]="urlLinkInputConfig"></lnk-input>
+        <form [formGroup]="createLinkForm" class="row px-2 p-y-2" cardContent>
+            <lnk-input class="col-12" [_config]="nameLinkInputConfig"></lnk-input>
 
-        <div class="col-1 col-md-6 ps-0">
-            <lnk-primary-button
-                [_config]="createLinkButtonConfig"
-                (onClickEvent)="createLink()">
-            </lnk-primary-button>
-        </div>
+            <lnk-input class="col-12" [_config]="urlLinkInputConfig"></lnk-input>
 
-        <div class="col-12 col-md-6 pe-0">
-            <lnk-destructive-button
-                [_config]="cancelCreateLinkButtonConfig"
-                (onClickEvent)="cancelCreateLink()">
-            </lnk-destructive-button>
-        </div>
-    </form>
-</lnk-simple-card>
+            <div class="col-1 col-md-6 ps-0">
+                <lnk-primary-button
+                    [_config]="createLinkButtonConfig"
+                    (onClickEvent)="createLink()">
+                </lnk-primary-button>
+            </div>
+
+            <div class="col-12 col-md-6 pe-0">
+                <lnk-destructive-button
+                    [_config]="cancelCreateLinkButtonConfig"
+                    (onClickEvent)="cancelCreateLink()">
+                </lnk-destructive-button>
+            </div>
+        </form>
+    </lnk-simple-card>
 }

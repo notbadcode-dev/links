@@ -14,7 +14,7 @@ import { SessionService } from '@services/session/session.service';
 import { UtilStringService } from '@services/util/util-string/util-string.service';
 import { ButtonModule } from '@shared/modules/button/button.module';
 import { ButtonConfig } from '@shared/modules/button/components/button.model';
-import { CardConfig } from '@shared/modules/card/models/card.model';
+import { ICardConfig } from '@shared/modules/card/models/card.model';
 import { SimpleCardModule } from '@shared/modules/card/modules/simple-card/simple-card.module';
 import { InputModule } from '@shared/modules/input/input.module';
 import { InputConfig } from '@shared/modules/input/models/input.model';
@@ -42,7 +42,7 @@ import { TUserLoginForm } from './user-login.interface';
     styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent implements OnInit {
-    userLoginCardConfig!: CardConfig;
+    userLoginCardConfig!: ICardConfig;
     userLoginForm!: FormGroup;
 
     userNameInputConfig!: InputConfig;

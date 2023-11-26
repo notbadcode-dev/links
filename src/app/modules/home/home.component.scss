@@ -8,13 +8,12 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 300ms;
-    transition-delay: 200ms;
     z-index: 9998;
 
     &.visible {
         opacity: 1;
         pointer-events: auto;
-        transition: opacity 200ms;
+        transition: opacity 300ms;
     }
 
     &:not(.visible):hover {

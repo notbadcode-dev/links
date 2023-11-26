@@ -8,9 +8,10 @@ export const enum EButtonType {
 export type TButtonType = EButtonType.PRIMARY | EButtonType.SECONDARY | EButtonType.ACCENT | EButtonType.DESTRUCTIVE;
 
 export const enum EButtonWeight {
+    EXTRA_SMALL = 'extraSmall',
     SMALL = 'small',
     LARGE = 'large',
     EXTRA_LARGE = 'extraLarge',
 }
 
-export type TButtonWeight = EButtonWeight.SMALL | EButtonWeight.LARGE | EButtonWeight.EXTRA_LARGE;
+export type TButtonWeight = EButtonWeight;

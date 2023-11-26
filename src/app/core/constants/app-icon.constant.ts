@@ -7,4 +7,5 @@ export const APP_ICON_CONSTANT = {
     TIMES: 'ri-close-line',
     ADD: 'ri-add-circle-line',
     CANCEL_ARROW: 'ri-arrow-go-back-line',
+    EXPAND: 'ri-expand-up-down-line',
 };

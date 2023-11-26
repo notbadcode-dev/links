@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardConfig } from '@shared/modules/card/models/card.model';
+import { ICardConfig } from '@shared/modules/card/models/card.model';
 
 @Component({
     selector: 'lnk-simple-card',
@@ -7,11 +7,11 @@ import { CardConfig } from '@shared/modules/card/models/card.model';
     styleUrls: ['./simple-card.component.scss'],
 })
 export class SimpleCardComponent {
-    @Input() set _config(_config: CardConfig) {
+    @Input() set _config(_config: ICardConfig) {
         if (_config) {
             this.config = _config;
         }
     }
 
-    public config!: CardConfig;
+    public config!: ICardConfig;
 }

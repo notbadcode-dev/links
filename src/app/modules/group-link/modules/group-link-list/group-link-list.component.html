@@ -1,34 +1,9 @@
 <article class="group-link-container">
     @for (groupLinkListItem of groupLinkListItemList; track groupLinkListItem) {
-        <lnk-simple-card [_config]="groupLinkListItem.cardConfig">
-            <div class="link-list-container">
-                @for (link of groupLinkListItem.cardConfig.containerItem?.linkList; track link; let linkIndex = $index) {
-                    <lnk-link-list-item
-                        [_linkListItemPosition]="linkIndex + linkIndexOffset"
-                        [_limit]="5"
-                        [_linkListItem]="link">
-                    </lnk-link-list-item>
-                }
-            </div>
+        <lnk-group-link-detail-simple [_groupLinkListItem]="groupLinkListItem"></lnk-group-link-detail-simple>
 
-            <div class="info-actions-container">
-                <div>
-                    <lnk-primary-button
-                        [_config]="addNewLinkIntoGroupLinkButtonConfig"
-                        (onClickEvent)="addNewLinkIntoGroup(groupLinkListItem)">
-                    </lnk-primary-button>
-                </div>
-
-                <div>
-                    <small>Showing 5 of {{ groupLinkListItem.cardConfig.containerItem?.linkList?.length ?? 5 }}</small>
-                </div>
-
-                <lnk-modal [_isOpen]="groupLinkListItem.openModalCreateNewLink">
-                    <lnk-create-link
-                        [_config]="groupLinkListItem.createLinkConfig"
-                        (_cancel)="groupLinkListItem.openModalCreateNewLink = false"></lnk-create-link>
-                </lnk-modal>
-            </div>
-        </lnk-simple-card>
+        <lnk-modal [_isOpen]="groupLinkListItem.cardConfig.expandConfig.expanded ?? false">
+            <lnk-group-link-detail-expand [_groupLinkListItem]="groupLinkListItem" (_cancel)="_groupLinkDataService.toggleExpandGroupLink(groupLinkListItem)"></lnk-group-link-detail-expand>
+        </lnk-modal>
     }
 </article>

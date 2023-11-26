@@ -64,7 +64,22 @@ export class ConfigButtonService {
             disabled: false,
             weight: EButtonWeight.LARGE,
             icon: APP_ICON_CONSTANT.ADD,
-            hotkeys: [APP_HOTKEY.MASTER, APP_HOTKEY.OPEN_URL_BUTTON],
+            hotkeys: [],
+        });
+    }
+
+    /**
+     * @description Get add new link into group link button config
+     * @returns ButtonConfig
+     */
+    expandGroupLinkButtonConfig(): ButtonConfig {
+        return ButtonConfigHelper.getPrimaryButtonConfig({
+            text: '',
+            tooltip: 'COMPONENTS.LINK-LIST-ITEM.BUTTON.EXPAND_GROUP_LINK.TOOLTIP',
+            disabled: false,
+            weight: EButtonWeight.SMALL,
+            icon: APP_ICON_CONSTANT.EXPAND,
+            hotkeys: [],
         });
     }
 

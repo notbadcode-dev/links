@@ -1,6 +1,8 @@
 <article class="user-login-container">
     <lnk-simple-card [_config]="userLoginCardConfig" class="container-fluid">
-        <form [formGroup]="userLoginForm" class="row">
+        <div extraCardHeader></div>
+
+        <form [formGroup]="userLoginForm" class="row" cardContent>
             <lnk-input class="col-sm-12" [_config]="userNameInputConfig"></lnk-input>
 
             <lnk-input class="col-sm-12" [_config]="passwordInputConfig"></lnk-input>

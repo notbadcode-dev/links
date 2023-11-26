@@ -4,16 +4,16 @@ import { FORM_CONSTANT } from '@constants/form.constant';
 import { LinkService } from '@http-services/link/link.service';
 import { ILinkCreate } from '@models/link/link-create.model';
 import { ILink } from '@models/link/link.model';
-import { AppBackdropService } from '@services/app-backdrop/app-backdrop.service';
 import { ConfigButtonService } from '@services/config/config-button/config-button.service';
 import { ConfigCardService } from '@services/config/config-card/config-card.service';
 import { ConfigInputService } from '@services/config/config-input/config-input.service';
 import { PushNotifyService } from '@services/push-notify/push-notify.service';
 import { UtilStringService } from '@services/util/util-string/util-string.service';
 import { ButtonConfig } from '@shared/modules/button/components/button.model';
-import { CardConfig } from '@shared/modules/card/models/card.model';
+import { ICardConfig } from '@shared/modules/card/models/card.model';
 import { InputConfig } from '@shared/modules/input/models/input.model';
 import { ICreateLinkConfig, TCreateLinkForm } from './create-link.interface';
+import { GroupLinkListItemHelper } from '@modules/group-link/modules/group-link-list/group-link-list.interface';
 
 @Component({
     selector: 'lnk-create-link',
@@ -35,7 +35,7 @@ export class CreateLinkComponent implements OnInit {
     config!: ICreateLinkConfig;
 
     createLinkForm!: FormGroup;
-    createLinkCardConfig!: CardConfig | null;
+    createLinkCardConfig!: ICardConfig | null;
 
     nameLinkInputConfig!: InputConfig;
     nameFormControlName = 'name';
@@ -51,7 +51,6 @@ export class CreateLinkComponent implements OnInit {
         private _configCardService: ConfigCardService,
         private _configInputService: ConfigInputService,
         private _configButtonService: ConfigButtonService,
-        private _appBackdropService: AppBackdropService,
         private _linkService: LinkService,
         private _pushNotifyService: PushNotifyService
     ) {
@@ -60,12 +59,7 @@ export class CreateLinkComponent implements OnInit {
         this.initializeButtonConfig();
     }
 
-    ngOnInit(): void {
-        this._pushNotifyService.info('Create successfully');
-        this._pushNotifyService.success('Create successfully');
-        this._pushNotifyService.warning('Create successfully');
-        this._pushNotifyService.error('Create successfully');
-    }
+    ngOnInit(): void {}
 
     /**
      * @description Create link
@@ -97,12 +91,10 @@ export class CreateLinkComponent implements OnInit {
     }
 
     /**
-     * @description Create link
+     * @description Cancel create link
      * @returns void
      */
     public cancelCreateLink(): void {
-        console.log('Cancel create link', this.createLinkForm.value);
-        this._appBackdropService.hideBackdrop();
         this._cancel.emit(false);
     }
 
@@ -117,6 +109,7 @@ export class CreateLinkComponent implements OnInit {
             [this.urlFormControlName]: new FormControl('', { nonNullable: true, validators: Validators.required }),
         });
 
+        this.createLinkForm.reset();
         this.createLinkFormStatusChanges();
     }
 
@@ -156,7 +149,7 @@ export class CreateLinkComponent implements OnInit {
      * @returns void
      */
     private initializeButtonConfig(): void {
-        this.createLinkButtonConfig = this._configButtonService.getCreateLinkButtonConfig();
+        this.createLinkButtonConfig = GroupLinkListItemHelper.getCreateLinkButtonConfig();
         this.cancelCreateLinkButtonConfig = this._configButtonService.getCancelButtonButtonConfig();
     }
 }

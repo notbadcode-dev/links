@@ -74,6 +74,10 @@
             "BUTTON": {
                 "OPEN_URL": {
                     "TOOLTIP": "Abrir link"
+                },
+                "EXPAND_GROUP_LINK": {
+                    "TEXT": "Expandir",
+                    "TOOLTIP": "Expandir vista de listado de grupos"
                 }
             }
         },

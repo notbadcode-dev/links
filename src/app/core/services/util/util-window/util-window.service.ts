@@ -31,6 +31,6 @@ export class UtilWindowService {
      * @returns boolean
      */
     isMobilePlatform(): boolean {
-        return window.innerHeight < WINDOW_CONSTANT.INNER_HEIGHT_MOBILE;
+        return window.innerWidth < WINDOW_CONSTANT.INNER_HEIGHT_MOBILE;
     }
 }

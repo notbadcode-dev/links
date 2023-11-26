@@ -70,6 +70,10 @@
             "BUTTON": {
                 "OPEN_URL": {
                     "TOOLTIP": "Open link"
+                },
+                "EXPAND_GROUP_LINK": {
+                    "TEXT": "Expand",
+                    "TOOLTIP": "Expand group link view"
                 }
             }
         },

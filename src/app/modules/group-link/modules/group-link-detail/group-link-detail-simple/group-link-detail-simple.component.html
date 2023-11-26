@@ -1,0 +1,44 @@
+@if (groupLinkListItem) {
+    <lnk-simple-card [_config]="groupLinkListItem.cardConfig">
+        <div extraCardHeader class="link-list-header">
+            <lnk-accent-button
+                [_config]="groupLinkListItem.expandGroupLinkButtonConfig"
+                (onClickEvent)="_groupLinkDataService.toggleExpandGroupLink(groupLinkListItem)">
+            </lnk-accent-button>
+        </div>
+
+        <div cardContent>
+            <div class="link-list-container">
+                @for (link of groupLinkListItem.cardConfig.containerItem?.linkList; track link; let linkIndex = $index) {
+                    <lnk-link-list-item
+                        [_linkListItemPosition]="linkIndex + _groupLinkDataService.linkIndexOffset"
+                        [_limit]="_groupLinkDataService.linksToShow"
+                        [_linkListItem]="link">
+                    </lnk-link-list-item>
+                }
+            </div>
+
+            <div class="info-actions-container">
+                <div>
+                    <lnk-primary-button
+                        [_config]="groupLinkListItem.addNewLinkIntoGroupLinkButtonConfig"
+                        (onClickEvent)="_groupLinkDataService.addNewLinkIntoGroup(groupLinkListItem)">
+                    </lnk-primary-button>
+                </div>
+
+                <div>
+                    <small
+                        >Showing {{ _groupLinkDataService.linksToShow }} of
+                        {{ groupLinkListItem.cardConfig.containerItem?.linkList?.length ?? _groupLinkDataService.linksToShow }}</small
+                    >
+                </div>
+
+                <lnk-modal [_isOpen]="groupLinkListItem.openModalCreateNewLink">
+                    <lnk-create-link
+                        [_config]="groupLinkListItem.createLinkConfig"
+                        (_cancel)="_groupLinkDataService.cancelAddNewLinkIntoGroup(groupLinkListItem)"></lnk-create-link>
+                </lnk-modal>
+            </div>
+        </div>
+    </lnk-simple-card>
+}

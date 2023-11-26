@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
+import { AppBackdropService } from '@services/app-backdrop/app-backdrop.service';
 
 @Component({
     selector: 'lnk-modal',
@@ -6,9 +7,19 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-    @Input() set _isOpen(isOpen: boolean) {
-        this.isOpen = isOpen;
+    @Input() set _isOpen(_isOpen: boolean) {
+        setTimeout(() => {
+            this.isOpen = _isOpen;
+
+            if (this.isOpen) {
+                this._appBackdropService.showBackdrop();
+            } else {
+                this._appBackdropService.hideBackdrop();
+            }
+        }, 100);
     }
 
     isOpen = false;
+
+    constructor(private _appBackdropService: AppBackdropService) {}
 }

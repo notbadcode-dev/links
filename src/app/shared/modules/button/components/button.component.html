@@ -4,6 +4,7 @@
             type="{{ config.submit ? 'submit' : 'button' }}"
             title="{{ config.disabled ? '' : config.tooltip }}"
             [attr.data-type]="config.type"
+            [attr.data-hotkeys]="config.hotkeys?.length"
             [disabled]="config.disabled"
             [tooltip]="config.tooltip | translate"
             (click)="onClick(config)">

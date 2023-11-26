@@ -1,0 +1,20 @@
+@if (groupLinkListItem) {
+    <lnk-simple-card [_config]="groupLinkListItem.cardConfig">
+        <div extraCardHeader></div>
+
+        <div cardContent>
+            <div class="link-list-container">
+                @for (link of groupLinkListItem.cardConfig.containerItem?.linkList; track link; let linkIndex = $index) {
+                    <lnk-link-list-item-expand
+                        [_linkListItemPosition]="linkIndex + _groupLinkDataService.linkIndexOffset"
+                        [_limit]="_groupLinkDataService.linksToShow"
+                        [_linkListItem]="link">
+                    </lnk-link-list-item-expand>
+                }
+            </div>
+
+            <lnk-destructive-button [_config]="cancelCreateLinkButtonConfig" (onClickEvent)="cancelExpandGroupLink(groupLinkListItem)">
+            </lnk-destructive-button>
+        </div>
+    </lnk-simple-card>
+}

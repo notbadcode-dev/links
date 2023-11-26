@@ -9,12 +9,13 @@ export const GROUP_LINK_ROUTES: Routes = [
     },
     {
         path: RELATIVE_ROUTES.LIST,
-        loadComponent: () =>
-            import('@modules/group-link/modules/group-link-list/group-link-list.component').then((c) => c.GroupLinkListComponent),
+        loadComponent: () => import('./modules/group-link-list/group-link-list.component').then((c) => c.GroupLinkListComponent),
     },
     {
         path: RELATIVE_ROUTES.DETAIL,
         loadComponent: () =>
-            import('@modules/group-link/modules/group-link-detail/group-link-detail.component').then((c) => c.GroupLinkDetailComponent),
+            import('./modules/group-link-detail/group-link-detail-simple/group-link-detail-simple.component').then(
+                (c) => c.GroupLinkDetailSimpleComponent
+            ),
     },
 ];
