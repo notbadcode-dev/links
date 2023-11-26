@@ -1,4 +1,6 @@
 export const RELATIVE_ROUTES = {
+    UNKNOWM: '*',
+
     USER: 'user',
     LOGIN: 'login',
     LOGOUT: 'logout',

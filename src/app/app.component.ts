@@ -1,8 +1,7 @@
-
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from '@modules/home/home.module';
-import { AppTranslateService } from './core/services/app-translate/app-translate.service';
+import { AppTranslateService } from '@services/app-translate/app-translate.service';
 
 @Component({
     selector: 'app-root',
