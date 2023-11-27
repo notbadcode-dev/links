@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app/app.component';
 import APP_ROUTES_FOR_ROOT from './app/app.routes';
 import APP_TRANSLATE_FOR_ROOT from './app/app.translate';
+import { TIMEOUT_CONSTANT } from '@constants/timeout.constant';
 
 if (ENVIRONMENT.production) {
     enableProdMode();
@@ -30,16 +31,15 @@ function initializeApp(appInitService: AppInitService) {
 bootstrapApplication(AppComponent, {
     providers: [
         importProvidersFrom(
-            RouterModule.forRoot(APP_ROUTES_FOR_ROOT, { useHash: true }),
+            RouterModule.forRoot(APP_ROUTES_FOR_ROOT, { useHash: true, enableViewTransitions: true }),
             TranslateModule.forRoot(APP_TRANSLATE_FOR_ROOT),
             ToastrModule.forRoot({
-                timeOut: 10000,
+                timeOut: TIMEOUT_CONSTANT.TIMER_OUT_TOASTR,
                 closeButton: true,
                 preventDuplicates: true,
-                extendedTimeOut: 100000000000000,
             }),
             HttpClientModule,
-            BrowserAnimationsModule,
+            BrowserAnimationsModule
         ),
         {
             provide: APP_INITIALIZER,

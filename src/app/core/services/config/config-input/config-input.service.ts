@@ -49,6 +49,24 @@ export class ConfigInputService {
      * @param  {string} formControlName
      * @returns InputConfig
      */
+    getGroupLinkNameLinkInputConfig(form: FormGroup, formControlName: string): InputConfig {
+        return {
+            label: 'COMPONENTS.CREATE_LINK.INPUT.GROUP_LINK_NAME.LABEL',
+            title: 'COMPONENTS.CREATE_LINK.INPUT.GROUP_LINK_NAME.LABEL',
+            disabled: true,
+            readonly: true,
+            type: EInputType.TEXT,
+            parentFormGroup: form,
+            formControlName: formControlName,
+        };
+    }
+
+    /**
+     * @description Get name input config
+     * @param  {FormGroup} form
+     * @param  {string} formControlName
+     * @returns InputConfig
+     */
     getNameLinkInputConfig(form: FormGroup, formControlName: string): InputConfig {
         return {
             label: 'COMPONENTS.CREATE_LINK.INPUT.NAME.LABEL',

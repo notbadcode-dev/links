@@ -11,3 +11,12 @@
         border: 1px solid var(--accent-passive-color);
     }
 }
+
+:not(.only-icon) {
+    [data-type='accent'] {
+        > div > i {
+            background-color: var(--accent-passive-color);
+            color: var(--accent-color);
+        }
+    }
+}

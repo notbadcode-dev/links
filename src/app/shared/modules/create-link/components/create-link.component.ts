@@ -12,8 +12,8 @@ import { UtilStringService } from '@services/util/util-string/util-string.servic
 import { ButtonConfig } from '@shared/modules/button/components/button.model';
 import { ICardConfig } from '@shared/modules/card/models/card.model';
 import { InputConfig } from '@shared/modules/input/models/input.model';
-import { ICreateLinkConfig, TCreateLinkForm } from './create-link.interface';
-import { GroupLinkListItemHelper } from '@modules/group-link/modules/group-link-list/group-link-list.interface';
+import { TCreateLinkForm } from './create-link.interface';
+import { GroupLinkListItemHelper, IGroupLinkListItem } from '@modules/group-link/modules/group-link-list/group-link-list.interface';
 
 @Component({
     selector: 'lnk-create-link',
@@ -21,10 +21,10 @@ import { GroupLinkListItemHelper } from '@modules/group-link/modules/group-link-
     styleUrls: ['./create-link.component.scss'],
 })
 export class CreateLinkComponent implements OnInit {
-    @Input() set _config(_config: ICreateLinkConfig) {
+    @Input() set _config(_config: IGroupLinkListItem) {
         if (_config) {
             this.config = _config;
-            this.initializeCardConfig(this.config.groupLink?.name);
+            this.initializeCardConfig(this.config.createLinkConfig.groupLink?.name);
         }
     }
 
@@ -32,10 +32,13 @@ export class CreateLinkComponent implements OnInit {
 
     isOpenCreateLinkModal = false;
 
-    config!: ICreateLinkConfig;
+    config!: IGroupLinkListItem;
 
     createLinkForm!: FormGroup;
     createLinkCardConfig!: ICardConfig | null;
+
+    groupLinkNameInputConfig!: InputConfig;
+    groupLinkNameFormControlName = 'groupLinkName';
 
     nameLinkInputConfig!: InputConfig;
     nameFormControlName = 'name';
@@ -53,13 +56,13 @@ export class CreateLinkComponent implements OnInit {
         private _configButtonService: ConfigButtonService,
         private _linkService: LinkService,
         private _pushNotifyService: PushNotifyService
-    ) {
+    ) {}
+
+    ngOnInit(): void {
         this.initializeForm();
         this.initializeInputConfig();
         this.initializeButtonConfig();
     }
-
-    ngOnInit(): void {}
 
     /**
      * @description Create link
@@ -78,7 +81,7 @@ export class CreateLinkComponent implements OnInit {
             url: url,
             favorite: false,
             active: true,
-            groupLinkId: this.config.groupLink.id,
+            groupLinkId: this.config.createLinkConfig.groupLink.id,
         };
 
         this._linkService.create(LINK_CREATE).subscribe((createdLink: ILink) => {
@@ -95,7 +98,7 @@ export class CreateLinkComponent implements OnInit {
      * @returns void
      */
     public cancelCreateLink(): void {
-        this._cancel.emit(false);
+        this._cancel.emit(true);
     }
 
     /**
@@ -105,11 +108,17 @@ export class CreateLinkComponent implements OnInit {
      */
     private initializeForm(): void {
         this.createLinkForm = new FormGroup<TCreateLinkForm>({
+            [this.groupLinkNameFormControlName]: new FormControl(
+                { value: '', disabled: true },
+                { nonNullable: true, validators: Validators.required }
+            ),
             [this.nameFormControlName]: new FormControl('', { nonNullable: true, validators: Validators.required }),
             [this.urlFormControlName]: new FormControl('', { nonNullable: true, validators: Validators.required }),
         });
 
-        this.createLinkForm.reset();
+        this.createLinkForm.reset({
+            [this.groupLinkNameFormControlName]: this.config?.createLinkConfig?.groupLink?.name,
+        });
         this.createLinkFormStatusChanges();
     }
 
@@ -139,6 +148,10 @@ export class CreateLinkComponent implements OnInit {
      * @returns void
      */
     private initializeInputConfig(): void {
+        this.groupLinkNameInputConfig = this._configInputService.getGroupLinkNameLinkInputConfig(
+            this.createLinkForm,
+            this.groupLinkNameFormControlName
+        );
         this.nameLinkInputConfig = this._configInputService.getNameLinkInputConfig(this.createLinkForm, this.nameFormControlName);
         this.urlLinkInputConfig = this._configInputService.getUrlLinkInputConfig(this.createLinkForm, this.urlFormControlName);
     }

@@ -7,11 +7,12 @@ import { IGroupLinkListItem } from '@modules/group-link/modules/group-link-list/
 import { SimpleCardModule } from '@shared/modules/card/modules/simple-card/simple-card.module';
 import { GroupLinkDataService } from '@modules/group-link/services/group-link-data.service';
 import { ModalModule } from '@shared/modules/modal/modal.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'lnk-group-link-detail-simple',
     standalone: true,
-    imports: [CommonModule, LinkListItemModule, ButtonModule, CreateLinkModule, ModalModule, SimpleCardModule],
+    imports: [CommonModule, LinkListItemModule, ButtonModule, CreateLinkModule, ModalModule, SimpleCardModule, TranslateModule],
     templateUrl: './group-link-detail-simple.component.html',
     styleUrls: ['../group-link-detail.component.scss', './group-link-detail-simple.component.scss'],
 })

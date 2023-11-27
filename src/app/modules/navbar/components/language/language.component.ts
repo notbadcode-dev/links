@@ -4,6 +4,7 @@ import { LANGUAGE_CONSTANT, LANGUAGE_NATIVE_TEXT } from '@constants/language.con
 import { AppTranslateService } from '@services/app-translate/app-translate.service';
 import { UtilDocumentService } from '@services/util/util-document/util-document.service';
 import { ISelectableLanguage } from './models/language.model';
+import { TIMEOUT_CONSTANT } from '@constants/timeout.constant';
 
 @Component({
     selector: 'lnk-language',
@@ -21,7 +22,10 @@ export class LanguageComponent implements OnInit, AfterViewInit {
     showOptions = false;
     private hideTimeout!: ReturnType<typeof setTimeout>;
 
-    constructor(private _appTranslateService: AppTranslateService, private _utilDocumentService: UtilDocumentService) {}
+    constructor(
+        private _appTranslateService: AppTranslateService,
+        private _utilDocumentService: UtilDocumentService
+    ) {}
 
     ngOnInit(): void {
         this.initializeSelectableLanguageList();
@@ -80,7 +84,7 @@ export class LanguageComponent implements OnInit, AfterViewInit {
             if (!this.isMouseOverUl) {
                 this.showOptions = false;
             }
-        }, 300);
+        }, TIMEOUT_CONSTANT.TIMER_CLOSE_LANGUAGE_OPTION);
     }
 
     /**

@@ -11,3 +11,12 @@
         border-color: var(--destructive-color);
     }
 }
+
+:not(.only-icon) {
+    [data-type='destructive'] {
+        > div > i {
+            background-color: var(--destructive-color);
+            color: var(--destructive-passive-color);
+        }
+    }
+}

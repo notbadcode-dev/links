@@ -10,8 +10,10 @@
     }
 
     > :first-child {
-        flex: 0 0 10%;
+        flex: 0 0 6%;
         text-align: left;
+        color: var(--primary-passive-color-hex);
+        font-weight: 1rem;
     }
 
     > :nth-child(2) {

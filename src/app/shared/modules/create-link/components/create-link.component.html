@@ -2,24 +2,29 @@
     <lnk-simple-card [_config]="createLinkCardConfig" class="container-fluid">
         <div extraCardHeader></div>
 
-        <form [formGroup]="createLinkForm" class="row px-2 p-y-2" cardContent>
-            <lnk-input class="col-12" [_config]="nameLinkInputConfig"></lnk-input>
+        @if (config?.openModalCreateNewLink ?? false) {
+            <form [formGroup]="createLinkForm" class="row px-2 py-2" cardContent>
+                <lnk-input class="col-12 col-md-6" [_config]="groupLinkNameInputConfig"></lnk-input>
 
-            <lnk-input class="col-12" [_config]="urlLinkInputConfig"></lnk-input>
+                <div class="col-12 col-md-6"></div>
 
-            <div class="col-1 col-md-6 ps-0">
-                <lnk-primary-button
-                    [_config]="createLinkButtonConfig"
-                    (onClickEvent)="createLink()">
-                </lnk-primary-button>
-            </div>
+                <lnk-input class="col-12 col-md-6" [_config]="nameLinkInputConfig"></lnk-input>
 
-            <div class="col-12 col-md-6 pe-0">
-                <lnk-destructive-button
-                    [_config]="cancelCreateLinkButtonConfig"
-                    (onClickEvent)="cancelCreateLink()">
-                </lnk-destructive-button>
-            </div>
-        </form>
+                <lnk-input class="col-12 col-md-6" [_config]="urlLinkInputConfig"></lnk-input>
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-md-6 pr-0">
+                            <lnk-primary-button [_config]="createLinkButtonConfig" (onClickEvent)="createLink()"> </lnk-primary-button>
+                        </div>
+
+                        <div class="col-12 col-md-6 pl-0">
+                            <lnk-destructive-button [_config]="cancelCreateLinkButtonConfig" (onClickEvent)="cancelCreateLink()">
+                            </lnk-destructive-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        }
     </lnk-simple-card>
 }

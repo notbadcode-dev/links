@@ -89,14 +89,23 @@
                 }
             }
         },
+        "GROUP_LINK_DETAIL": {
+            "MESSAGE": {
+                "SHOWING_OF": "Mostrando {{showing}}  of {{of}}"
+            }
+        },
         "CREATE_LINK": {
             "TITLE": "Crear link",
             "CARD": {
                 "CREATE_LINK": {
-                    "TITLE": "Crear link en grupo: "
+                    "TITLE": "Crear link"
                 }
             },
             "INPUT": {
+                "GROUP_LINK_NAME": {
+                    "LABEL": "Grupo",
+                    "TITLE": "Nombre del grupo"
+                },
                 "NAME": {
                     "LABEL": "Nombre",
                     "TITLE": "Nombre del link"

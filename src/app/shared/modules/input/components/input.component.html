@@ -33,7 +33,7 @@
                 </label>
 
                 <i
-                    [ngClass]="{ visible: !isEmpty }"
+                    [ngClass]="{ visible: !isEmpty && (!config.disabled || !inputControl.disabled) }"
                     title=" {{ 'Delete ' + (config.label | translate | titlecase) }}"
                     class="ri-close-line"
                     [tooltip]="'Delete ' + (config.label | translate | titlecase)"
@@ -49,8 +49,7 @@
         </div>
 
         @if (!inputControl.errors && config.hint) {
-            <small class="hint-context"
-                [ngClass]="{ visible: config.hint && config.hint.length > 0 }">
+            <small class="hint-context" [ngClass]="{ visible: config.hint && config.hint.length > 0 }">
                 <i class="ri-error-warning-line"></i>
                 <span>{{ config.hint }}</span>
             </small>

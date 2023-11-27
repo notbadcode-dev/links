@@ -11,3 +11,12 @@
         border-color: var(--primary-passive-color);
     }
 }
+
+:not(.only-icon) {
+    [data-type='primary'] {
+        > div > i {
+            background-color: var(--primary-passive-color);
+            color: var(--primary-color);
+        }
+    }
+}

@@ -34,7 +34,7 @@ export class ConfigCardService {
         }
 
         return {
-            title: this._translateService.instant('COMPONENTS.CREATE_LINK.CARD.CREATE_LINK.TITLE') + groupLinkName,
+            title: this._translateService.instant('COMPONENTS.CREATE_LINK.CARD.CREATE_LINK.TITLE'),
             styleConfig: {
                 alignTitle: ECardAlignTitle.LEFT,
             },

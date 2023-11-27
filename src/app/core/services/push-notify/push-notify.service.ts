@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TIMEOUT_CONSTANT } from '@constants/timeout.constant';
 import { TOASTR_CLASS, TOASTR_CLASSES, TOASTR_METHODS } from '@constants/toastr.constant';
 import { UtilWindowService } from '@services/util/util-window/util-window.service';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -8,7 +9,10 @@ import { ActiveToast, IndividualConfig, ToastrService } from 'ngx-toastr';
     providedIn: 'root',
 })
 export class PushNotifyService {
-    constructor(private _toastrService: ToastrService, private _utilWindowService: UtilWindowService) {}
+    constructor(
+        private _toastrService: ToastrService,
+        private _utilWindowService: UtilWindowService
+    ) {}
 
     error(text: string, title?: string, options?: Partial<IndividualConfig>): void {
         this.applyStyles(this.error.name, text, title ? title : undefined, options ? options : undefined);
@@ -99,7 +103,7 @@ export class PushNotifyService {
      */
     getFixedToastConfig(): Partial<IndividualConfig> {
         return {
-            timeOut: 0,
+            timeOut: TIMEOUT_CONSTANT.TIMER_NONE,
             closeButton: true,
         };
     }

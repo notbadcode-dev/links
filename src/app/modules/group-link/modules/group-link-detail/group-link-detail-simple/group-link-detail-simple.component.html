@@ -27,18 +27,26 @@
                 </div>
 
                 <div>
-                    <small
-                        >Showing {{ _groupLinkDataService.linksToShow }} of
-                        {{ groupLinkListItem.cardConfig.containerItem?.linkList?.length ?? _groupLinkDataService.linksToShow }}</small
-                    >
+                    <small>
+                        {{
+                            'COMPONENTS.GROUP_LINK_DETAIL.MESSAGE.SHOWING_OF'
+                                | translate
+                                    : {
+                                          showing: _groupLinkDataService.linksToShow,
+                                          of:
+                                              groupLinkListItem.cardConfig.containerItem?.linkList?.length ??
+                                              _groupLinkDataService.linksToShow
+                                      }
+                        }}
+                    </small>
                 </div>
-
-                <lnk-modal [_isOpen]="groupLinkListItem.openModalCreateNewLink">
-                    <lnk-create-link
-                        [_config]="groupLinkListItem.createLinkConfig"
-                        (_cancel)="_groupLinkDataService.cancelAddNewLinkIntoGroup(groupLinkListItem)"></lnk-create-link>
-                </lnk-modal>
             </div>
         </div>
     </lnk-simple-card>
+
+    <lnk-modal [_isOpen]="groupLinkListItem?.openModalCreateNewLink ?? false">
+        <lnk-create-link
+            [_config]="groupLinkListItem"
+            (_cancel)="_groupLinkDataService.cancelAddNewLinkIntoGroup(groupLinkListItem)"></lnk-create-link>
+    </lnk-modal>
 }

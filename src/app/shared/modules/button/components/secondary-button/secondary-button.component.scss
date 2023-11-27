@@ -7,8 +7,17 @@
 
     &:not(:disabled):hover {
         background-color: var(--secondary-passive-color);
-        color: var(-secondary-color-gradient-050);
+        color: var(--secondary-color-gradient-050);
         border: 1px solid var(--secondary-passive-color);
         opacity: 0.6;
+    }
+}
+
+:not(.only-icon) {
+    [data-type='secondary'] {
+        > div > i {
+            background-color: var(--secondary-passive-color);
+            color: var(--secondary-color-gradient-050);
+        }
     }
 }

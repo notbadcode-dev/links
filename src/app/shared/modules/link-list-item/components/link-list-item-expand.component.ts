@@ -8,7 +8,7 @@ import { LINK_LIST_ITEM_CONSTANT } from '../constant/link-list-item.constant';
 @Component({
     selector: 'lnk-link-list-item-expand',
     templateUrl: './link-list-item-expand.component.html',
-    styleUrls: ['./link-list-item-expand.component.scss'],
+    styleUrls: ['./link-list-item.component.scss', './link-list-item-expand.component.scss'],
 })
 export class LinkListItemExpandComponent implements OnInit {
     @Input() _linkListItemPosition = LINK_LIST_ITEM_CONSTANT.LIMIT;

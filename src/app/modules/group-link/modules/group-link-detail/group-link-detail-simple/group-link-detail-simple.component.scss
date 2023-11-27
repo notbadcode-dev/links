@@ -15,3 +15,9 @@
     max-height: 8.7rem;
     min-height: 8.7rem;
 }
+
+.info-actions-container {
+    > :nth-child(2) > small {
+        color: var(--primary-color-gradient-050);
+    }
+}

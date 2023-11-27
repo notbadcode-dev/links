@@ -1,42 +1,5 @@
 .list-item-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > * {
-        display: flex;
-        align-items: center;
-        text-align: left;
-    }
-
     > :first-child {
-        flex: 0 0 10%;
-        text-align: left;
-    }
-
-    > :nth-child(2) {
-        flex: 1;
-        text-align: left;
-    }
-
-    > :last-child {
-        margin-left: auto;
-    }
-
-    > :first-child span {
-        font-weight: bold;
-    }
-
-    > :nth-child(2) span {
-        margin: 0;
-    }
-
-    > :last-child {
-        padding: 0.2rem 0.5rem;
-    }
-
-    > :first-child > span,
-    > :nth-child(2) > span {
-        font-size: var(--default-font-size-medium-element);
+        flex: 0 0 3%;
     }
 }

@@ -3,7 +3,10 @@
         <lnk-group-link-detail-simple [_groupLinkListItem]="groupLinkListItem"></lnk-group-link-detail-simple>
 
         <lnk-modal [_isOpen]="groupLinkListItem.cardConfig.expandConfig.expanded ?? false">
-            <lnk-group-link-detail-expand [_groupLinkListItem]="groupLinkListItem" (_cancel)="_groupLinkDataService.toggleExpandGroupLink(groupLinkListItem)"></lnk-group-link-detail-expand>
+            <lnk-group-link-detail-expand
+                [_groupLinkListItem]="groupLinkListItem"
+                (_cancel)="_groupLinkDataService.toggleExpandGroupLink(groupLinkListItem)">
+            </lnk-group-link-detail-expand>
         </lnk-modal>
     }
 </article>
